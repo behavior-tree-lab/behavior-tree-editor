@@ -19,15 +19,25 @@ b3e.editor.ProjectManager = function(editor) {
    * Loads a project from data.
    */
   this.open = function(data) {
-    this.close();
+    b3e.logger.info('Opening project', {trees: data.trees ? data.trees.length : 0});
 
-    var project = new b3e.project.Project(editor);
-    editor.addChild(project);
-    editor._project = project;
-    
-    editor.import.projectAsData(data);
-    editor.trigger('projectopened', editor._project);
-    editor.clearDirty();
+    try {
+      this.close();
+
+      var project = new b3e.project.Project(editor);
+      editor.addChild(project);
+      editor._project = project;
+
+      b3e.logger.info('Project instance created, importing data...');
+      editor.import.projectAsData(data);
+      b3e.logger.info('Project imported successfully');
+      editor.trigger('projectopened', editor._project);
+      editor.clearDirty();
+      b3e.logger.info('Project opened and initialized');
+    } catch (e) {
+      b3e.logger.error('Error opening project', {message: e.message, stack: e.stack});
+      throw e;
+    }
   };
 
   /**

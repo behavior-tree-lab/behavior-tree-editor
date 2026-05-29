@@ -5,58 +5,78 @@ b3e.editor.ImportManager = function(editor) {
     var project = editor.project.get();
     if (!project) return;
 
-    if (data.custom_nodes) this.nodesAsData(data.custom_nodes);
-    if (data.trees) this.treesAsData(data.trees);
-    if (data.selectedTree) {
-      project.trees.select(data.selectedTree);
+    b3e.logger.info('Importing project data', {trees: data.trees ? data.trees.length : 0, customNodes: data.custom_nodes ? data.custom_nodes.length : 0});
+
+    try {
+      if (data.custom_nodes) this.nodesAsData(data.custom_nodes);
+      if (data.trees) this.treesAsData(data.trees);
+      if (data.selectedTree) {
+        b3e.logger.info('Selecting tree', {treeId: data.selectedTree});
+        project.trees.select(data.selectedTree);
+      }
+      b3e.logger.info('Project import completed successfully');
+      editor.trigger('projectimported');
+    } catch (e) {
+      b3e.logger.error('Error importing project', {message: e.message, stack: e.stack});
+      throw e;
     }
-    editor.trigger('projectimported');
   };
 
   this.treeAsData = function(data) {
     var project = editor.project.get();
     if (!project) return;
 
-    var tree = project.trees.add(data.id);
-    var root = tree.blocks.getRoot();
-    var first = null;
+    b3e.logger.info('Importing tree', {treeId: data.id, title: data.title, nodeCount: Object.keys(data.nodes).length});
 
-    // Tree data
-    var display      = data.display||{};
-    tree.x           = display.camera_x || 0;
-    tree.y           = display.camera_y || 0;
-    tree.scaleX      = display.camera_z || 1;
-    tree.scaleY      = display.camera_z || 1;
-    var treeNode = project.nodes.get(tree._id);
-    treeNode.title = data.title;
+    try {
+      var tree = project.trees.add(data.id);
+      var root = tree.blocks.getRoot();
+      var first = null;
 
-    root.title       = data.title;
-    root.description = data.description;
-    root.properties  = data.properties;
-    root.x           = display.x || 0;
-    root.y           = display.y || 0;
+      // Tree data
+      var display      = data.display||{};
+      tree.x           = display.camera_x || 0;
+      tree.y           = display.camera_y || 0;
+      tree.scaleX      = display.camera_z || 1;
+      tree.scaleY      = display.camera_z || 1;
+      var treeNode = project.nodes.get(tree._id);
+      treeNode.title = data.title;
 
-    // Custom nodes
-    if (data.custom_nodes) this.nodesAsData(data.custom_nodes);
+      root.title       = data.title;
+      root.description = data.description;
+      root.properties  = data.properties;
+      root.x           = display.x || 0;
+      root.y           = display.y || 0;
 
-    var id, spec;
+      // Custom nodes
+      if (data.custom_nodes) this.nodesAsData(data.custom_nodes);
 
-    // Add blocks
-    for (id in data.nodes) {
-      spec = data.nodes[id];
-      var block = null;
-      display = spec.display || {};
+      var id, spec;
 
-      block = tree.blocks.add(spec.name, spec.display.x, spec.display.y);
-      block.id = spec.id;
-      block.title = spec.title;
-      block.description = spec.description;
-      block.properties = tine.merge({}, block.properties, spec.properties);
-      block._redraw();
-      
-      if (spec.id === data.root) {
-        first = block;
+      // Add blocks
+      for (id in data.nodes) {
+        spec = data.nodes[id];
+        var block = null;
+        display = spec.display || {};
+
+        b3e.logger.debug('Adding block to tree', {blockId: spec.id, blockName: spec.name, blockTitle: spec.title});
+
+        block = tree.blocks.add(spec.name, spec.display.x, spec.display.y);
+        block.id = spec.id;
+        block.title = spec.title;
+        block.description = spec.description;
+        block.properties = tine.merge({}, block.properties, spec.properties);
+        block._redraw();
+
+        if (spec.id === data.root) {
+          first = block;
+        }
       }
+
+      b3e.logger.info('Finished adding blocks to tree', {treeId: data.id, blockCount: Object.keys(data.nodes).length});
+    } catch (e) {
+      b3e.logger.error('Error importing tree', {treeId: data.id, message: e.message, stack: e.stack});
+      throw e;
     }
 
     // Add connections
