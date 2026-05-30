@@ -37,6 +37,9 @@ b3e.tree.BlockManager = function(editor, project, tree) {
       var node = name;
       if (typeof name === 'string') {
         node = project.nodes.get(name);
+        if (!node) {
+          node = {name: name, title: name, category: 'action', description: '', properties: {}};
+        }
       }
 
       block = new b3e.Block(node);
