@@ -128,9 +128,9 @@ Examples:
 
     # 第4步：配置 npm
     print_info("Configuring npm registry...")
-    run_command("npm config set registry http://registry.npmjs.org")
+    run_command("npm config set registry https://registry.npmmirror.com")
     run_command("npm config set strict-ssl false")
-    print_status("npm configured")
+    print_status("npm configured (using fast mirror)")
 
     # 第5步：安装依赖
     if not Path("node_modules").exists():
