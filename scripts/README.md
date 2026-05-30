@@ -2,9 +2,18 @@
 
 快速一键编译脚本，轻松生成 Windows 二进制应用。
 
+## 架构说明
+
+- **build.py** — 核心编译引擎（Python，避免编码问题）
+- **build.ps1** — PowerShell 包装脚本，调用 build.py
+- **build.bat** — Windows Batch 包装脚本，调用 build.py  
+- **build.sh** — Bash 包装脚本，调用 build.py
+
+**优势**：Python 脚本跨平台，一次编写，无编码/乱码问题。所有包装脚本都只负责参数转发。
+
 ## 快速开始
 
-### PowerShell 用户 (Windows)
+### PowerShell 用户 (推荐 Windows)
 
 ```powershell
 # 编译桌面版本 (默认)
@@ -21,6 +30,25 @@
 
 # 显示帮助
 .\scripts\build.ps1 -Help
+```
+
+### Batch 用户 (cmd.exe)
+
+```cmd
+REM 编译桌面版本 (默认)
+.\scripts\build.bat
+
+REM 编译 Web 版本
+.\scripts\build.bat -t web
+
+REM 编译所有版本
+.\scripts\build.bat -t all
+
+REM 清空依赖并重新编译
+.\scripts\build.bat -c
+
+REM 显示帮助
+.\scripts\build.bat -h
 ```
 
 ### Bash 用户 (Git Bash / WSL / Linux)
@@ -45,13 +73,45 @@ bash scripts/build.sh
 ./scripts/build.sh -h
 ```
 
+### Python 用户 (直接调用核心引擎)
+
+```bash
+# 编译桌面版本 (默认)
+python scripts/build.py
+
+# 编译 Web 版本
+python scripts/build.py -t web
+
+# 编译所有版本
+python scripts/build.py -t all
+
+# 清空依赖并重新编译
+python scripts/build.py -c
+
+# 显示帮助
+python scripts/build.py --help
+```
+
 ## 脚本说明
 
-### build.ps1 (PowerShell)
+### build.py (Python - 核心引擎)
 
 - **作者**: Behavior3Editor
-- **用途**: Windows 上一键编译为 Electron 桌面应用
-- **依赖**: Node.js v6-v12, npm, PowerShell 5+
+- **用途**: 跨平台编译引擎，无编码/乱码问题
+- **依赖**: Python 3.6+, Node.js v6-v12, npm
+
+**选项**:
+- `-t, --target web` - 仅编译 Web 版本
+- `-t, --target desktop` - 仅编译 Electron 桌面版本 (默认)
+- `-t, --target all` - 编译 Web 和桌面版本
+- `-c, --clean` - 清空 node_modules 并重新安装
+- `--help` - 显示帮助信息
+
+### build.ps1 (PowerShell 包装)
+
+- **作者**: Behavior3Editor
+- **用途**: Windows PowerShell 包装器，调用 build.py
+- **依赖**: Python 3.6+, PowerShell 5+
 
 **选项**:
 - `-Target web` - 仅编译 Web 版本
@@ -60,11 +120,24 @@ bash scripts/build.sh
 - `-Clean` - 清空 node_modules 并重新安装
 - `-Help` - 显示帮助信息
 
-### build.sh (Bash)
+### build.bat (Batch 包装)
 
 - **作者**: Behavior3Editor
-- **用途**: Git Bash / WSL 上一键编译为 Electron 桌面应用
-- **依赖**: Node.js v6-v12, npm, Bash
+- **用途**: Windows Batch 包装器，调用 build.py
+- **依赖**: Python 3.6+, cmd.exe
+
+**选项**:
+- `-t web` - 仅编译 Web 版本
+- `-t desktop` - 仅编译 Electron 桌面版本 (默认)
+- `-t all` - 编译 Web 和桌面版本
+- `-c` - 清空 node_modules 并重新安装
+- `-h, --help, /?, -?` - 显示帮助信息
+
+### build.sh (Bash 包装)
+
+- **作者**: Behavior3Editor
+- **用途**: Git Bash / WSL 包装器，调用 build.py
+- **依赖**: Python 3.6+, Bash
 
 **选项**:
 - `-t, --target web` - 仅编译 Web 版本
