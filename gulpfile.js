@@ -158,7 +158,10 @@ function app_html_task() {
     .pipe(htmlmin({ collapseWhitespace: true, removeComments: true, keepClosingSlash: true }))
     .pipe(replace('[BUILD_VERSION]', build_version))
     .pipe(replace('[BUILD_DATE]', build_date))
-    .pipe(templateCache('templates.min.js', { standalone: true }))
+    .pipe(templateCache('templates.min.js', {
+      standalone: true,
+      transformUrl: function(url) { return url.replace(/^[\/\\]+/, ''); }
+    }))
     .pipe(gulp.dest('build/js'))
     .pipe(connect.reload());
 }
