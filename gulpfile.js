@@ -191,7 +191,6 @@ function watch_task() {
 
 // TASKS (ELECTRON) ===========================================================
 function electron_task() {
-  const tmpDir = require('path').join(__dirname, '.electron-tmp');
   return packager({
     dir: 'build',
     out: 'dist',
@@ -200,7 +199,7 @@ function electron_task() {
     arch: 'x64',
     overwrite: true,
     asar: true,
-    tmpdir: tmpDir
+    tmpdir: false
   });
 }
 

@@ -8,6 +8,16 @@
 
   <link rel="stylesheet" href="css/preload.min.css">
   <script type="text/javascript" src="js/preload.min.js"></script>
+  <script>
+    // Fix for Electron: hide Node.js module system from browser libraries
+    // Angular/jQuery detect 'module' and skip window globals otherwise
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+      window.__nodeModule = module;
+      window.__nodeExports = module.exports;
+      delete module.exports;
+      delete module;
+    }
+  </script>
 </head>
 
 <body ng-controller="AppController as app">
