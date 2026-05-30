@@ -15,13 +15,14 @@ angular.module('app', [
   }
 ])
 
-.run(['$window', '$animate', '$location', '$document', '$timeout', 'settingsModel', 'projectModel',
+.run(['$window', '$animate', '$location', '$document', '$timeout', '$state', 'settingsModel', 'projectModel',
   function Execute($window,
                    $animate,
                    $location,
                    $document,
                    $timeout,
-                   settingsModel, 
+                   $state,
+                   settingsModel,
                    projectModel) {
 
     // reset path
@@ -37,7 +38,7 @@ angular.module('app', [
     projectModel
       .getRecentProjects()
       .then(function(projects) {
-        
+
         function closePreload() {
           $timeout(function() {
             var element = angular.element(document.getElementById('page-preload'));
@@ -52,9 +53,9 @@ angular.module('app', [
           projectModel
             .openProject(projects[0].path)
             .then(function() {
+              $state.go('editor');
               closePreload();
             }, function() {
-              //if rename or delete the exist project file may cause stay in Preload page(Desktop)
               closePreload();
           });
         } else {

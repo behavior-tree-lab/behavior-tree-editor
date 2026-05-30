@@ -4,8 +4,11 @@ const fs = require('fs');
 
 app.disableHardwareAcceleration();
 
-// 日志模块
-const logFile = path.join(app.getPath('userData'), 'behavior3editor.log');
+// 日志模块 - 输出到程序目录下的 logs/
+const appDir = path.dirname(process.execPath);
+const logDir = path.join(appDir, 'logs');
+if (!fs.existsSync(logDir)) { fs.mkdirSync(logDir, { recursive: true }); }
+const logFile = path.join(logDir, 'behavior3editor.log');
 
 function log(level, msg) {
   const timestamp = new Date().toISOString();
@@ -61,6 +64,13 @@ app.on('ready', function () {
 
   mainWindow.webContents.on('did-fail-load', function (event, code, desc) {
     log('ERROR', `Page load failed: ${code} ${desc}`);
+  });
+
+  // Capture all console messages from renderer to log file
+  mainWindow.webContents.on('console-message', function (event, level, message, line, sourceId) {
+    var levels = ['DEBUG', 'INFO', 'WARN', 'ERROR'];
+    var lvl = levels[level] || 'INFO';
+    log(lvl, `[renderer:${line}] ${message}`);
   });
 });
 
