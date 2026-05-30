@@ -189,17 +189,23 @@ function watch_task() {
   gulp.watch(app_entry, app_entry_task);
 }
 
+// TASKS (INSTALL BUILD DEPS) =================================================
+function install_build_deps() {
+  return gulp.src('node_modules/@electron/remote/**/*', { base: 'node_modules' })
+    .pipe(gulp.dest('build/node_modules'));
+}
+
 // TASKS (ELECTRON) ===========================================================
 function electron_task() {
   return packager({
     dir: 'build',
-    out: 'dist',
+    out: require('path').join(__dirname, 'dist'),
     name: project.name,
     platform: 'win32',
     arch: 'x64',
     overwrite: true,
-    asar: true,
-    tmpdir: false
+    asar: false,
+    tmpdir: require('os').tmpdir()
   });
 }
 
@@ -228,4 +234,4 @@ gulp.task('serve', gulp.series(
   watch_task
 ));
 
-gulp.task('dist', gulp.series('build', electron_task, electron_zip_task));
+gulp.task('dist', gulp.series('build', install_build_deps, electron_task, electron_zip_task));

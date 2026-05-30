@@ -65,4 +65,11 @@
 <script type="text/javascript" src="js/templates.min.js"></script>
 
 <script>preloadProgress('Starting application... Have Fun!');</script>
-<script>startApp();</script>
+<script>
+try {
+  startApp();
+} catch(e) {
+  document.getElementById('page-preload-progress').textContent = 'ERROR: ' + e.message;
+  console.error('startApp failed:', e);
+}
+</script>

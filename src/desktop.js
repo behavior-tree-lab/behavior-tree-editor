@@ -2,6 +2,8 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
+app.disableHardwareAcceleration();
+
 // 日志模块
 const logFile = path.join(app.getPath('userData'), 'behavior3editor.log');
 
@@ -39,9 +41,14 @@ app.on('ready', function () {
     }
   });
 
+  // Enable @electron/remote for this window
+  require('@electron/remote/main').initialize();
+  require('@electron/remote/main').enable(mainWindow.webContents);
+
   const indexPath = path.join(__dirname, 'index.html');
   log('INFO', `Loading: ${indexPath}`);
   mainWindow.loadFile(indexPath);
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     log('INFO', 'Main window closed');
