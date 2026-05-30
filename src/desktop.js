@@ -1,39 +1,62 @@
-var app = require('app');  // Module to control application life.
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+const fs = require('fs');
 
-// Report crashes to our server.
-require('crash-reporter').start();
+// 日志模块
+const logFile = path.join(app.getPath('userData'), 'behavior3editor.log');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-var mainWindow = null;
+function log(level, msg) {
+  const timestamp = new Date().toISOString();
+  const line = `[${timestamp}] [${level}] ${msg}`;
+  console.log(line);
+  try {
+    fs.appendFileSync(logFile, line + '\n');
+  } catch (e) {}
+}
 
-// Quit when all windows are closed.
-app.on('window-all-closed', function() {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform != 'darwin') {
+log('INFO', `App starting, version=${app.getVersion()}, electron=${process.versions.electron}`);
+log('INFO', `Log file: ${logFile}`);
+log('INFO', `User data: ${app.getPath('userData')}`);
+
+let mainWindow = null;
+
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') {
+    log('INFO', 'All windows closed, quitting');
     app.quit();
   }
 });
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-app.on('ready', function() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1000, height: 800});
+app.on('ready', function () {
+  log('INFO', 'App ready, creating window');
 
-  // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  });
 
-  // Open the DevTools.
-  // mainWindow.openDevTools();
+  const indexPath = path.join(__dirname, 'index.html');
+  log('INFO', `Loading: ${indexPath}`);
+  mainWindow.loadFile(indexPath);
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+  mainWindow.on('closed', function () {
+    log('INFO', 'Main window closed');
     mainWindow = null;
   });
+
+  mainWindow.webContents.on('did-finish-load', function () {
+    log('INFO', 'Page loaded successfully');
+  });
+
+  mainWindow.webContents.on('did-fail-load', function (event, code, desc) {
+    log('ERROR', `Page load failed: ${code} ${desc}`);
+  });
+});
+
+process.on('uncaughtException', function (err) {
+  log('ERROR', `Uncaught exception: ${err.message}\n${err.stack}`);
 });
