@@ -119,6 +119,7 @@ b3e.editor.SelectionSystem = function(editor) {
       var targetTree = project.trees.get(block.name);
       if (targetTree) {
         project.trees.select(targetTree);
+        targetTree.view.center();
       }
     }
   };
