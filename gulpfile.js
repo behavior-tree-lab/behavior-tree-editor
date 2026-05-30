@@ -1,30 +1,30 @@
 // GULP MODULES ===============================================================
-var gulp          = require('gulp');
-var concat        = require('gulp-concat');
-var uglify        = require('gulp-uglify');
-var minifyCSS     = require('gulp-minify-css');
-var minifyHTML    = require('gulp-minify-html');
-var connect       = require('gulp-connect');
-var less          = require('gulp-less');
-var jshint        = require('gulp-jshint');
-var foreach       = require("gulp-foreach");
-var zip           = require("gulp-zip");
-var packager      = require('@electron/packager');
-var templateCache = require('gulp-angular-templatecache');
-var replace       = require('gulp-replace');
-var stylish       = require('jshint-stylish');
-var exec          = require('child_process').exec;
-var fs            = require('fs');
-var rimraf        = require('rimraf');
-var merge         = require('merge-stream');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const minifyCSS = require('gulp-minify-css');
+const minifyHTML = require('gulp-minify-html');
+const connect = require('gulp-connect');
+const less = require('gulp-less');
+const jshint = require('gulp-jshint');
+const foreach = require('gulp-foreach');
+const zip = require('gulp-zip');
+const packager = require('@electron/packager');
+const templateCache = require('gulp-angular-templatecache');
+const replace = require('gulp-replace');
+const stylish = require('jshint-stylish');
+const { exec } = require('child_process');
+const fs = require('fs');
+const rimraf = require('rimraf');
+const merge = require('merge-stream');
 
 // VARIABLES ==================================================================
-var project       = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-var build_version = project.version;
-var build_date    = (new Date()).toISOString().replace(/T.*/, '');
+const project = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+const build_version = project.version;
+const build_date = (new Date()).toISOString().replace(/T.*/, '');
 
 // FILES ======================================================================
-var vendor_js = [
+const vendor_js = [
   'src/assets/libs/createjs.min.js',
   'src/assets/libs/creatine-1.0.0.min.js',
   'src/assets/libs/behavior3js-0.1.0.min.js',
@@ -35,25 +35,25 @@ var vendor_js = [
   'bower_components/angular-ui-router/release/angular-ui-router.min.js',
   'bower_components/sweetalert/dist/sweetalert.min.js',
 ];
-var vendor_css = [
+const vendor_css = [
   'bower_components/bootstrap/dist/css/bootstrap.min.css',
   'bower_components/sweetalert/dist/sweetalert.css',
 ];
-var vendor_fonts = [
+const vendor_fonts = [
   'bower_components/fontawesome/fonts/*',
   'src/assets/fonts/**/*',
 ];
 
-var preload_js = [
+const preload_js = [
   'src/assets/js/preload.js',
 ];
 
-var preload_css = [
+const preload_css = [
   'bower_components/fontawesome/css/font-awesome.min.css',
   'src/assets/css/preload.css',
 ];
 
-var app_js = [
+const app_js = [
   'src/editor/namespaces.js',
   'src/editor/utils/*.js',
   'src/editor/**/*.js',
@@ -63,184 +63,175 @@ var app_js = [
   'src/app/**/*.js',
   'src/start.js',
 ];
-var app_less = [
+const app_less = [
   'src/assets/less/index.less',
 ];
-var app_imgs = [
+const app_imgs = [
   'src/assets/imgs/**/*',
 ];
-var app_html = [
+const app_html = [
   'src/app/**/*.html',
 ];
-var app_entry = [
+const app_entry = [
   'src/index.html',
   'src/package.json',
   'src/desktop.js',
-]
+];
 
 // TASKS (VENDOR) =============================================================
-gulp.task('_vendor_js', function() {
+function vendor_js_task() {
   return gulp.src(vendor_js)
-             .pipe(uglify())
-             .pipe(concat('vendor.min.js'))
-             .pipe(gulp.dest('build/js'))
-});
+    .pipe(uglify())
+    .pipe(concat('vendor.min.js'))
+    .pipe(gulp.dest('build/js'));
+}
 
-gulp.task('_vendor_css', function() {
+function vendor_css_task() {
   return gulp.src(vendor_css)
-             .pipe(minifyCSS())
-             .pipe(concat('vendor.min.css'))
-             .pipe(gulp.dest('build/css'))
-});
+    .pipe(minifyCSS())
+    .pipe(concat('vendor.min.css'))
+    .pipe(gulp.dest('build/css'));
+}
 
-gulp.task('_vendor_fonts', function() {
+function vendor_fonts_task() {
   return gulp.src(vendor_fonts)
-             .pipe(gulp.dest('build/fonts'))
-});
-
-gulp.task('_vendor', ['_vendor_js', '_vendor_css', '_vendor_fonts']);
-
+    .pipe(gulp.dest('build/fonts'));
+}
 
 // TASKS (PRELOAD) ============================================================
-gulp.task('_preload_js', function() {
+function preload_js_task() {
   return gulp.src(preload_js)
-             .pipe(uglify())
-             .pipe(concat('preload.min.js'))
-             .pipe(gulp.dest('build/js'))
-             .pipe(connect.reload())
-});
+    .pipe(uglify())
+    .pipe(concat('preload.min.js'))
+    .pipe(gulp.dest('build/js'))
+    .pipe(connect.reload());
+}
 
-gulp.task('_preload_css', function() {
+function preload_css_task() {
   return gulp.src(preload_css)
-             .pipe(minifyCSS())
-             .pipe(concat('preload.min.css'))
-             .pipe(gulp.dest('build/css'))
-             .pipe(connect.reload())
-});
-
-gulp.task('_preload', ['_preload_js', '_preload_css']);
-
+    .pipe(minifyCSS())
+    .pipe(concat('preload.min.css'))
+    .pipe(gulp.dest('build/css'))
+    .pipe(connect.reload());
+}
 
 // TASKS (APP) ================================================================
-gulp.task('_app_js_dev', function() {
+function app_js_dev_task() {
   return gulp.src(app_js)
-             .pipe(jshint())
-             .pipe(jshint.reporter(stylish))
-             .pipe(replace('[BUILD_VERSION]', build_version))
-             .pipe(replace('[BUILD_DATE]', build_date))
-             .pipe(concat('app.min.js'))
-             .pipe(gulp.dest('build/js'))
-             .pipe(connect.reload())
-});
-gulp.task('_app_js_build', function() {
-  return gulp.src(app_js)
-             .pipe(jshint())
-             .pipe(jshint.reporter(stylish))
-             .pipe(replace('[BUILD_VERSION]', build_version))
-             .pipe(replace('[BUILD_DATE]', build_date))
-             .pipe(uglify())
-             .pipe(concat('app.min.js'))
-             .pipe(gulp.dest('build/js'))
-             .pipe(connect.reload())
-});
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(replace('[BUILD_VERSION]', build_version))
+    .pipe(replace('[BUILD_DATE]', build_date))
+    .pipe(concat('app.min.js'))
+    .pipe(gulp.dest('build/js'))
+    .pipe(connect.reload());
+}
 
-gulp.task('_app_less', function() {
+function app_js_build_task() {
+  return gulp.src(app_js)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(replace('[BUILD_VERSION]', build_version))
+    .pipe(replace('[BUILD_DATE]', build_date))
+    .pipe(uglify())
+    .pipe(concat('app.min.js'))
+    .pipe(gulp.dest('build/js'))
+    .pipe(connect.reload());
+}
+
+function app_less_task() {
   return gulp.src(app_less)
-             .pipe(less())
-             .pipe(minifyCSS())
-             .pipe(concat('app.min.css'))
-             .pipe(gulp.dest('build/css'))
-             .pipe(connect.reload())
-});
+    .pipe(less())
+    .pipe(minifyCSS())
+    .pipe(concat('app.min.css'))
+    .pipe(gulp.dest('build/css'))
+    .pipe(connect.reload());
+}
 
-gulp.task('_app_imgs', function() {
+function app_imgs_task() {
   return gulp.src(app_imgs)
-             .pipe(gulp.dest('build/imgs'))
-});
+    .pipe(gulp.dest('build/imgs'));
+}
 
-gulp.task('_app_html', function() {
+function app_html_task() {
   return gulp.src(app_html)
-             .pipe(minifyHTML({empty:true}))
-             .pipe(replace('[BUILD_VERSION]', build_version))
-             .pipe(replace('[BUILD_DATE]', build_date))
-             .pipe(templateCache('templates.min.js', {standalone:true}))
-             .pipe(gulp.dest('build/js'))
-             .pipe(connect.reload())
-});
+    .pipe(minifyHTML({ empty: true }))
+    .pipe(replace('[BUILD_VERSION]', build_version))
+    .pipe(replace('[BUILD_DATE]', build_date))
+    .pipe(templateCache('templates.min.js', { standalone: true }))
+    .pipe(gulp.dest('build/js'))
+    .pipe(connect.reload());
+}
 
-gulp.task('_app_entry', function() {
+function app_entry_task() {
   return gulp.src(app_entry)
-             // .pipe(minifyHTML({empty:true})) 
-             .pipe(replace('[BUILD_VERSION]', build_version))
-             .pipe(replace('[BUILD_DATE]', build_date))
-             .pipe(gulp.dest('build'))
-             .pipe(connect.reload())
-});
-
-gulp.task('_app_dev', [
-  '_app_js_dev',
-  '_app_less',
-  '_app_imgs',
-  '_app_html',
-  '_app_entry'
-]);
-gulp.task('_app_build', [
-  '_app_js_build',
-  '_app_less',
-  '_app_imgs',
-  '_app_html',
-  '_app_entry'
-]);
-
+    .pipe(replace('[BUILD_VERSION]', build_version))
+    .pipe(replace('[BUILD_DATE]', build_date))
+    .pipe(gulp.dest('build'))
+    .pipe(connect.reload());
+}
 
 // TASKS (LIVE RELOAD) ========================================================
-gulp.task('_livereload', function() {
+function livereload_task() {
   connect.server({
     livereload: true,
     root: 'build',
     port: 8000,
   });
-});
+}
 
-gulp.task('_watch', ['_livereload'], function() {
-  gulp.watch(preload_js, ['_preload_js']);
-  gulp.watch(preload_css, ['_preload_css']);
-  gulp.watch(app_js, ['_app_js_dev']);
-  gulp.watch(app_less, ['_app_less']);
-  gulp.watch(app_html, ['_app_html']);
-  gulp.watch(app_entry, ['_app_entry']);
-});
+function watch_task() {
+  gulp.watch(preload_js, preload_js_task);
+  gulp.watch(preload_css, preload_css_task);
+  gulp.watch(app_js, app_js_dev_task);
+  gulp.watch(app_less, app_less_task);
+  gulp.watch(app_html, app_html_task);
+  gulp.watch(app_entry, app_entry_task);
+}
 
+// TASKS (ELECTRON) ===========================================================
+function electron_task() {
+  return packager({
+    dir: 'build',
+    out: '.temp-dist',
+    name: project.name,
+    platform: ['linux', 'win32'],
+    arch: 'x64',
+    version: '27.0.0',
+    overwrite: true,
+    asar: true
+  });
+}
 
-// TASKS (NODE WEBKIT) ========================================================
-gulp.task('_electron', ['build'], function(cb) {
-  packager({
-    dir       : 'build',
-    out       : '.temp-dist',
-    name      : project.name,
-    platform  : 'linux,win32',
-    arch      : 'all',
-    version   : '0.34.2',
-    overwrite : true,
-    asar      : true
-  }, function done(err, appPath) {
-    cb(err);
-  })
-});
-
-gulp.task('_electron_zip', ['_electron'], function() {
+function electron_zip_task() {
   return gulp.src('.temp-dist/*')
-             .pipe(foreach(function(stream, file) {
-                var fileName = file.path.substr(file.path.lastIndexOf("/")+1);
-                gulp.src('.temp-dist/'+fileName+'/**/*')
-                    .pipe(zip(fileName+'.zip'))
-                    .pipe(gulp.dest('./dist'));
-                return stream;
-             }));
-});
+    .pipe(foreach(function (stream, file) {
+      const fileName = file.path.substr(file.path.lastIndexOf('/') + 1);
+      return gulp.src('.temp-dist/' + fileName + '/**/*')
+        .pipe(zip(fileName + '.zip'))
+        .pipe(gulp.dest('./dist'));
+    }));
+}
 
 // COMMANDS ===================================================================
-gulp.task('build', ['_vendor', '_preload', '_app_build']);
-gulp.task('dev',   ['_vendor', '_preload', '_app_dev']);
-gulp.task('serve', ['_vendor', '_preload', '_app_dev', '_watch']);
-gulp.task('dist',  ['_electron_zip']);
+gulp.task('build', gulp.series(
+  gulp.parallel(vendor_js_task, vendor_css_task, vendor_fonts_task),
+  gulp.parallel(preload_js_task, preload_css_task),
+  gulp.parallel(app_js_build_task, app_less_task, app_imgs_task, app_html_task, app_entry_task)
+));
+
+gulp.task('dev', gulp.series(
+  gulp.parallel(vendor_js_task, vendor_css_task, vendor_fonts_task),
+  gulp.parallel(preload_js_task, preload_css_task),
+  gulp.parallel(app_js_dev_task, app_less_task, app_imgs_task, app_html_task, app_entry_task)
+));
+
+gulp.task('serve', gulp.series(
+  gulp.parallel(vendor_js_task, vendor_css_task, vendor_fonts_task),
+  gulp.parallel(preload_js_task, preload_css_task),
+  gulp.parallel(app_js_dev_task, app_less_task, app_imgs_task, app_html_task, app_entry_task),
+  livereload_task,
+  watch_task
+));
+
+gulp.task('dist', gulp.series('build', electron_task, electron_zip_task));

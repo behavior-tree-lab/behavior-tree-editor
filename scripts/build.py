@@ -94,15 +94,23 @@ Examples:
     # 第1步：验证环境
     print_info("Verifying build environment...")
 
-    # 检查 Node.js
-    node_path = r"C:\Program Files\Unity 2020.3.48f1\Editor\Data\Tools\nodejs"
-    if not Path(node_path).exists():
-        print_error(f"Node.js v6 not found at {node_path}")
-        print_info("Please install Node.js v6-v12 or use Unity 2020.3.48f1")
-        sys.exit(1)
+    # 检查 Node.js (prefer system Node 18+, fallback to Unity v6)
+    node_path = None
 
-    # 设置环境变量
-    os.environ['PATH'] = f"{node_path};{os.environ.get('PATH', '')}"
+    # 先试系统 Node (推荐)
+    try:
+        subprocess.check_output("node --version", shell=True, stderr=subprocess.DEVNULL)
+        print_status("Using system Node.js")
+    except:
+        # 回退到 Unity 的 Node v6
+        node_path = r"C:\Program Files\Unity 2020.3.48f1\Editor\Data\Tools\nodejs"
+        if Path(node_path).exists():
+            os.environ['PATH'] = f"{node_path};{os.environ.get('PATH', '')}"
+            print_status("Using Node.js v6 from Unity 2020.3.48f1")
+        else:
+            print_error("Node.js not found")
+            print_info("Please install Node.js 18+ from nodejs.org")
+            sys.exit(1)
 
     # 获取版本
     node_ver = subprocess.check_output("node --version", shell=True).decode().strip()
@@ -128,9 +136,8 @@ Examples:
 
     # 第4步：配置 npm
     print_info("Configuring npm registry...")
-    run_command("npm config set registry https://registry.npmmirror.com")
-    run_command("npm config set strict-ssl false")
-    print_status("npm configured (using fast mirror)")
+    run_command("npm config set registry https://registry.npmjs.org")
+    print_status("npm configured")
 
     # 第5步：安装依赖
     if not Path("node_modules").exists():
