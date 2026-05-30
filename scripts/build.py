@@ -94,20 +94,23 @@ Examples:
     # 第1步：验证环境
     print_info("Verifying build environment...")
 
-    # 检查 Node.js (prefer system Node 18+, fallback to Unity v6)
-    node_path = None
+    # 确保使用系统 Node（不是 Unity 的 v6）
+    # 从 PATH 中移除 Unity 的旧 Node 路径
+    unity_node = r"C:\Program Files\Unity 2020.3.48f1\Editor\Data\Tools\nodejs"
+    current_path = os.environ.get('PATH', '')
+    cleaned_path = ";".join([p for p in current_path.split(";") if "Unity" not in p or "nodejs" not in p])
+    os.environ['PATH'] = cleaned_path
 
-    # 先试系统 Node (推荐)
-    try:
-        subprocess.check_output("node --version", shell=True, stderr=subprocess.DEVNULL)
-        print_status("Using system Node.js")
-    except:
-        # 回退到 Unity 的 Node v6
-        node_path = r"C:\Program Files\Unity 2020.3.48f1\Editor\Data\Tools\nodejs"
-        if Path(node_path).exists():
-            os.environ['PATH'] = f"{node_path};{os.environ.get('PATH', '')}"
-            print_status("Using Node.js v6 from Unity 2020.3.48f1")
-        else:
+    # 检查系统 Node
+    system_node = r"C:\Program Files\nodejs"
+    if Path(system_node).exists():
+        os.environ['PATH'] = f"{system_node};{os.environ['PATH']}"
+        print_status(f"Using Node.js from {system_node}")
+    else:
+        try:
+            subprocess.check_output("node --version", shell=True, stderr=subprocess.DEVNULL)
+            print_status("Using system Node.js")
+        except:
             print_error("Node.js not found")
             print_info("Please install Node.js 18+ from nodejs.org")
             sys.exit(1)

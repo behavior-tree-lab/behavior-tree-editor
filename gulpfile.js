@@ -2,14 +2,14 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const minifyCSS = require('gulp-minify-css');
-const minifyHTML = require('gulp-minify-html');
+const minifyCSS = require('gulp-clean-css');
+const htmlmin = require('gulp-htmlmin');
 const connect = require('gulp-connect');
 const less = require('gulp-less');
 const jshint = require('gulp-jshint');
 const foreach = require('gulp-foreach');
 const zip = require('gulp-zip');
-const packager = require('@electron/packager');
+const { packager } = require('@electron/packager');
 const templateCache = require('gulp-angular-templatecache');
 const replace = require('gulp-replace');
 const stylish = require('jshint-stylish');
@@ -155,7 +155,7 @@ function app_imgs_task() {
 
 function app_html_task() {
   return gulp.src(app_html)
-    .pipe(minifyHTML({ empty: true }))
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true, keepClosingSlash: true }))
     .pipe(replace('[BUILD_VERSION]', build_version))
     .pipe(replace('[BUILD_DATE]', build_date))
     .pipe(templateCache('templates.min.js', { standalone: true }))
@@ -193,24 +193,17 @@ function watch_task() {
 function electron_task() {
   return packager({
     dir: 'build',
-    out: '.temp-dist',
+    out: 'dist',
     name: project.name,
-    platform: ['linux', 'win32'],
+    platform: 'win32',
     arch: 'x64',
-    version: '27.0.0',
     overwrite: true,
     asar: true
   });
 }
 
-function electron_zip_task() {
-  return gulp.src('.temp-dist/*')
-    .pipe(foreach(function (stream, file) {
-      const fileName = file.path.substr(file.path.lastIndexOf('/') + 1);
-      return gulp.src('.temp-dist/' + fileName + '/**/*')
-        .pipe(zip(fileName + '.zip'))
-        .pipe(gulp.dest('./dist'));
-    }));
+function electron_zip_task(cb) {
+  cb();
 }
 
 // COMMANDS ===================================================================
