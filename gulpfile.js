@@ -133,7 +133,6 @@ function app_js_build_task() {
     .pipe(jshint.reporter(stylish))
     .pipe(replace('[BUILD_VERSION]', build_version))
     .pipe(replace('[BUILD_DATE]', build_date))
-    .pipe(uglify())
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest('build/js'))
     .pipe(connect.reload());
