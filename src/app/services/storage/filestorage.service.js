@@ -25,8 +25,7 @@ function fileStorageService(nodejsService) {
     fs.writeSync(file, data);
     fs.closeSync(file);
 
-    // Rename must be async to override correctly.
-    fs.rename(path+'~', path);
+    fs.renameSync(path+'~', path);
   }
   function load(path) {
     var data = fs.readFileSync(path, 'utf-8');

@@ -105,7 +105,26 @@ b3e.editor.SelectionSystem = function(editor) {
     isSelecting = false;
   };
 
+  this.onDoubleClick = function(e) {
+    var project = editor.project.get();
+    if (!project) return;
+
+    var tree = project.trees.getSelected();
+    if (!tree) return;
+
+    var point = tree.view.getLocalPoint();
+    var block = tree.blocks.getUnderPoint(point.x, point.y);
+
+    if (block && block.category === 'tree') {
+      var targetTree = project.trees.get(block.name);
+      if (targetTree) {
+        project.trees.select(targetTree);
+      }
+    }
+  };
+
   editor._game.stage.on('stagemousedown', this.onMouseDown, this);
   editor._game.stage.on('stagemousemove', this.onMouseMove, this);
   editor._game.stage.on('stagemouseup', this.onMouseUp, this);
+  editor._game.canvas.addEventListener('dblclick', this.onDoubleClick.bind(this));
 };
