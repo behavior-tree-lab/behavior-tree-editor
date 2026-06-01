@@ -27,10 +27,12 @@ log('INFO', `User data: ${app.getPath('userData')}`);
 let mainWindow = null;
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    log('INFO', 'All windows closed, quitting');
-    app.quit();
-  }
+  log('INFO', 'All windows closed, quitting');
+  app.quit();
+});
+
+app.on('before-quit', function () {
+  log('INFO', 'App quitting');
 });
 
 app.on('ready', function () {
@@ -52,6 +54,13 @@ app.on('ready', function () {
   const indexPath = path.join(__dirname, 'index.html');
   log('INFO', `Loading: ${indexPath}`);
   mainWindow.loadFile(indexPath);
+
+  mainWindow.on('close', function () {
+    log('INFO', 'Main window closing');
+    if (mainWindow) {
+      mainWindow.webContents.removeAllListeners();
+    }
+  });
 
   mainWindow.on('closed', function () {
     log('INFO', 'Main window closed');
