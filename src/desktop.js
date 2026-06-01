@@ -52,7 +52,6 @@ app.on('ready', function () {
   const indexPath = path.join(__dirname, 'index.html');
   log('INFO', `Loading: ${indexPath}`);
   mainWindow.loadFile(indexPath);
-  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     log('INFO', 'Main window closed');
