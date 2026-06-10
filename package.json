@@ -2,10 +2,10 @@
   "author": "Renato de Pontes Pereira",
   "name": "behavior3editor",
   "version": "0.3.1",
-  "homepage": "http://behavior3.com",
+  "homepage": "https://henrytien.github.io/behavior-tree-editor/",
   "license": "MIT",
-  "bugs": "https://github.com/behavior3/behavior3editor/issues",
-  "repository": "github:behavior3/behavior3editor",
+  "bugs": "https://github.com/henrytien/behavior-tree-editor/issues",
+  "repository": "github:henrytien/behavior-tree-editor",
   "devDependencies": {
     "@electron/packager": "^20.0.0",
     "electron": "^27.0.0",
