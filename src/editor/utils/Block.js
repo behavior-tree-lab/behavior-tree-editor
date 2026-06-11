@@ -34,6 +34,9 @@
     this._displayShape = new createjs.Shape();
     this._displaySymbol = null;
     this._displayShadow = null;
+    // Real-time debugging: overlay drawn when a runtime status is set.
+    this._debugStatus = null;
+    this._debugShape = null;
   };
   var p = createjs.extend(Block, createjs.Container);
   
@@ -74,6 +77,55 @@
 
     this.addChild(this._displayShape);
     this.addChild(this._displaySymbol);
+
+    // Re-apply the debug overlay if one is active, since removeAllChildren
+    // above dropped it.
+    if (this._debugStatus) this._setDebugStatus(this._debugStatus);
+  };
+
+  /**
+   * Color map for runtime statuses, matching docs/REALTIME_DEBUGGING.md.
+   */
+  Block.DEBUG_COLORS = {
+    running : '#3b9dff',
+    success : '#27ae60',
+    failure : '#e74c3c',
+    error   : '#9b59b6'
+  };
+
+  /**
+   * Draw (or clear) a colored outline reflecting the node's live runtime
+   * status. Pass a falsy status to remove the overlay.
+   *
+   * @method _setDebugStatus
+   * @param {String} status One of 'running'|'success'|'failure'|'error', or
+   *   null/undefined to clear.
+   * @protected
+   */
+  p._setDebugStatus = function(status) {
+    this._debugStatus = status || null;
+
+    if (this._debugShape) {
+      this.removeChild(this._debugShape);
+      this._debugShape = null;
+    }
+    if (!status) return;
+
+    var color = Block.DEBUG_COLORS[status];
+    if (!color) return;
+
+    var w = this._width;
+    var h = this._height;
+    var pad = 4;
+    var shape = new createjs.Shape();
+    shape.graphics
+      .setStrokeStyle(3, 'round')
+      .beginStroke(color)
+      .drawRoundRect(-w/2-pad, -h/2-pad, w+2*pad, h+2*pad, 6);
+    shape.graphics.endStroke();
+
+    this._debugShape = shape;
+    this.addChild(shape);
   };
 
   /**

@@ -11,15 +11,17 @@
     '$state',
     'dialogService',
     'projectModel',
-    'notificationService'
+    'notificationService',
+    'debugService'
   ];
 
-  function MenubarController($scope, 
+  function MenubarController($scope,
                              $window,
                              $state,
                              dialogService,
                              projectModel,
-                             notificationService) {
+                             notificationService,
+                             debugService) {
     var vm = this;
     vm.onNewTree           = onNewTree;
     vm.onCloseProject      = onCloseProject;
@@ -46,12 +48,64 @@
     vm.onSelectAll         = onSelectAll;
     vm.onDeselectAll       = onDeselectAll;
     vm.onInvertSelection   = onInvertSelection;
+    vm.onDebugConnect      = onDebugConnect;
+    vm.onDebugDisconnect   = onDebugDisconnect;
+    vm.isDebugConnected    = debugService.isConnected;
+
+    var _debugListener = null;
 
     _create();
     _activate();
     $scope.$on('$destroy', _destroy);
 
     function _activate() {
+    }
+
+    // --- real-time debugging ---
+
+    function onDebugConnect() {
+      dialogService
+        .prompt(
+          'Connect to debugger',
+          'WebSocket address of the running Go program:',
+          'input',
+          'ws://localhost:6112/debug')
+        .then(function(url) {
+          debugService.connect(url || 'ws://localhost:6112/debug');
+          _debugListener = debugService.onStatusChange(_applyDebugStatuses);
+        });
+      return false;
+    }
+
+    function onDebugDisconnect() {
+      if (_debugListener) {
+        debugService.offStatusChange(_debugListener);
+        _debugListener = null;
+      }
+      debugService.disconnect();
+      _clearDebugStatuses();
+      return false;
+    }
+
+    /**
+     * Paint each block's outline according to the live status map. Blocks not
+     * present in the map are left unhighlighted.
+     */
+    function _applyDebugStatuses(statuses) {
+      var tree = _getTree();
+      if (!tree) return;
+      tree.blocks.each(function(block) {
+        if (block.category === 'root') return;
+        block._setDebugStatus(statuses[block.id] || null);
+      });
+    }
+
+    function _clearDebugStatuses() {
+      var tree = _getTree();
+      if (!tree) return;
+      tree.blocks.each(function(block) {
+        block._setDebugStatus(null);
+      });
     }
 
     function _shortcut_projectclose(f) {
@@ -99,6 +153,11 @@
       Mousetrap.unbind('ctrl+a', onSelectAll);
       Mousetrap.unbind('ctrl+shift+a', onDeselectAll);
       Mousetrap.unbind('ctrl+i', onInvertSelection);
+
+      if (_debugListener) {
+        debugService.offStatusChange(_debugListener);
+        _debugListener = null;
+      }
     }
 
     function _getProject() {

@@ -100,68 +100,102 @@ Reserved for control commands (pause/step/breakpoints). Not in the MVP.
 
 ---
 
-## 4. Go Runtime Changes (minimal — ~80 LOC)
+## 4. Go Runtime Changes (minimal — ~80 LOC) — ✅ DONE (Phase 1)
 
-The runtime already has the hooks half-built. `core/Tick.go` has a
-`debug interface{}` field and five `// TODO: call debug here` placeholders in
-`_enterNode` / `_openNode` / `_tickNode` / `_closeNode` / `_exitNode`.
-`BehaviorTree.SetDebug()` is already in place.
+> Implemented on `behavior-tree@feat/realtime-debugging`. Tests in
+> `loader/debug_test.go` (`go test ./...` green).
 
-### 4.1 Define the Debugger interface
-In `core/` (e.g. `core/Debugger.go`):
+The runtime had the hooks half-built. `core/Tick.go` has a `debug interface{}`
+field and `BehaviorTree.SetDebug()` was already in place.
+
+### 4.1 Define the Debugger interface — done
+In `core/Debugger.go`:
 ```go
 type Debugger interface {
     OnTickStart(treeID string)
-    OnNodeStatus(treeID, nodeID string, status b3.Status)
+    OnNodeStatus(treeID, nodeID string, status bt.Status)
     OnTickEnd(treeID string)
 }
 ```
 
-### 4.2 Fill the TODO hooks
-In `Tick`, where `this.debug` is set, call the debugger if non-nil. The node id
-is available via `node.GetID()` inside `BaseNode._tick`, and the returned status
-is available in `_tick`. Example (in `_tickNode` / around `_tick`):
+### 4.2 Wire the hooks — done
+
+**Correction to the original design:** the status is *not* available at the
+`_tickNode` TODO placeholder. `_tickNode(this)` runs *before* `OnTick` returns,
+so the node has no status yet at that point. The status is only known in
+`BaseNode._execute`, after `status := this._tick(tick)`. That is where
+`OnNodeStatus` is emitted (via `tick.reportNodeStatus`). `GetID()` was promoted
+onto the `IBaseNode` interface so the tick can read the node id.
+
+- `OnTickStart` / `OnTickEnd`: emitted in `BehaviorTree.Tick`, with `OnTickEnd`
+  deferred so it fires on every return path (including the early-return when the
+  open-node set is unchanged).
+- `OnNodeStatus`: emitted in `BaseNode._execute` for every visited node.
+
 ```go
-if d, ok := this.debug.(Debugger); ok && d != nil {
-    d.OnNodeStatus(this.tree.id, node.GetID(), status)
+// core/Tick.go
+func (this *Tick) reportNodeStatus(node IBaseNode, status bt.Status) {
+    if d, ok := this.debug.(Debugger); ok && d != nil {
+        d.OnNodeStatus(this.tree.id, node.GetID(), status)
+    }
 }
 ```
 > Zero overhead when debugging is off: `debug == nil`, so the type assertion /
-> nil check is skipped. Existing `examples/` are unaffected.
+> nil check is skipped. Existing `examples/` and `loader` tests are unaffected.
 
-### 4.3 WebSocket server package
-New package `debug/` with `debug/wsserver.go`:
+### 4.3 WebSocket server package — ✅ DONE (Phase 2)
+
+> Implemented in `debug/wsserver.go` with tests in `debug/wsserver_test.go`
+> (httptest-driven, real WS round-trips). Demo: `examples/debug_server`.
+
+Package `debug`:
 - Implements `core.Debugger`.
-- Runs a `gorilla/websocket` server on a configurable address.
-- Coalesces status changes and flushes at ~10 Hz to all connected clients.
+- Runs a `gorilla/websocket` server; clients connect to `/debug`.
+- Coalesces status changes and flushes at ~10 Hz to all connected clients
+  (only nodes whose status changed are sent; `seq` increments per frame).
+- A late-joining client gets a `hello` plus a snapshot of current statuses, so
+  it sees live state immediately rather than only future changes.
+- Slow clients drop frames (bounded send buffer) instead of stalling the tick.
 - One-line integration in user code:
 ```go
 dbg := debug.NewWSServer(":6112")
+defer dbg.Close()
 tree.SetDebug(dbg)
 ```
 
+> Verified end-to-end: a client connecting to the demo receives `hello` then a
+> `tick` frame keyed by the editor's exported node UUIDs.
+
 ---
 
-## 5. Editor Changes (front-end only, medium)
+## 5. Editor Changes (front-end only, medium) — ✅ DONE (Phases 3 & 4)
 
-### 5.1 Debug client service
-`src/app/services/debug.service.js`:
-- WebSocket client connecting to the Go server.
+### 5.1 Debug client service — done
+`src/app/services/debug.service.js` (AngularJS factory `debugService`):
+- WebSocket client connecting to the Go server (default `ws://localhost:6112/debug`).
 - Maintains a `nodeStatus` map (`id → status`).
-- Applies frames respecting `seq` ordering; ignores frames for a different `treeId`.
+- Applies frames respecting `seq` ordering (drops stale/duplicate `seq`).
+- Exposes `onStatusChange` / `offStatusChange` so the highlighter subscribes
+  without the service knowing about rendering.
+- Surfaces connect / error / disconnect via `notificationService`.
 
-### 5.2 Node status rendering
-`src/editor/utils/Block.js` + `src/editor/draw/`:
-- Add a `_debugStatus` field to `Block`.
-- Overlay a colored stroke on the existing `_displayShape` based on status.
-- Re-color on `_redraw()`. Look up the target block with `tree.blocks.get(id)`
-  (`BlockManager.get` already resolves a block by id string).
+### 5.2 Node status rendering — done
+`src/editor/utils/Block.js`:
+- Added `_debugStatus` / `_debugShape` fields and `p._setDebugStatus(status)`,
+  which draws a colored rounded-rect outline overlay (one color per status,
+  `Block.DEBUG_COLORS`) or clears it.
+- `_redraw()` re-applies the overlay (it calls `removeAllChildren`, so the
+  overlay is restored if a status is active).
+- The menubar subscribes to `debugService` and paints each block via
+  `tree.blocks.each(...)`, looking up by the editor's exported node id.
 
-### 5.3 Debug toolbar
-Add buttons to the menubar:
-- Connect / Disconnect, connection-status indicator, tick-rate readout.
+### 5.3 Debug menu — done
+`menubar.html` + `menubar.controller.js`: a **Debug** menu with
+**Connect to runtime** (prompts for the ws address) and **Disconnect**
+(shown/hidden by `debugService.isConnected()`). Connect wires the status
+listener; Disconnect clears all highlights and unsubscribes.
 
-### 5.4 Blackboard panel (optional, phase 5)
+### 5.4 Blackboard panel (optional, phase 5) — not started
 Right-side tab showing runtime variables from `blackboard` messages.
 
 ---
@@ -173,7 +207,9 @@ The Go runtime distinguishes custom nodes / subtrees using the `category` field
 may omit `category`. Before debugging works for custom-node trees, ensure the
 editor's single-tree export always includes `category`.
 
-This is tracked as **Phase 0** below.
+This is tracked as **Phase 0** below. ✅ Done: `ExportManager.treeToData` now
+writes `category` on every exported node. Re-import is unaffected (ImportManager
+derives category from the node definition, not from `spec.category`).
 
 ---
 
@@ -183,15 +219,21 @@ Each phase is independently verifiable.
 
 | Phase | Repo | Work | Verify | Risk |
 |-------|------|------|--------|------|
-| **0. JSON compatibility** | editor | Single-tree export always writes `category` | Go loads a custom-node tree without error | Low |
-| **1. Go Debugger interface** | runtime | Define interface + fill 5 TODO hooks | Unit test: hooks fire on tick with correct id/status | Low |
-| **2. Go WS server** | runtime | `debug/` package, coalesce + broadcast | Demo in `examples/`; a browser/wscat receives frames | Medium |
-| **3. Editor WS client** | editor | `debug.service.js` + toolbar | Connect to Go demo; log frames in console | Low |
-| **4. Node highlighting** | editor | Block status stroke rendering | Run Go demo; nodes change color live | Medium (CreateJS render) |
+| **0. JSON compatibility** ✅ | editor | Single-tree export always writes `category` | Go loads a custom-node tree without error | Low |
+| **1. Go Debugger interface** ✅ | runtime | Define interface + wire hooks | Unit test: hooks fire on tick with correct id/status | Low |
+| **2. Go WS server** ✅ | runtime | `debug/` package, coalesce + broadcast | Demo in `examples/`; a browser/wscat receives frames | Medium |
+| **3. Editor WS client** ✅ | editor | `debug.service.js` + Debug menu | Connect to Go demo; log frames in console | Low |
+| **4. Node highlighting** ✅ | editor | Block status stroke rendering | Run Go demo; nodes change color live | Medium (CreateJS render) |
 | **5. Blackboard panel** (optional) | editor | Right-side variable viewer | — | Low |
 
-**MVP = phases 0–4.** Completing them yields the full loop: run a Go program →
-watch nodes pulse and change color in the editor.
+**MVP = phases 0–4 — COMPLETE.** The full loop works: run a Go program with a
+`debug.WSServer` attached → connect the editor's Debug menu → nodes change color
+live as they tick.
+
+> Remaining manual check: open the built editor, load the demo tree
+> (`examples/load_from_tree/tree.json` exported with matching node UUIDs), run
+> `go run ./examples/debug_server`, and confirm nodes light up. Automated JS
+> testing is not set up in this repo; the gulp build + jshint is the gate.
 
 ---
 

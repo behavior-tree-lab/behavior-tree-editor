@@ -147,6 +147,17 @@
         </ul>
       </li>
 
+      <li><a>Debug</a>
+        <ul>
+          <li><a ng-click="menubar.onDebugConnect()" ng-hide="menubar.isDebugConnected()">
+            Connect to runtime
+          </a></li>
+          <li><a ng-click="menubar.onDebugDisconnect()" ng-show="menubar.isDebugConnected()">
+            Disconnect
+          </a></li>
+        </ul>
+      </li>
+
     </ul>
   </div>
 <!-- 
