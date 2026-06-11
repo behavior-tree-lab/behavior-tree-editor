@@ -1,0 +1,90 @@
+name: Build & Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to attach the build artifacts to (e.g. v1.0.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win32
+            arch: x64
+            asset: behavior3editor-${{ github.ref_name }}-win32-x64.zip
+          - os: ubuntu-latest
+            platform: linux
+            arch: x64
+            asset: behavior3editor-${{ github.ref_name }}-linux-x64.zip
+          - os: macos-latest
+            platform: darwin
+            arch: x64
+            asset: behavior3editor-${{ github.ref_name }}-darwin-x64.zip
+          - os: macos-latest
+            platform: darwin
+            arch: arm64
+            asset: behavior3editor-${{ github.ref_name }}-darwin-arm64.zip
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Bower and vendor libs
+        run: |
+          npm install -g bower
+          bower install --allow-root
+
+      - name: Build and package
+        env:
+          B3_PLATFORM: ${{ matrix.platform }}
+          B3_ARCH: ${{ matrix.arch }}
+        run: npx gulp dist
+
+      - name: Locate packaged app
+        id: pkg
+        shell: bash
+        run: |
+          dir=$(ls -d dist/behavior3editor-* | head -1)
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+
+      - name: Zip (Windows / Linux)
+        if: matrix.platform != 'darwin'
+        shell: bash
+        run: |
+          cd "${{ steps.pkg.outputs.dir }}"
+          if command -v zip >/dev/null; then
+            zip -r "../../${{ matrix.asset }}" .
+          else
+            powershell -Command "Compress-Archive -Path '*' -DestinationPath '../../${{ matrix.asset }}' -Force"
+          fi
+
+      - name: Zip (macOS, preserve .app bundle)
+        if: matrix.platform == 'darwin'
+        run: |
+          cd "${{ steps.pkg.outputs.dir }}"
+          ditto -c -k --sequesterRsrc --keepParent *.app "../../${{ matrix.asset }}"
+
+      - name: Upload to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          files: ${{ matrix.asset }}
+          fail_on_unmatched_files: true

@@ -198,13 +198,15 @@ function install_build_deps() {
 }
 
 // TASKS (ELECTRON) ===========================================================
+// Platform/arch are overridable via env vars so CI can target each OS.
+// Defaults reproduce the original local behavior (Windows x64).
 function electron_task() {
   return packager({
     dir: 'build',
     out: require('path').join(__dirname, 'dist'),
     name: project.name,
-    platform: 'win32',
-    arch: 'x64',
+    platform: process.env.B3_PLATFORM || 'win32',
+    arch: process.env.B3_ARCH || 'x64',
     overwrite: true,
     asar: false,
     tmpdir: require('os').tmpdir()
