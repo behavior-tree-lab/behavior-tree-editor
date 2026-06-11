@@ -1,0 +1,219 @@
+# Real-Time Debugging — Design Document
+
+Status: **Design approved, implementation pending**
+Branch: `feat/realtime-debugging`
+Last updated: 2026-06-11
+
+This document describes the design for a real-time debugging loop between
+**Behavior Tree Editor** (this repo) and the **Go runtime**
+([henrytien/behavior-tree](https://github.com/henrytien/behavior-tree)).
+
+The goal: run a Go program that executes a behavior tree, and watch the editor
+highlight each node's live status (running / success / failure) as it ticks —
+the same experience as Unreal Engine's behavior tree debugger.
+
+---
+
+## 1. Architecture
+
+```
+┌─────────────────────┐         WebSocket          ┌──────────────────────┐
+│  Behavior Tree       │ ◄───── ws://host:port ───► │  Go runtime          │
+│  Editor (Electron)   │                            │  (your game/program) │
+│                      │   ① node status (Go→editor)│                      │
+│  - debug client      │   ────────────────────────►│  - Debugger impl     │
+│  - node highlighting  │                            │  - WebSocket SERVER  │
+│  - blackboard viewer  │   ② control (editor→Go)    │  - hooks into Tick   │
+└─────────────────────┘   ◄────────────────────────└──────────────────────┘
+        CLIENT                                              SERVER
+```
+
+The editor is an Electron app (has Node, runs a WS client). The Go runtime is a
+separate, long-lived process, so it hosts the WebSocket **server**; the editor
+connects to it as a **client**.
+
+---
+
+## 2. Decisions (locked)
+
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| **Who is the server** | Go runtime is the server; editor is the client | The game/program process is long-lived and naturally acts as a server. The editor connects to it. |
+| **Go WebSocket library** | `gorilla/websocket` | De-facto standard, well documented, stable. |
+| **Throttling high-frequency ticks** | Send only on node **status change**, aggregated at ~10 Hz | A 60 fps game would flood the channel and the editor's renderer. Coalescing keeps bandwidth low and the UI smooth. Tunable during implementation. |
+| **Development isolation** | Work on branch `feat/realtime-debugging`, never on `master` | Keep `master` shippable while this feature is built. |
+
+### Default connection
+- **Address**: `ws://localhost:6112/debug` (port chosen to avoid common ports; configurable on both ends)
+
+---
+
+## 3. Protocol (JSON over WebSocket)
+
+All messages are JSON objects with a `type` field.
+
+### 3.1 Go → Editor
+
+**`hello`** — sent once when the editor connects, so it can verify it is viewing
+the same tree.
+```json
+{ "type": "hello", "treeId": "67e3047e-...", "treeTitle": "A behavior tree", "nodeCount": 17 }
+```
+
+**`tick`** — node statuses for a tick batch. Keyed by node `id` (the UUID the
+editor exported). Sent only when at least one status changed, at most ~10 Hz.
+```json
+{
+  "type": "tick",
+  "treeId": "67e3047e-...",
+  "seq": 1284,
+  "nodes": {
+    "8b514f0a-...": "running",
+    "7deef17b-...": "success",
+    "af4ac079-...": "failure"
+  }
+}
+```
+- `seq` is monotonically increasing; the editor drops frames older than the last applied `seq`.
+- Status enum: `running` | `success` | `failure` | `error` (maps to Go `b3.Status`).
+
+**`blackboard`** (optional, phase 5) — runtime variable snapshot.
+```json
+{ "type": "blackboard", "treeId": "...", "data": { "nodeCount": 17, "...": "..." } }
+```
+
+### 3.2 Editor → Go (optional, future)
+
+Reserved for control commands (pause/step/breakpoints). Not in the MVP.
+```json
+{ "type": "command", "action": "pause" }
+```
+
+### 3.3 Status mapping
+
+| Go `b3.Status` | Protocol string | Editor highlight |
+|----------------|-----------------|------------------|
+| `RUNNING`      | `"running"`     | yellow/blue pulsing border |
+| `SUCCESS`      | `"success"`     | green border |
+| `FAILURE`      | `"failure"`     | red border |
+| `ERROR`        | `"error"`       | purple border |
+
+---
+
+## 4. Go Runtime Changes (minimal — ~80 LOC)
+
+The runtime already has the hooks half-built. `core/Tick.go` has a
+`debug interface{}` field and five `// TODO: call debug here` placeholders in
+`_enterNode` / `_openNode` / `_tickNode` / `_closeNode` / `_exitNode`.
+`BehaviorTree.SetDebug()` is already in place.
+
+### 4.1 Define the Debugger interface
+In `core/` (e.g. `core/Debugger.go`):
+```go
+type Debugger interface {
+    OnTickStart(treeID string)
+    OnNodeStatus(treeID, nodeID string, status b3.Status)
+    OnTickEnd(treeID string)
+}
+```
+
+### 4.2 Fill the TODO hooks
+In `Tick`, where `this.debug` is set, call the debugger if non-nil. The node id
+is available via `node.GetID()` inside `BaseNode._tick`, and the returned status
+is available in `_tick`. Example (in `_tickNode` / around `_tick`):
+```go
+if d, ok := this.debug.(Debugger); ok && d != nil {
+    d.OnNodeStatus(this.tree.id, node.GetID(), status)
+}
+```
+> Zero overhead when debugging is off: `debug == nil`, so the type assertion /
+> nil check is skipped. Existing `examples/` are unaffected.
+
+### 4.3 WebSocket server package
+New package `debug/` with `debug/wsserver.go`:
+- Implements `core.Debugger`.
+- Runs a `gorilla/websocket` server on a configurable address.
+- Coalesces status changes and flushes at ~10 Hz to all connected clients.
+- One-line integration in user code:
+```go
+dbg := debug.NewWSServer(":6112")
+tree.SetDebug(dbg)
+```
+
+---
+
+## 5. Editor Changes (front-end only, medium)
+
+### 5.1 Debug client service
+`src/app/services/debug.service.js`:
+- WebSocket client connecting to the Go server.
+- Maintains a `nodeStatus` map (`id → status`).
+- Applies frames respecting `seq` ordering; ignores frames for a different `treeId`.
+
+### 5.2 Node status rendering
+`src/editor/utils/Block.js` + `src/editor/draw/`:
+- Add a `_debugStatus` field to `Block`.
+- Overlay a colored stroke on the existing `_displayShape` based on status.
+- Re-color on `_redraw()`. Look up the target block with `tree.blocks.get(id)`
+  (`BlockManager.get` already resolves a block by id string).
+
+### 5.3 Debug toolbar
+Add buttons to the menubar:
+- Connect / Disconnect, connection-status indicator, tick-rate readout.
+
+### 5.4 Blackboard panel (optional, phase 5)
+Right-side tab showing runtime variables from `blackboard` messages.
+
+---
+
+## 6. JSON Compatibility Prerequisite
+
+The Go runtime distinguishes custom nodes / subtrees using the `category` field
+(`core/BehaviorTree.go`, `Load`). When the editor exports a **single tree**, it
+may omit `category`. Before debugging works for custom-node trees, ensure the
+editor's single-tree export always includes `category`.
+
+This is tracked as **Phase 0** below.
+
+---
+
+## 7. Phased Implementation Plan
+
+Each phase is independently verifiable.
+
+| Phase | Repo | Work | Verify | Risk |
+|-------|------|------|--------|------|
+| **0. JSON compatibility** | editor | Single-tree export always writes `category` | Go loads a custom-node tree without error | Low |
+| **1. Go Debugger interface** | runtime | Define interface + fill 5 TODO hooks | Unit test: hooks fire on tick with correct id/status | Low |
+| **2. Go WS server** | runtime | `debug/` package, coalesce + broadcast | Demo in `examples/`; a browser/wscat receives frames | Medium |
+| **3. Editor WS client** | editor | `debug.service.js` + toolbar | Connect to Go demo; log frames in console | Low |
+| **4. Node highlighting** | editor | Block status stroke rendering | Run Go demo; nodes change color live | Medium (CreateJS render) |
+| **5. Blackboard panel** (optional) | editor | Right-side variable viewer | — | Low |
+
+**MVP = phases 0–4.** Completing them yields the full loop: run a Go program →
+watch nodes pulse and change color in the editor.
+
+---
+
+## 8. Open Items / Future Work
+
+- **Control channel** (editor → Go): pause / step / breakpoints. Protocol slot
+  reserved in §3.2.
+- **Multiple trees / targets**: the runtime can drive many targets with one tree
+  (Blackboard-per-target). A future protocol revision may add a `targetId` to
+  disambiguate which target's execution is being visualized.
+- **Throttle tuning**: 10 Hz is a starting point; expose as a server option if
+  needed.
+- **Security**: localhost-only by default. If exposed over a network, consider a
+  token handshake.
+
+---
+
+## 9. Cross-Repo Coordination
+
+- This document lives in the editor repo (the primary entry point).
+- The Go runtime repo should add a short pointer (e.g. in its README or a
+  `docs/DEBUGGING.md`) linking here, plus its own implementation notes for the
+  `debug/` package once built.
+- Protocol changes must be reflected in **both** repos; treat §3 as the single
+  source of truth.
