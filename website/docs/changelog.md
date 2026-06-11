@@ -8,6 +8,14 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and the project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] — 2026-06-11
+
+### Changed
+- Renamed the product to **Behavior Tree Editor** across all user-facing text (editor UI, README, website, translations). Internal identifiers and the Behavior3 data format are unchanged.
+
+### Added
+- Multi-platform release workflow building Windows x64, Linux x64, and macOS (x64 + arm64) artifacts.
+
 ## [1.0.0] — 2026-06-11
 
 ### Added

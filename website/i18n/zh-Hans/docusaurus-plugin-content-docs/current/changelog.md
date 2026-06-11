@@ -8,6 +8,14 @@ sidebar_position: 99
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，并遵循
 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.0.1] —— 2026-06-11
+
+### 变更
+- 在所有面向用户的文案中将产品更名为 **Behavior Tree Editor**（编辑器界面、README、网站、翻译）。内部标识符与 Behavior3 数据格式保持不变。
+
+### 新增
+- 多平台发布工作流，构建 Windows x64、Linux x64 与 macOS（x64 + arm64）的产物。
+
 ## [1.0.0] —— 2026-06-11
 
 ### 新增
