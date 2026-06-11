@@ -8,6 +8,11 @@ sidebar_position: 99
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，并遵循
 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.0.2] —— 2026-06-11
+
+### 变更
+- 发布的下载产物现命名为 `behavior-tree-editor-*`，取代原来的 `behavior3editor-*`。
+
 ## [1.0.1] —— 2026-06-11
 
 ### 变更

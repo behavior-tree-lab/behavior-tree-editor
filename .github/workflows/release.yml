@@ -40,19 +40,19 @@ jobs:
           - os: windows-latest
             platform: win32
             arch: x64
-            asset: behavior3editor-${{ github.ref_name }}-win32-x64.zip
+            asset: behavior-tree-editor-${{ github.ref_name }}-win32-x64.zip
           - os: ubuntu-latest
             platform: linux
             arch: x64
-            asset: behavior3editor-${{ github.ref_name }}-linux-x64.zip
+            asset: behavior-tree-editor-${{ github.ref_name }}-linux-x64.zip
           - os: macos-latest
             platform: darwin
             arch: x64
-            asset: behavior3editor-${{ github.ref_name }}-darwin-x64.zip
+            asset: behavior-tree-editor-${{ github.ref_name }}-darwin-x64.zip
           - os: macos-latest
             platform: darwin
             arch: arm64
-            asset: behavior3editor-${{ github.ref_name }}-darwin-arm64.zip
+            asset: behavior-tree-editor-${{ github.ref_name }}-darwin-arm64.zip
 
     runs-on: ${{ matrix.os }}
 
