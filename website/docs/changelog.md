@@ -8,6 +8,16 @@ All notable changes to this project are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and the project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] — 2026-06-11
+
+### Added
+- **Documentation site** — bilingual (English / 简体中文) site published to GitHub Pages, with automated CI/CD deployment.
+- Links to the companion Go runtime [henrytien/behavior-tree](https://github.com/henrytien/behavior-tree).
+
+### Changed
+- First stable 1.0 release of this maintained fork.
+- Updated project links and metadata from the unmaintained upstream to this fork.
+
 ## [0.3.1] — 2026-05-30
 
 ### Fixed

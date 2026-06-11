@@ -8,6 +8,16 @@ sidebar_position: 99
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，并遵循
 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.0.0] —— 2026-06-11
+
+### 新增
+- **文档站点** —— 双语（English / 简体中文）站点，发布到 GitHub Pages，并配有自动化 CI/CD 部署。
+- 链接到配套的 Go 运行时 [henrytien/behavior-tree](https://github.com/henrytien/behavior-tree)。
+
+### 变更
+- 本维护 Fork 的首个稳定 1.0 版本。
+- 将项目链接与元数据从无人维护的上游更新为本 Fork。
+
 ## [0.3.1] —— 2026-05-30
 
 ### 修复
