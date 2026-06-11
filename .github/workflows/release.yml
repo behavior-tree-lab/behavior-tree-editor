@@ -12,10 +12,29 @@ on:
 permissions:
   contents: write
 
+env:
+  RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
+
 jobs:
+  # Create (or reuse) the release once, before any build runs, so the
+  # parallel build jobs never race to create the same release.
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure release exists
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          draft: false
+
   build:
+    needs: create-release
     strategy:
       fail-fast: false
+      # Upload one asset at a time to avoid concurrent writes to the release.
+      max-parallel: 1
       matrix:
         include:
           - os: windows-latest
@@ -85,6 +104,6 @@ jobs:
       - name: Upload to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          tag_name: ${{ env.RELEASE_TAG }}
           files: ${{ matrix.asset }}
           fail_on_unmatched_files: true
