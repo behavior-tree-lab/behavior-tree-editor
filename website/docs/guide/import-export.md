@@ -56,6 +56,8 @@ Key fields:
 
 Load the exported JSON in your behavior tree runtime, matching each node's `name` to a registered class. The format is simple and stable, so you can write a reader in any language.
 
+The companion runtime for this editor is [henrytien/behavior-tree](https://github.com/henrytien/behavior-tree), a behavior tree implementation in Go.
+
 ## Importing
 
 Use the import option to bring a project, tree, or node set back into the editor. Trees referencing custom node names will display correctly as long as those node definitions are present in the project (import the nodes or the full project first).

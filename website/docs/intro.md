@@ -28,3 +28,7 @@ This is a maintained fork of the original behavior3editor created by **Renato de
 - Ships desktop binaries via [GitHub Releases](https://github.com/henrytien/behavior-tree-editor/releases)
 
 See the [Changelog](/docs/changelog) for the full history.
+
+## Companion Runtime
+
+To execute the trees you design here, use the companion runtime [henrytien/behavior-tree](https://github.com/henrytien/behavior-tree) — a behavior tree implementation in Go. Export your tree to JSON and load it there.
