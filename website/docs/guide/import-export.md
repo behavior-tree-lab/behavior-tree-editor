@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Import / Export
 
-Behavior3 Editor uses an open JSON format. You can export a whole project, a single tree, or your custom node definitions, and import them back later or load them in your own runtime.
+Behavior Tree Editor uses an open JSON format. You can export a whole project, a single tree, or your custom node definitions, and import them back later or load them in your own runtime.
 
 ## What You Can Export
 

@@ -3,15 +3,15 @@ sidebar_position: 1
 slug: /
 ---
 
-# Behavior3 Editor
+# Behavior Tree Editor
 
-Welcome to the documentation for **Behavior3 Editor**, an open source visual tool to create and design Behavior Trees.
+Welcome to the documentation for **Behavior Tree Editor**, an open source visual tool to create and design Behavior Trees.
 
 ![interface preview](/img/preview.png)
 
 ## What This Is
 
-Behavior3 Editor provides a general solution to model agents for games and other applications, such as simulations and robotics. It is built on the Behavior3 model, which is based on a formal description of behavior trees.
+Behavior Tree Editor provides a general solution to model agents for games and other applications, such as simulations and robotics. It is built on the Behavior3 model, which is based on a formal description of behavior trees.
 
 - **Custom Nodes** — Create your own node types inside one of the four basic categories: *composite*, *decorator*, *action* or *condition*.
 - **Individual Node Properties** — Modify node titles, descriptions and custom properties.

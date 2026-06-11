@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 快速开始
 
-使用 Behavior3 Editor 有两种方式：下载预编译的桌面应用，或从源码构建。
+使用 Behavior Tree Editor 有两种方式：下载预编译的桌面应用，或从源码构建。
 
 ## 下载桌面应用
 

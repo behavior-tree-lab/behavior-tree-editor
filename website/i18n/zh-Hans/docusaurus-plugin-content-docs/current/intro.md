@@ -3,15 +3,15 @@ sidebar_position: 1
 slug: /
 ---
 
-# Behavior3 Editor
+# Behavior Tree Editor
 
-欢迎阅读 **Behavior3 Editor** 的文档。它是一款开源的可视化工具，用于创建和设计行为树（Behavior Tree）。
+欢迎阅读 **Behavior Tree Editor** 的文档。它是一款开源的可视化工具，用于创建和设计行为树（Behavior Tree）。
 
 ![界面预览](/img/preview.png)
 
 ## 这是什么
 
-Behavior3 Editor 提供了一套通用方案，用于为游戏及其他应用（如仿真、机器人等）建模智能体。它基于 Behavior3 模型构建，而该模型源自行为树的形式化描述。
+Behavior Tree Editor 提供了一套通用方案，用于为游戏及其他应用（如仿真、机器人等）建模智能体。它基于 Behavior3 模型构建，而该模型源自行为树的形式化描述。
 
 - **自定义节点** —— 在四个基本类别中创建你自己的节点类型：*组合（composite）*、*装饰（decorator）*、*动作（action）* 或 *条件（condition）*。
 - **独立的节点属性** —— 修改节点的标题、描述和自定义属性。

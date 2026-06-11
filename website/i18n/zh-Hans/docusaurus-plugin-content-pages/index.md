@@ -1,12 +1,12 @@
 ---
-title: Behavior3 Editor
+title: Behavior Tree Editor
 ---
 
-# Behavior3 Editor
+# Behavior Tree Editor
 
 ## 用于设计行为树的可视化编辑器
 
-**Behavior3 Editor** 是一款开源的可视化工具，用于创建和设计行为树（Behavior Tree）。它提供了一套通用方案，为游戏及其他应用（如仿真、机器人等）建模智能体。它采用开放且简单的 JSON 格式，因此你可以轻松地适配到自己的库、工具或框架中。
+**Behavior Tree Editor** 是一款开源的可视化工具，用于创建和设计行为树（Behavior Tree）。它提供了一套通用方案，为游戏及其他应用（如仿真、机器人等）建模智能体。它采用开放且简单的 JSON 格式，因此你可以轻松地适配到自己的库、工具或框架中。
 
 ![界面预览](/img/preview.png)
 
@@ -17,7 +17,7 @@ title: Behavior3 Editor
 - [GitHub 仓库](https://github.com/henrytien/behavior-tree-editor) —— 源码与发布
 - [反馈问题](https://github.com/henrytien/behavior-tree-editor/issues) —— Bug 与功能建议
 
-### 为什么选择 Behavior3 Editor？
+### 为什么选择 Behavior Tree Editor？
 
 - **开源** —— MIT 许可。可自由使用、修改，甚至在公司内部发布定制版本。
 - **开放格式** —— 按简单的开放格式将树导出为 JSON。可用任意语言编写自己的读取器。

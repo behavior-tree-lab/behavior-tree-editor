@@ -1,13 +1,13 @@
-# BEHAVIOR3EDITOR
+# BEHAVIOR TREE EDITOR
 
 ![interface preview](preview.png)
 
-**Behavior3 Editor** is the official visual editor for the **Behavior3** libraries. It can be accessed online or you can download it to have handle local projects.
+**Behavior Tree Editor** is an open source visual editor for designing Behavior Trees. It can be accessed online or you can download it to handle local projects.
 
 
-## Why Behavior3 Editor?
+## Why Behavior Tree Editor?
 
-Why should you use b3editor? What is different from other editors? Can it compete against commercial alternatives? - Well, check it out some characteristics of Behavior3 Editor:
+Why should you use this editor? What is different from other editors? Can it compete against commercial alternatives? - Well, check out some characteristics of Behavior Tree Editor:
 
 - **Open Source Software**: under MIT license, you can use this software freely, adapt it to your need and even use a specialized internal version in your company. You can also contribute with bug fixes, suggestions and patches to make it better.
 
@@ -38,7 +38,7 @@ Why should you use b3editor? What is different from other editors? Can it compet
 
 ## Limitations
 
-Nothing is perfect =( . Behavior3 Editor focus on Chrome (thus, working pretty well on Opera too), so it have some incompatibilities with Firefox, such as the image preview lag when dragging to create a node for the first time, and the ugly scroll bar inside the panels. Not tested on IE!
+Nothing is perfect =( . Behavior Tree Editor focus on Chrome (thus, working pretty well on Opera too), so it have some incompatibilities with Firefox, such as the image preview lag when dragging to create a node for the first time, and the ugly scroll bar inside the panels. Not tested on IE!
 
 
 ## Looking for Behavior Tree Libraries?

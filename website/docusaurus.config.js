@@ -3,7 +3,7 @@ const {themes} = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Behavior3 Editor',
+  title: 'Behavior Tree Editor',
   tagline: 'A visual editor for designing Behavior Trees',
   favicon: 'img/favicon.ico',
 
@@ -82,11 +82,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-        {name: 'description', content: 'Behavior3 Editor is an open source visual tool to create and design Behavior Trees for games, simulations and robotics. Maintained fork with bug fixes and new features.'},
+        {name: 'description', content: 'Behavior Tree Editor is an open source visual tool to create and design Behavior Trees for games, simulations and robotics. Maintained fork with bug fixes and new features.'},
         {property: 'og:image', content: 'https://henrytien.github.io/behavior-tree-editor/img/og-image.png'},
       ],
       navbar: {
-        title: 'Behavior3 Editor',
+        title: 'Behavior Tree Editor',
         items: [
           {
             type: 'docSidebar',

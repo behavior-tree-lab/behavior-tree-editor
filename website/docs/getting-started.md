@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Getting Started
 
-There are two ways to use Behavior3 Editor: download a prebuilt desktop app, or build it from source.
+There are two ways to use Behavior Tree Editor: download a prebuilt desktop app, or build it from source.
 
 ## Download the Desktop App
 

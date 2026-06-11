@@ -1,12 +1,12 @@
 ---
-title: Behavior3 Editor
+title: Behavior Tree Editor
 ---
 
-# Behavior3 Editor
+# Behavior Tree Editor
 
 ## A visual editor for designing Behavior Trees
 
-**Behavior3 Editor** is an open source visual tool to create and design Behavior Trees. It provides a general solution to model agents for games and other applications, such as simulations and robotics. It uses an open — and simple — JSON format, so you can adapt it easily to your own library, tool or framework.
+**Behavior Tree Editor** is an open source visual tool to create and design Behavior Trees. It provides a general solution to model agents for games and other applications, such as simulations and robotics. It uses an open — and simple — JSON format, so you can adapt it easily to your own library, tool or framework.
 
 ![interface preview](/img/preview.png)
 
@@ -17,7 +17,7 @@ title: Behavior3 Editor
 - [GitHub Repository](https://github.com/henrytien/behavior-tree-editor) — Source code and releases
 - [Report an Issue](https://github.com/henrytien/behavior-tree-editor/issues) — Bugs and feature requests
 
-### Why Behavior3 Editor?
+### Why Behavior Tree Editor?
 
 - **Open Source** — MIT licensed. Use it freely, adapt it, even ship an internal version in your company.
 - **Open Format** — Export trees to JSON following a simple open format. Write your own reader in any language.
