@@ -28,17 +28,24 @@
     var treeId = null;
     // nodeStatus: node id -> status string ('running'|'success'|'failure'|'error')
     var nodeStatus = {};
+    // blackboard: latest runtime variable snapshot (key -> value).
+    var blackboard = {};
     // statusListeners are called with (nodeStatusMap) after every applied frame.
     var statusListeners = [];
+    // blackboardListeners are called with (blackboardMap) on each snapshot.
+    var blackboardListeners = [];
 
     var service = {
-      connect          : connect,
-      disconnect       : disconnect,
-      isConnected      : isConnected,
-      getStatuses      : getStatuses,
-      getTreeId        : getTreeId,
-      onStatusChange   : onStatusChange,
-      offStatusChange  : offStatusChange,
+      connect             : connect,
+      disconnect          : disconnect,
+      isConnected         : isConnected,
+      getStatuses         : getStatuses,
+      getBlackboard       : getBlackboard,
+      getTreeId           : getTreeId,
+      onStatusChange      : onStatusChange,
+      offStatusChange     : offStatusChange,
+      onBlackboardChange  : onBlackboardChange,
+      offBlackboardChange : offBlackboardChange,
     };
     return service;
 
@@ -48,6 +55,10 @@
 
     function getStatuses() {
       return nodeStatus;
+    }
+
+    function getBlackboard() {
+      return blackboard;
     }
 
     function getTreeId() {
@@ -65,6 +76,29 @@
     function offStatusChange(listener) {
       var i = statusListeners.indexOf(listener);
       if (i >= 0) statusListeners.splice(i, 1);
+    }
+
+    /**
+     * Subscribe to blackboard snapshots. Returns the listener for removal.
+     */
+    function onBlackboardChange(listener) {
+      blackboardListeners.push(listener);
+      return listener;
+    }
+
+    function offBlackboardChange(listener) {
+      var i = blackboardListeners.indexOf(listener);
+      if (i >= 0) blackboardListeners.splice(i, 1);
+    }
+
+    function _notifyBlackboard() {
+      for (var i = 0; i < blackboardListeners.length; i++) {
+        try {
+          blackboardListeners[i](blackboard);
+        } catch (e) {
+          // A listener must not break the others or the socket.
+        }
+      }
     }
 
     function _notifyListeners() {
@@ -138,8 +172,10 @@
 
     function _clearStatuses() {
       nodeStatus = {};
+      blackboard = {};
       lastSeq = -1;
       _notifyListeners();
+      _notifyBlackboard();
     }
 
     /**
@@ -169,7 +205,13 @@
         return;
       }
 
-      // 'blackboard' and future message types are ignored for now.
+      if (msg.type === 'blackboard') {
+        blackboard = msg.data || {};
+        $rootScope.$applyAsync(_notifyBlackboard);
+        return;
+      }
+
+      // Future message types are ignored for now.
     }
   }
 })();

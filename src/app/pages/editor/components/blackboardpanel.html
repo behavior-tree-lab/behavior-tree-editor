@@ -1,0 +1,19 @@
+<div ng-controller="BlackboardpanelController as blackboardpanel" class="side-panel">
+
+  <div class="title">Blackboard</div>
+
+  <div ng-hide="blackboardpanel.isConnected()" class="properties">
+    <p class="text-center"><em>Connect to a runtime (Debug menu) to watch live variables.</em></p>
+  </div>
+
+  <div ng-show="blackboardpanel.isConnected()" class="properties">
+    <p ng-show="blackboardpanel.entries.length === 0" class="text-center"><em>No variables yet.</em></p>
+    <table ng-show="blackboardpanel.entries.length > 0" class="blackboard-table" style="width:100%">
+      <tr ng-repeat="e in blackboardpanel.entries track by e.key">
+        <td style="font-weight:bold; padding-right:8px; vertical-align:top; word-break:break-all">{{e.key}}</td>
+        <td style="word-break:break-all">{{e.value}}</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
