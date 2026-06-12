@@ -84,18 +84,19 @@
   };
 
   /**
-   * Color map for runtime statuses, matching docs/REALTIME_DEBUGGING.md.
+   * Resolve the highlight color for a status from settings, keyed by the
+   * `debug_<status>_color` setting.
    */
-  Block.DEBUG_COLORS = {
-    running : '#3b9dff',
-    success : '#27ae60',
-    failure : '#e74c3c',
-    error   : '#9b59b6'
+  p._debugColor = function(status) {
+    return this._settings.get('debug_' + status + '_color');
   };
 
   /**
    * Draw (or clear) a colored outline reflecting the node's live runtime
    * status. Pass a falsy status to remove the overlay.
+   *
+   * Colors and outline width come from settings (`debug_*_color`,
+   * `debug_outline_width`), so they are configurable on the Settings page.
    *
    * @method _setDebugStatus
    * @param {String} status One of 'running'|'success'|'failure'|'error', or
@@ -111,9 +112,10 @@
     }
     if (!status) return;
 
-    var color = Block.DEBUG_COLORS[status];
+    var color = this._debugColor(status);
     if (!color) return;
 
+    var width = this._settings.get('debug_outline_width') || 5;
     var w = this._width;
     var h = this._height;
     var pad = 8;
@@ -121,7 +123,7 @@
     // Thick, clearly-offset outline plus a glow so the highlight reads even
     // over a filled node body.
     shape.graphics
-      .setStrokeStyle(5, 'round')
+      .setStrokeStyle(width, 'round')
       .beginStroke(color)
       .drawRoundRect(-w/2-pad, -h/2-pad, w+2*pad, h+2*pad, 8);
     shape.graphics.endStroke();

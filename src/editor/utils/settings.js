@@ -40,7 +40,15 @@
 
     // CONNECTION
     connection_width       : 2,
-    
+
+    // DEBUG (real-time debugging highlight)
+    debug_running_color    : '#3B9DFF',
+    debug_success_color    : '#27AE60',
+    debug_failure_color    : '#E74C3C',
+    debug_error_color      : '#9B59B6',
+    debug_outline_width    : 5,
+    debug_connection_width : 4,
+
     // ANCHOR
     anchor_border_width    : 2,
     anchor_radius          : 7,

@@ -15,6 +15,9 @@
     this._settings = null;
     this._inBlock = null;
     this._outBlock = null;
+    // Real-time debugging: when true, the connection is drawn highlighted to
+    // mark the active execution path.
+    this._debugActive = false;
   };
   var p = createjs.extend(Connection, createjs.Shape);
  
@@ -45,6 +48,10 @@
     var graphics   = this.graphics;
     var width      = s.get('connection_width');
     var color      = s.get('connection_color');
+    if (this._debugActive) {
+      width = s.get('debug_connection_width') || (width + 2);
+      color = s.get('debug_running_color');
+    }
     var diff       = s.get('anchor_radius') + s.get('anchor_border_width');
     var arrowWidth = s.get('anchor_radius')/2;
     var layout     = s.get('layout');
@@ -93,6 +100,20 @@
     graphics.drawPolyStar(x2+ax, y2+ay, arrowWidth, 3, 0, angle);
     graphics.endFill();
     graphics.endStroke();
+  };
+
+  /**
+   * Toggle the active-path highlight. Redraws only when the state changes.
+   *
+   * @method _setDebugActive
+   * @param {Boolean} active
+   * @protected
+   */
+  p._setDebugActive = function(active) {
+    active = !!active;
+    if (this._debugActive === active) return;
+    this._debugActive = active;
+    this._redraw();
   };
 
   b3e.Connection = createjs.promote(Connection, 'Shape');

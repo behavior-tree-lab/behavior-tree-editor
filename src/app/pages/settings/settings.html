@@ -151,7 +151,53 @@
           <input type="color" class="form-control" name="condition_color" ng-model="settings.settings.condition_color">
         </div>
       </div>
-      
+
+      <h2>Debug highlight</h2>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="debug_running_color">Running</label>
+        <div class="col-sm-9">
+          <input type="color" class="form-control" name="debug_running_color" ng-model="settings.settings.debug_running_color">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="debug_success_color">Success</label>
+        <div class="col-sm-9">
+          <input type="color" class="form-control" name="debug_success_color" ng-model="settings.settings.debug_success_color">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="debug_failure_color">Failure</label>
+        <div class="col-sm-9">
+          <input type="color" class="form-control" name="debug_failure_color" ng-model="settings.settings.debug_failure_color">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="debug_error_color">Error</label>
+        <div class="col-sm-9">
+          <input type="color" class="form-control" name="debug_error_color" ng-model="settings.settings.debug_error_color">
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error':settingsForm.debug_outline_width.$invalid}">
+        <label for="debug_outline_width" class="col-sm-3 control-label">Outline width</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" name="debug_outline_width"
+                 ng-model="settings.settings.debug_outline_width" min="1" required>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error':settingsForm.debug_connection_width.$invalid}">
+        <label for="debug_connection_width" class="col-sm-3 control-label">Path line width</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" name="debug_connection_width"
+                 ng-model="settings.settings.debug_connection_width" min="1" required>
+        </div>
+      </div>
+
       <br>
 
       <div class="form-group">

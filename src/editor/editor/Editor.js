@@ -65,6 +65,7 @@
     this._systems.push(new b3e.editor.DragSystem(this));
     this._systems.push(new b3e.editor.CollapseSystem(this));
     this._systems.push(new b3e.editor.ShortcutSystem(this));
+    this._systems.push(new b3e.editor.DebugSystem(this));
     
     // SETTINGS
     this.applySettings('default');
