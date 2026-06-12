@@ -155,6 +155,20 @@
           <li><a ng-click="menubar.onDebugDisconnect()" ng-show="menubar.isDebugConnected()">
             Disconnect
           </a></li>
+          <li class="divider"></li>
+          <li><a ng-click="menubar.onToggleBreakpoint()">
+            Toggle breakpoint <span class="shortcut">on selection</span>
+          </a></li>
+          <li><a ng-click="menubar.onClearBreakpoints()">
+            Clear all breakpoints
+          </a></li>
+          <li class="divider"></li>
+          <li><a ng-click="menubar.onDebugContinue()" ng-class="{disabled: !menubar.isDebugPaused()}">
+            Continue <span class="shortcut">F8</span>
+          </a></li>
+          <li><a ng-click="menubar.onDebugStep()" ng-class="{disabled: !menubar.isDebugPaused()}">
+            Step <span class="shortcut">F10</span>
+          </a></li>
         </ul>
       </li>
 

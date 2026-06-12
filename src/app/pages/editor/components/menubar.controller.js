@@ -51,8 +51,14 @@
     vm.onDebugConnect      = onDebugConnect;
     vm.onDebugDisconnect   = onDebugDisconnect;
     vm.isDebugConnected    = debugService.isConnected;
+    vm.onToggleBreakpoint  = onToggleBreakpoint;
+    vm.onClearBreakpoints  = onClearBreakpoints;
+    vm.onDebugContinue     = onDebugContinue;
+    vm.onDebugStep         = onDebugStep;
+    vm.isDebugPaused       = debugService.isPaused;
 
     var _debugListener = null;
+    var _pauseListener = null;
 
     _create();
     _activate();
@@ -73,6 +79,7 @@
         .then(function(url) {
           debugService.connect(url || 'ws://localhost:6112/debug');
           _debugListener = debugService.onStatusChange(_applyDebugStatuses);
+          _pauseListener = debugService.onPauseChange(_applyPaused);
         });
       return false;
     }
@@ -82,9 +89,60 @@
         debugService.offStatusChange(_debugListener);
         _debugListener = null;
       }
+      if (_pauseListener) {
+        debugService.offPauseChange(_pauseListener);
+        _pauseListener = null;
+      }
       debugService.disconnect();
       _clearDebugStatuses();
       return false;
+    }
+
+    // Toggle a breakpoint on the single selected block.
+    function onToggleBreakpoint() {
+      var tree = _getTree();
+      if (!tree) return false;
+      var selected = tree.blocks.getSelected();
+      if (selected.length !== 1) {
+        notificationService.warning('Breakpoint', 'Select a single node first.');
+        return false;
+      }
+      var block = selected[0];
+      if (block.category === 'root') {
+        notificationService.warning('Breakpoint', 'Cannot break on the root node.');
+        return false;
+      }
+      var on = debugService.toggleBreakpoint(block.id);
+      block._setBreakpoint(on);
+      return false;
+    }
+
+    function onClearBreakpoints() {
+      debugService.clearAllBreakpoints();
+      var tree = _getTree();
+      if (tree) {
+        tree.blocks.each(function(block) { block._setBreakpoint(false); });
+      }
+      return false;
+    }
+
+    function onDebugContinue() {
+      debugService.continueRun();
+      return false;
+    }
+
+    function onDebugStep() {
+      debugService.step();
+      return false;
+    }
+
+    // Mark the paused node (amber halo); clear it elsewhere.
+    function _applyPaused(pausedNodeId) {
+      var tree = _getTree();
+      if (!tree) return;
+      tree.blocks.each(function(block) {
+        block._setPaused(block.id === pausedNodeId);
+      });
     }
 
     /**
@@ -108,8 +166,20 @@
       });
     }
 
+    // Wrap a debug action so a keyboard shortcut runs it inside a digest.
+    function _shortcut_debug(fn) {
+      return function() {
+        if (!$scope.$$phase) {
+          $scope.$apply(fn);
+        } else {
+          fn();
+        }
+        return false;
+      };
+    }
+
     function _shortcut_projectclose(f) {
-      if (!$scope.$$phase) { 
+      if (!$scope.$$phase) {
         $scope.$apply(function() { onCloseProject(); });
       } else {
         onCloseProject();
@@ -138,6 +208,9 @@
       Mousetrap.bind('ctrl+a', onSelectAll);
       Mousetrap.bind('ctrl+shift+a', onDeselectAll);
       Mousetrap.bind('ctrl+i', onInvertSelection);
+      Mousetrap.bind('f9', _shortcut_debug(onToggleBreakpoint));
+      Mousetrap.bind('f8', _shortcut_debug(onDebugContinue));
+      Mousetrap.bind('f10', _shortcut_debug(onDebugStep));
     }
     function _destroy() {
       Mousetrap.unbind('ctrl+q', _shortcut_projectclose);
@@ -153,10 +226,17 @@
       Mousetrap.unbind('ctrl+a', onSelectAll);
       Mousetrap.unbind('ctrl+shift+a', onDeselectAll);
       Mousetrap.unbind('ctrl+i', onInvertSelection);
+      Mousetrap.unbind('f9');
+      Mousetrap.unbind('f8');
+      Mousetrap.unbind('f10');
 
       if (_debugListener) {
         debugService.offStatusChange(_debugListener);
         _debugListener = null;
+      }
+      if (_pauseListener) {
+        debugService.offPauseChange(_pauseListener);
+        _pauseListener = null;
       }
     }
 

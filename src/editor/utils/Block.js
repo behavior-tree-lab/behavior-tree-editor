@@ -37,6 +37,10 @@
     // Real-time debugging: overlay drawn when a runtime status is set.
     this._debugStatus = null;
     this._debugShape = null;
+    // Breakpoint marker (red dot) and paused-at-this-node flag.
+    this._debugBreakpoint = false;
+    this._debugPaused = false;
+    this._debugMarkers = null;
   };
   var p = createjs.extend(Block, createjs.Container);
   
@@ -81,6 +85,7 @@
     // Re-apply the debug overlay if one is active, since removeAllChildren
     // above dropped it.
     if (this._debugStatus) this._setDebugStatus(this._debugStatus);
+    this._redrawDebugMarkers();
   };
 
   /**
@@ -133,6 +138,65 @@
     // Draw the overlay UNDER the node body/symbol so the node text stays
     // readable; addChildAt(...,0) puts it at the back of this container.
     this.addChildAt(shape, 0);
+  };
+
+  /**
+   * Mark or unmark this block as having a breakpoint (red dot, top-left).
+   * @method _setBreakpoint
+   * @param {Boolean} on
+   * @protected
+   */
+  p._setBreakpoint = function(on) {
+    this._debugBreakpoint = !!on;
+    this._redrawDebugMarkers();
+  };
+
+  /**
+   * Mark or unmark this block as the node the tick is paused on (amber halo).
+   * @method _setPaused
+   * @param {Boolean} on
+   * @protected
+   */
+  p._setPaused = function(on) {
+    this._debugPaused = !!on;
+    this._redrawDebugMarkers();
+  };
+
+  /**
+   * Redraw the breakpoint dot and paused halo from the current flags. Kept
+   * separate from the status overlay so the two can change independently.
+   * @method _redrawDebugMarkers
+   * @protected
+   */
+  p._redrawDebugMarkers = function() {
+    if (this._debugMarkers) {
+      this.removeChild(this._debugMarkers);
+      this._debugMarkers = null;
+    }
+    if (!this._debugBreakpoint && !this._debugPaused) return;
+
+    var w = this._width;
+    var h = this._height;
+    var markers = new createjs.Shape();
+    var g = markers.graphics;
+
+    if (this._debugPaused) {
+      // Amber halo around the whole block to mark "frozen here".
+      var pad = 10;
+      g.setStrokeStyle(3, 'round')
+       .beginStroke('#F1C40F')
+       .drawRoundRect(-w/2-pad, -h/2-pad, w+2*pad, h+2*pad, 10)
+       .endStroke();
+      markers.shadow = new createjs.Shadow('#F1C40F', 0, 0, 14);
+    }
+
+    if (this._debugBreakpoint) {
+      // Red dot at the top-left corner.
+      g.beginFill('#E74C3C').drawCircle(-w/2, -h/2, 6).endFill();
+    }
+
+    this._debugMarkers = markers;
+    this.addChild(markers); // on top, so the dot/halo are always visible
   };
 
   /**

@@ -34,6 +34,12 @@
     var statusListeners = [];
     // blackboardListeners are called with (blackboardMap) on each snapshot.
     var blackboardListeners = [];
+    // pausedNodeId is the node the tick is frozen on, or null when running.
+    var pausedNodeId = null;
+    // breakpoints: node id -> true, mirrored locally so the UI can show markers.
+    var breakpoints = {};
+    // pauseListeners are called with (pausedNodeId|null) on pause/resume.
+    var pauseListeners = [];
 
     var service = {
       connect             : connect,
@@ -46,6 +52,17 @@
       offStatusChange     : offStatusChange,
       onBlackboardChange  : onBlackboardChange,
       offBlackboardChange : offBlackboardChange,
+      // breakpoints / stepping
+      toggleBreakpoint    : toggleBreakpoint,
+      hasBreakpoint       : hasBreakpoint,
+      getBreakpoints      : getBreakpoints,
+      clearAllBreakpoints : clearAllBreakpoints,
+      continueRun         : continueRun,
+      step                : step,
+      isPaused            : isPaused,
+      getPausedNodeId     : getPausedNodeId,
+      onPauseChange       : onPauseChange,
+      offPauseChange      : offPauseChange,
     };
     return service;
 
@@ -91,6 +108,78 @@
       if (i >= 0) blackboardListeners.splice(i, 1);
     }
 
+    // --- breakpoints & stepping ---
+
+    function _send(obj) {
+      if (ws && connected) {
+        try { ws.send(JSON.stringify(obj)); } catch (e) {}
+      }
+    }
+
+    function hasBreakpoint(nodeId) {
+      return !!breakpoints[nodeId];
+    }
+
+    function getBreakpoints() {
+      return breakpoints;
+    }
+
+    /**
+     * Toggle a breakpoint on a node and inform the runtime. Works offline too:
+     * the local marker is kept and (re)sent on the next connect via the UI.
+     */
+    function toggleBreakpoint(nodeId) {
+      if (breakpoints[nodeId]) {
+        delete breakpoints[nodeId];
+        _send({ type: 'clearBreakpoint', nodeId: nodeId });
+      } else {
+        breakpoints[nodeId] = true;
+        _send({ type: 'setBreakpoint', nodeId: nodeId });
+      }
+      return !!breakpoints[nodeId];
+    }
+
+    function clearAllBreakpoints() {
+      breakpoints = {};
+      _send({ type: 'clearAllBreakpoints' });
+    }
+
+    function continueRun() {
+      _send({ type: 'continue' });
+    }
+
+    function step() {
+      _send({ type: 'step' });
+    }
+
+    function isPaused() {
+      return pausedNodeId !== null;
+    }
+
+    function getPausedNodeId() {
+      return pausedNodeId;
+    }
+
+    function onPauseChange(listener) {
+      pauseListeners.push(listener);
+      return listener;
+    }
+
+    function offPauseChange(listener) {
+      var i = pauseListeners.indexOf(listener);
+      if (i >= 0) pauseListeners.splice(i, 1);
+    }
+
+    function _notifyPause() {
+      for (var i = 0; i < pauseListeners.length; i++) {
+        try {
+          pauseListeners[i](pausedNodeId);
+        } catch (e) {
+          // A listener must not break the others or the socket.
+        }
+      }
+    }
+
     function _notifyBlackboard() {
       for (var i = 0; i < blackboardListeners.length; i++) {
         try {
@@ -128,6 +217,13 @@
       ws.onopen = function() {
         connected = true;
         lastSeq = -1;
+        // Re-send any breakpoints the user set before/while disconnected, so
+        // the runtime's set matches the editor's markers.
+        for (var nodeId in breakpoints) {
+          if (breakpoints.hasOwnProperty(nodeId)) {
+            _send({ type: 'setBreakpoint', nodeId: nodeId });
+          }
+        }
         $rootScope.$applyAsync(function() {
           notificationService.success('Debug', 'Connected to ' + url);
         });
@@ -174,6 +270,10 @@
       nodeStatus = {};
       blackboard = {};
       lastSeq = -1;
+      if (pausedNodeId !== null) {
+        pausedNodeId = null;
+        _notifyPause();
+      }
       _notifyListeners();
       _notifyBlackboard();
     }
@@ -208,6 +308,20 @@
       if (msg.type === 'blackboard') {
         blackboard = msg.data || {};
         $rootScope.$applyAsync(_notifyBlackboard);
+        return;
+      }
+
+      if (msg.type === 'paused') {
+        pausedNodeId = msg.nodeId;
+        $rootScope.$applyAsync(_notifyPause);
+        return;
+      }
+
+      if (msg.type === 'resumed') {
+        if (pausedNodeId !== null) {
+          pausedNodeId = null;
+          $rootScope.$applyAsync(_notifyPause);
+        }
         return;
       }
 
