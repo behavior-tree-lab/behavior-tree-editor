@@ -116,16 +116,21 @@
 
     var w = this._width;
     var h = this._height;
-    var pad = 4;
+    var pad = 8;
     var shape = new createjs.Shape();
+    // Thick, clearly-offset outline plus a glow so the highlight reads even
+    // over a filled node body.
     shape.graphics
-      .setStrokeStyle(3, 'round')
+      .setStrokeStyle(5, 'round')
       .beginStroke(color)
-      .drawRoundRect(-w/2-pad, -h/2-pad, w+2*pad, h+2*pad, 6);
+      .drawRoundRect(-w/2-pad, -h/2-pad, w+2*pad, h+2*pad, 8);
     shape.graphics.endStroke();
+    shape.shadow = new createjs.Shadow(color, 0, 0, 12);
 
     this._debugShape = shape;
-    this.addChild(shape);
+    // Draw the overlay UNDER the node body/symbol so the node text stays
+    // readable; addChildAt(...,0) puts it at the back of this container.
+    this.addChildAt(shape, 0);
   };
 
   /**
