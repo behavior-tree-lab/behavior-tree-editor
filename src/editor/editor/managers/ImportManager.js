@@ -66,13 +66,22 @@ b3e.editor.ImportManager = function(editor) {
         block.title = spec.title;
         block.description = spec.description;
         block.properties = tine.merge({}, block.properties, spec.properties);
-        // Honor the exported category. Subtree references (category 'tree')
-        // and any node whose definition isn't registered would otherwise fall
-        // back to 'action' in BlockManager.add, drawing the wrong shape and
-        // corrupting layout. Preserve the real category so the block renders
-        // and connects correctly.
-        if (spec.category) {
-          block.category = spec.category;
+        // Resolve the node category. Hand-written / generated trees often omit
+        // it, but the editor relies on it to draw the right shape AND to build
+        // child connections (see the connection loop below, which only wires
+        // 'composite'/'decorator' nodes). Resolution order:
+        //   1. spec.category if present (e.g. subtree refs, category 'tree');
+        //   2. otherwise the registered node definition's category
+        //      (Sequence/Priority/... are composites; Inverter/... decorators).
+        // Without this, a Sequence with no category falls back to 'action' in
+        // BlockManager.add and its children never connect — nodes look loose.
+        var resolvedCategory = spec.category;
+        if (!resolvedCategory) {
+          var def = project.nodes.get(spec.name);
+          if (def && def.category) resolvedCategory = def.category;
+        }
+        if (resolvedCategory) {
+          block.category = resolvedCategory;
           block.name = spec.name;
         }
         block._redraw();
@@ -89,6 +98,7 @@ b3e.editor.ImportManager = function(editor) {
     }
 
     // Add connections
+    var _connCount = 0;
     for (id in data.nodes) {
       spec = data.nodes[id];
       var inBlock = tree.blocks.get(id);
@@ -101,14 +111,20 @@ b3e.editor.ImportManager = function(editor) {
                               inBlock.category == 'root')) {
         children = [spec.child];
       }
-      
+
       if (children) {
         for (var i=0; i<children.length; i++) {
           var outBlock = tree.blocks.get(children[i]);
+          if (!outBlock) {
+            b3e.logger.error('Connection target missing', {parent: id, child: children[i]});
+            continue;
+          }
           tree.connections.add(inBlock, outBlock);
+          _connCount++;
         }
       }
     }
+    b3e.logger.info('Connections built', {treeId: data.id, connections: _connCount});
 
     // Finish
     if (first) {

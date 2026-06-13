@@ -34,6 +34,7 @@
       getProject          : getProject,
       saveProject         : saveProject,
       openProject         : openProject,
+      importProject       : importProject,
       closeProject        : closeProject,
       removeProject       : removeProject,
     };
@@ -117,13 +118,47 @@
     }
     function saveProject(project) {
       project = project || currentProject;
+
+      // Guard: a project imported via "Import Project" never went through
+      // openProject/newProject, so currentProject may be null (no associated
+      // file path). Without this guard, `project.data = ...` throws on null and
+      // wedges the Angular digest, which is what makes Ctrl+S do nothing and
+      // the window unclosable. Fail loudly instead.
+      if (!project) {
+        return $q.reject(new Error('No open project to save. Use "Open Project" so the file path is known, or "Save As".'));
+      }
+      if (!project.path) {
+        return $q.reject(new Error('This project has no file path (it was imported, not opened). Use "Open Project" on the .b3 file to enable saving back to disk.'));
+      }
+
       project.data = editorService.exportProject();
-      
+
       return $q(function(resolve, reject) {
         $window.editor.clearDirty();
         storageService.save(project.path, project);
         _updateRecentProjects(project);
         resolve();
+      });
+    }
+
+    // importProject loads project data into the editor AND registers it with a
+    // file path, so it behaves like Open (saveable) rather than the old Import
+    // (which left currentProject null and crashed on save). path may be null,
+    // in which case the user must Save As before saving works.
+    function importProject(data, path, name) {
+      return $q(function(resolve, reject) {
+        try {
+          editorService.openProject(data);
+          _setProject({
+            name        : name || data.name || 'Imported Project',
+            description : data.description || '',
+            data        : data,
+            path        : path || null,
+          });
+          resolve();
+        } catch (e) {
+          reject(e);
+        }
       });
     }
     function openProject(path) {
