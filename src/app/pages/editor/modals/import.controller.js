@@ -54,7 +54,12 @@
 
       try {
         if (vm.type === 'project' && vm.format === 'json') {
-          i.projectAsData(data);
+          // Import Project = REPLACE the current project, not merge into it.
+          // projectAsData alone only stacks onto whatever is open, so a second
+          // import (or importing over the auto-created empty tree) produces
+          // duplicate-id trees and stray "A behavior tree" roots. open()
+          // closes the current project and builds a fresh one first.
+          $window.editor.project.open(data);
         }
         else if (vm.type === 'tree' && vm.format === 'json') {
           var project = editor.project.get();

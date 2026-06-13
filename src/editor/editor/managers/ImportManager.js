@@ -66,6 +66,15 @@ b3e.editor.ImportManager = function(editor) {
         block.title = spec.title;
         block.description = spec.description;
         block.properties = tine.merge({}, block.properties, spec.properties);
+        // Honor the exported category. Subtree references (category 'tree')
+        // and any node whose definition isn't registered would otherwise fall
+        // back to 'action' in BlockManager.add, drawing the wrong shape and
+        // corrupting layout. Preserve the real category so the block renders
+        // and connects correctly.
+        if (spec.category) {
+          block.category = spec.category;
+          block.name = spec.name;
+        }
         block._redraw();
 
         if (spec.id === data.root) {
