@@ -35,13 +35,33 @@
       // scheduled; no manual $apply needed here.
     }
 
-    // Render values compactly: objects/arrays as JSON, primitives as-is.
+    // Maximum characters shown for a single value; longer ones are truncated so
+    // one big object (e.g. a whole game object stashed in the blackboard) can't
+    // blow up the panel.
+    var MAX_LEN = 200;
+
+    // Render values compactly. Primitives show as-is; arrays show a length tag;
+    // objects show a short JSON preview (truncated). This keeps the panel
+    // readable even when the runtime stuffs large structs into the blackboard.
     function _format(v) {
       if (v === null || v === undefined) return String(v);
-      if (typeof v === 'object') {
-        try { return JSON.stringify(v); } catch (e) { return String(v); }
+
+      if (Array.isArray(v)) {
+        return _truncate('[array(' + v.length + ')] ' + _safeJSON(v));
       }
-      return v;
+      if (typeof v === 'object') {
+        return _truncate('{object} ' + _safeJSON(v));
+      }
+      return _truncate(String(v));
+    }
+
+    function _safeJSON(v) {
+      try { return JSON.stringify(v); } catch (e) { return '(unserializable)'; }
+    }
+
+    function _truncate(s) {
+      if (s.length > MAX_LEN) return s.slice(0, MAX_LEN) + '… (' + s.length + ' chars)';
+      return s;
     }
   }
 })();

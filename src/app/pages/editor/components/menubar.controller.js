@@ -136,32 +136,39 @@
       return false;
     }
 
+    // Run a callback for every block across ALL trees in the project. Status
+    // frames carry node ids from whatever subtree is executing (login_tree,
+    // hall_tree, ...), so highlighting must reach blocks in any tree, not only
+    // the one currently selected.
+    function _eachBlock(fn) {
+      var project = _getProject();
+      if (!project) return;
+      project.trees.each(function(tree) {
+        tree.blocks.each(fn);
+      });
+    }
+
     // Mark the paused node (amber halo); clear it elsewhere.
     function _applyPaused(pausedNodeId) {
-      var tree = _getTree();
-      if (!tree) return;
-      tree.blocks.each(function(block) {
+      _eachBlock(function(block) {
         block._setPaused(block.id === pausedNodeId);
       });
     }
 
     /**
      * Paint each block's outline according to the live status map. Blocks not
-     * present in the map are left unhighlighted.
+     * present in the map are left unhighlighted. Applied across all trees so
+     * subtree execution is visible whichever tree you have open.
      */
     function _applyDebugStatuses(statuses) {
-      var tree = _getTree();
-      if (!tree) return;
-      tree.blocks.each(function(block) {
+      _eachBlock(function(block) {
         if (block.category === 'root') return;
         block._setDebugStatus(statuses[block.id] || null);
       });
     }
 
     function _clearDebugStatuses() {
-      var tree = _getTree();
-      if (!tree) return;
-      tree.blocks.each(function(block) {
+      _eachBlock(function(block) {
         block._setDebugStatus(null);
       });
     }
