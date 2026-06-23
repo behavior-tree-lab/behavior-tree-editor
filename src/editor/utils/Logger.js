@@ -1,5 +1,5 @@
 /**
- * Logger utility for behavior3editor debugging
+ * Logger utility for behavior-tree-editor debugging
  */
 (function () {
   'use strict';
@@ -77,7 +77,7 @@
       var path = window.require('path');
       var app = window.require('app') || window.require('electron').app;
       var logDir = path.join(app.getPath('userData'), 'logs');
-      var logFile = path.join(logDir, 'behavior3editor.log');
+      var logFile = path.join(logDir, 'behavior-tree-editor.log');
 
       if (!fs.existsSync(logDir)) {
         fs.mkdirSync(logDir, { recursive: true });

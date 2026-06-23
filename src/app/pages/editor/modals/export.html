@@ -4,6 +4,14 @@
     <div class="b3modal-wrap">
       <h1 class="b3modal-title">Export {{export.type}} as {{export.format}}</h1>
       <div class="b3modal-content">
+        <div ng-if="export.issues.length" class="alert alert-danger">
+          <strong>{{export.issues.length}} parameter problem(s) must be fixed before saving:</strong>
+          <ul>
+            <li ng-repeat="issue in export.issues">
+              {{issue.title}}: "{{issue.param}}" {{issue.message}}
+            </li>
+          </ul>
+        </div>
         <pre id="export-result">{{export.result||'Loading...'}}</pre>
       </div>
     </div>

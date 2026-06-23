@@ -1,0 +1,72 @@
+<table class="table table-condensed keytable typed-properties">
+  <thead>
+    <tr>
+      <th colspan="2">
+        <label class="control-label">{{typed.heading}}</label>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="param in typed.params"
+        ng-class="{'has-error': typed.hasError(param.name)}">
+      <td class="typed-properties-label">
+        <label class="control-label" title="{{param.description}}">
+          {{param.name}}<span ng-if="param.required" class="typed-required">*</span>
+        </label>
+        <span class="typed-type">{{param.type}}</span>
+      </td>
+      <td class="typed-properties-control">
+
+        <!-- enum -> dropdown of labels, stores numeric value -->
+        <select ng-if="param.type === 'enum'"
+                class="form-control"
+                ng-model="typed.model[param.name]"
+                ng-change="typed.change(param)"
+                ng-options="opt.value as opt.label for opt in typed.optionsFor(param)">
+          <option value="">-- select --</option>
+        </select>
+
+        <!-- int / float -> number input -->
+        <input ng-if="param.type === 'int' || param.type === 'float'"
+               type="number"
+               class="form-control"
+               step="{{param.type === 'float' ? 'any' : '1'}}"
+               placeholder="{{typed.placeholderFor(param)}}"
+               ng-model="typed.model[param.name]"
+               ng-change="typed.change(param)"/>
+
+        <!-- bool -> checkbox -->
+        <input ng-if="param.type === 'bool'"
+               type="checkbox"
+               ng-model="typed.model[param.name]"
+               ng-change="typed.change(param)"/>
+
+        <!-- string -> text input -->
+        <input ng-if="param.type === 'string'"
+               type="text"
+               class="form-control"
+               placeholder="{{typed.placeholderFor(param)}}"
+               ng-model="typed.model[param.name]"
+               ng-change="typed.change(param)"/>
+
+        <!-- uint64list -> comma/space separated list (stored as string to
+             avoid float64 precision loss for large role ids) -->
+        <input ng-if="param.type === 'uint64list'"
+               type="text"
+               class="form-control"
+               placeholder="e.g. 1001, 1002, 1003"
+               ng-model="typed.model[param.name]"
+               ng-change="typed.change(param)"/>
+
+        <div ng-if="typed.hasError(param.name)" class="typed-error">
+          {{param.name}} {{typed.errorFor(param.name)}}
+        </div>
+      </td>
+    </tr>
+
+    <tr ng-if="typed.params.length === 0">
+      <td colspan="2"><em class="text-muted">This node has no parameters.</em></td>
+    </tr>
+  </tbody>
+</table>

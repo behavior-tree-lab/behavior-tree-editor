@@ -1,12 +1,12 @@
 {
-  "name"    : "behavior3editor",
+  "name"    : "behavior-tree-editor",
   "version" : "[BUILD_VERSION]",
   "main"    : "desktop.js",
   "dependencies": {
     "@electron/remote": "^2.1.3"
   },
   "window": {
-    "title"      : "Behavior3 Editor (v[BUILD_VERSION]) https://henrytien.github.io/behavior-tree-editor/",
+    "title"      : "Behavior Tree Editor (v[BUILD_VERSION]) https://henrytien.github.io/behavior-tree-editor/",
     "position"   : "center",
     "toolbar"    : false,
     "frame"      : true,

@@ -39,5 +39,6 @@ output
 src/vendor
 cache
 teste.py
+.chrome-test-profile
 
 ignore-*

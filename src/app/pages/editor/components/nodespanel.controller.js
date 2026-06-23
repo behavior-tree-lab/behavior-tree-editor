@@ -39,6 +39,7 @@
       };
 
       var p = $window.editor.project.get();
+      if (!p) return;
       p.nodes.each(function(node) {
         if (node.category === 'tree') return;
 

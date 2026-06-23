@@ -3,6 +3,9 @@ b3e.editor.ConnectionSystem = function(editor) {
 
   var connection = null;
   var lastOutBlock = null;
+  var dataConnection = null;
+  var dataSourceBlock = null;
+  var dataSourcePin = null;
 
   this.update = function(delta) {};
 
@@ -21,7 +24,19 @@ b3e.editor.ConnectionSystem = function(editor) {
     var y = point.y;
     var block = tree.blocks.getUnderPoint(x, y);
 
-    if (connection || !block) return;
+    if (connection || dataConnection || !block) return;
+
+    var dataPin = block._hitDataPin ? block._hitDataPin(x, y) : null;
+    if (dataPin && dataPin.direction === 'output') {
+      dataConnection = new b3e.DataConnection();
+      dataConnection._sourceBlock = block;
+      dataConnection._sourcePin = dataPin.pin;
+      dataConnection._applySettings(editor._settings);
+      tree._connections.addChild(dataConnection);
+      dataSourceBlock = block;
+      dataSourcePin = dataPin;
+      return;
+    }
 
     if (block._hitOutAnchor(x, y)) {
       // if user clicked at the outAnchor
@@ -43,7 +58,7 @@ b3e.editor.ConnectionSystem = function(editor) {
 
   this.onMouseMove = function(e) {
     // if no connection, return
-    if (!connection) return;
+    if (!connection && !dataConnection) return;
 
     var project = editor.project.get();
     if (!project) return;
@@ -55,15 +70,18 @@ b3e.editor.ConnectionSystem = function(editor) {
     var x = point.x;
     var y = point.y;
 
-    // redraw
-    connection._redraw(null, null, x, y);
+    if (dataConnection) {
+      dataConnection._redraw(null, null, x, y);
+    } else {
+      connection._redraw(null, null, x, y);
+    }
   };
 
   this.onMouseUp = function(e) {
     if (e.nativeEvent.which !== 1) return;
 
     // if no connection, return
-    if (!connection) return;
+    if (!connection && !dataConnection) return;
 
     var project = editor.project.get();
     if (!project) return;
@@ -76,6 +94,29 @@ b3e.editor.ConnectionSystem = function(editor) {
     var x = point.x;
     var y = point.y;
     var block = tree.blocks.getUnderPoint(x, y);
+
+    if (dataConnection) {
+      var targetPin = block && block._hitDataPin ? block._hitDataPin(x, y) : null;
+      if (block && targetPin &&
+          block._canConnectDataPin(targetPin, dataSourcePin, dataSourceBlock)) {
+        var removed = block._removeDataConnection(targetPin.pin);
+        if (removed) tree._connections.removeChild(removed);
+
+        dataConnection._targetBlock = block;
+        dataConnection._targetPin = targetPin.pin;
+        dataConnection._redraw();
+        block._addDataConnection(targetPin.pin, dataSourceBlock.id,
+                                 dataSourcePin.pin, dataConnection);
+        editor.trigger('dataconnectionadded', dataConnection);
+      } else {
+        tree._connections.removeChild(dataConnection);
+      }
+
+      dataConnection = null;
+      dataSourceBlock = null;
+      dataSourcePin = null;
+      return;
+    }
 
     // if not connection or connection but no block
     project.history._beginBatch();

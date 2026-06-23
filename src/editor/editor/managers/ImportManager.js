@@ -139,8 +139,103 @@ b3e.editor.ImportManager = function(editor) {
     tree.selection.select(root);
     project.history.clear();
 
+    // Reconstruct additive data-pin wires after every block exists. Self
+    // contained (re-resolves the tree from data.id) so it adds no new
+    // out-of-scope references; graceful on missing sources / no schema.
+    this._reconstructDataConnections(data);
+
     editor.trigger('treeimported');
   };
+
+  // Rebuild b3e.DataConnection objects from the additive `dataConnections`
+  // arrays on imported node specs. Validation is best-effort:
+  //   - missing/unknown source block        -> skip + warn (graceful) [C5];
+  //   - schema present and pin not declared  -> skip + warn;
+  //   - schema absent                        -> reconstruct without pin check.
+  // Same-tree only; last-wire-wins per input pin (enforced in Block).
+  this._reconstructDataConnections = function(data) {
+    var project = editor.project.get();
+    if (!project || !data || !data.nodes) return;
+    var tree = project.trees.get(data.id);
+    if (!tree) return;
+
+    var schema = (typeof b3e.schema !== 'undefined') ? b3e.schema : null;
+    var built = 0;
+
+    for (var id in data.nodes) {
+      if (!data.nodes.hasOwnProperty(id)) continue;
+      var spec = data.nodes[id];
+      var links = spec && spec.dataConnections;
+      if (!links || !links.length) continue;
+
+      var targetBlock = tree.blocks.get(id);
+      if (!targetBlock) {
+        b3e.logger.error('Data link target block missing', {node: id});
+        continue;
+      }
+
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        if (!link || !link.targetPin || !link.sourceNodeId || !link.sourcePin) {
+          b3e.logger.error('Data link malformed; skipped',
+                           {node: id, link: link});
+          continue;
+        }
+
+        var sourceBlock = tree.blocks.get(link.sourceNodeId);
+        if (!sourceBlock) {
+          // Graceful: source deleted/absent -> target keeps its explicit
+          // property value (today's behavior). Warn so it is traceable.
+          b3e.logger.error('Data link source missing; falling back to property',
+                           {node: id, targetPin: link.targetPin,
+                            sourceNodeId: link.sourceNodeId});
+          continue;
+        }
+
+        if (!validatePins(schema, targetBlock, link.targetPin,
+                          sourceBlock, link.sourcePin)) {
+          b3e.logger.error('Data link pin not in schema; skipped',
+                           {node: id, targetPin: link.targetPin,
+                            sourcePin: link.sourcePin});
+          continue;
+        }
+
+        var conn = new b3e.DataConnection();
+        conn._sourceBlock = sourceBlock;
+        conn._sourcePin   = link.sourcePin;
+        conn._targetBlock = targetBlock;
+        conn._targetPin   = link.targetPin;
+        conn._applySettings(editor._settings);
+        tree._connections.addChild(conn);
+
+        targetBlock._addDataConnection(link.targetPin, link.sourceNodeId,
+                                       link.sourcePin, conn);
+        built++;
+      }
+    }
+    b3e.logger.info('Data links built', {treeId: data.id, dataConnections: built});
+  };
+
+  // Returns true when both pins are declared in the schema (target as an input,
+  // source as an output). When no schema is loaded, returns true so links are
+  // still reconstructed (graceful degradation).
+  function validatePins(schema, targetBlock, targetPin, sourceBlock, sourcePin) {
+    if (!schema || !schema.nodes) return true;
+    var tNode = schema.nodes[targetBlock.name];
+    var sNode = schema.nodes[sourceBlock.name];
+    // Unknown node type in schema -> do not block (custom nodes have no schema).
+    if (!tNode || !sNode) return true;
+    return pinDeclared(tNode.inputs, targetPin) &&
+           pinDeclared(sNode.outputs, sourcePin);
+  }
+
+  function pinDeclared(pins, name) {
+    if (!pins) return false;
+    for (var i = 0; i < pins.length; i++) {
+      if (pins[i] && pins[i].pin === name) return true;
+    }
+    return false;
+  }
 
   this.treesAsData = function(data) {
 	var project = editor.project.get();

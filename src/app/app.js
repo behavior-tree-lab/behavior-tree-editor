@@ -56,6 +56,7 @@ angular.module('app', [
               $state.go('editor');
               closePreload();
             }, function() {
+              $state.go('dash.projects');
               closePreload();
           });
         } else {

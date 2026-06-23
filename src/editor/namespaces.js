@@ -31,5 +31,12 @@ window.b3e.editor  = window.b3e.editor || {};
 window.b3e.project = window.b3e.project || {};
 window.b3e.tree    = window.b3e.tree || {};
 
+// Optional node schema (the editor-side projection of the Go runtime node
+// definitions). The Angular SchemaService publishes it here so the non-Angular
+// b3e editor layer (e.g. ImportManager data-pin validation) can read it without
+// coupling to Angular. Stays null until set; consumers must degrade gracefully
+// when it is null (no pin-type validation, links still reconstructed).
+window.b3e.schema  = window.b3e.schema || null;
+
 
 window.b3e.VERSION = '[BUILD_VERSION]';

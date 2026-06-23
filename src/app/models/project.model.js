@@ -33,6 +33,7 @@
       newProject          : newProject,
       getProject          : getProject,
       saveProject         : saveProject,
+      saveAsProject       : saveAsProject,
       openProject         : openProject,
       importProject       : importProject,
       closeProject        : closeProject,
@@ -41,10 +42,26 @@
     return service;
 
     // BODY //
+    function _ensureRecentProjects() {
+      if (recentCache) return;
+
+      try {
+        recentCache = storageService.load(recentPath);
+      } catch (e) {}
+
+      if (!recentCache) {
+        recentCache = [];
+      }
+      recentCache = recentCache.filter(function(item) {
+        return item && item.path;
+      });
+    }
     function _saveRecentProjects() {
+      _ensureRecentProjects();
       storageService.save(recentPath, recentCache);
     }
     function _updateRecentProjects(project) {
+      _ensureRecentProjects();
       if (project) {
         for (var i=recentCache.length-1; i>=0; i--) {
           if (recentCache[i].path === project.path) {
@@ -69,6 +86,15 @@
       }
       _saveRecentProjects();
     }
+    function _clearOpenRecent(path) {
+      _ensureRecentProjects();
+      for (var i=0; i<recentCache.length; i++) {
+        if (!path || recentCache[i].path === path) {
+          recentCache[i].isOpen = false;
+        }
+      }
+      _saveRecentProjects();
+    }
     function _setProject(project) {
       // Set current open project to the localStorage, so the app can open it
       //   during intialization
@@ -79,19 +105,7 @@
 
     function getRecentProjects() {
       return $q(function(resolve, reject) {
-        if (!recentCache) {
-          var data;
-
-          try {
-            data = storageService.load(recentPath);
-          } catch (e) {}
-
-          if (!data) {
-            data = [];
-          }
-
-          recentCache = data;
-        }
+        _ensureRecentProjects();
         resolve(recentCache);
       });
     }
@@ -116,6 +130,51 @@
     function getProject() {
       return currentProject;
     }
+    function _getNameFromPath(path) {
+      if (!path) return 'Opened Project';
+      var normalized = String(path).replace(/\\/g, '/');
+      var name = normalized.split('/').pop() || 'Opened Project';
+      return name.replace(/\.(b3|json)$/i, '');
+    }
+    function _wrapLoadedProject(data, path) {
+      if (data && data.data && (data.data.trees || data.data.custom_nodes)) {
+        data.path = path;
+        data._fileShape = 'envelope';
+        return data;
+      }
+
+      return {
+        name        : data.name || _getNameFromPath(path),
+        description : data.description || '',
+        data        : data,
+        path        : path,
+        _fileShape  : 'project'
+      };
+    }
+    function _dataToSave(project) {
+      if (project._fileShape === 'project') {
+        return project.data;
+      }
+
+      var data = {};
+      for (var key in project) {
+        if (!project.hasOwnProperty(key) || key === '_fileShape') continue;
+        data[key] = project[key];
+      }
+      return data;
+    }
+    function saveAsProject(path, project) {
+      project = project || currentProject;
+      if (!project) {
+        return $q.reject(new Error('No open project to save.'));
+      }
+
+      project.path = path;
+      if (!project._fileShape) {
+        project._fileShape = 'envelope';
+      }
+      return saveProject(project);
+    }
     function saveProject(project) {
       project = project || currentProject;
 
@@ -128,14 +187,14 @@
         return $q.reject(new Error('No open project to save. Use "Open Project" so the file path is known, or "Save As".'));
       }
       if (!project.path) {
-        return $q.reject(new Error('This project has no file path (it was imported, not opened). Use "Open Project" on the .b3 file to enable saving back to disk.'));
+        return $q.reject(new Error('This project has no file path. Use Save As to choose where it should be written.'));
       }
 
       project.data = editorService.exportProject();
 
       return $q(function(resolve, reject) {
         $window.editor.clearDirty();
-        storageService.save(project.path, project);
+        storageService.save(project.path, _dataToSave(project));
         _updateRecentProjects(project);
         resolve();
       });
@@ -163,12 +222,19 @@
     }
     function openProject(path) {
       return $q(function(resolve, reject) {
+        if (!path) {
+          _clearOpenRecent(path);
+          reject(new Error('No project file path was provided.'));
+          return;
+        }
+
         try {
-          var project = storageService.load(path);
+          var project = _wrapLoadedProject(storageService.load(path), path);
           editorService.openProject(project.data);
           _setProject(project);
           resolve();
         } catch (e) {
+          _clearOpenRecent(path);
           reject(e);
         }
       });

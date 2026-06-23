@@ -12,7 +12,8 @@
     '$stateParams',
     'dialogService',
     'notificationService',
-    'storageService'
+    'storageService',
+    'treeValidatorService'
   ];
 
   function ExportController($scope,
@@ -21,7 +22,8 @@
                             $stateParams,
                             dialogService,
                             notificationService,
-                            storageService) {
+                            storageService,
+                            treeValidatorService) {
     var vm = this;
     vm.type        = null;
     vm.format      = null;
@@ -29,6 +31,7 @@
     vm.pretty      = '';
     vm.result      = null;
     vm.data        = null;
+    vm.issues      = [];     // schema validation issues blocking save [D4]
     vm.hideCompact = false;
     vm.showCompact = showCompact;
     vm.showPretty  = showPretty;
@@ -59,6 +62,11 @@
       vm.compact = JSON3.stringify(data);
       vm.pretty = JSON3.stringify(data, null, 2);
       vm.result = vm.pretty;
+
+      // Validate against the node schema; a required-but-missing param or an
+      // illegal enum value blocks save because it would panic the runtime [B1].
+      var report = treeValidatorService.validateTreeData(data);
+      vm.issues = report.issues;
     }
 
     function select(){
@@ -70,6 +78,15 @@
     }
 
     function save() {
+      if (vm.issues && vm.issues.length) {
+        var first = vm.issues[0];
+        notificationService.error(
+          'Cannot save: invalid parameters',
+          first.title + ': "' + first.param + '" ' + first.message +
+            (vm.issues.length > 1 ? ' (+' + (vm.issues.length - 1) + ' more)' : '')
+        );
+        return;
+      }
       dialogService
         .saveAs(null, ['.b3', '.json'])
         .then(function(path) {

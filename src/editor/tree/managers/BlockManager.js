@@ -13,6 +13,11 @@ b3e.tree.BlockManager = function(editor, project, tree) {
     for (var j=0; j<block._outConnections.length; j++) {
       block._outConnections[j]._redraw();
     }
+    tree.connections.each(function(conn) {
+      if (conn._sourceBlock === block || conn._targetBlock === block) {
+        conn._redraw();
+      }
+    });
   };
 
   /**
@@ -86,7 +91,8 @@ b3e.tree.BlockManager = function(editor, project, tree) {
     for (var i=blocks.length-1; i>=0; i--) {
       var block = blocks[i];
 
-      if (block._hitTest(x, y)) return block;
+      if (block._hitTest(x, y) ||
+          (block._hitDataPin && block._hitDataPin(x, y))) return block;
     }
   };
   this.getSelected = function() {
@@ -146,6 +152,11 @@ b3e.tree.BlockManager = function(editor, project, tree) {
     for (var j=0; j<block._outConnections.length; j++) {
       block._outConnections[j]._redraw();
     }
+    tree.connections.each(function(conn) {
+      if (conn._sourceBlock === block || conn._targetBlock === block) {
+        conn._redraw();
+      }
+    });
     
     if (!mustSave) project.history._lock();
 

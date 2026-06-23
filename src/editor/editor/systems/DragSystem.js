@@ -26,6 +26,8 @@ b3e.editor.DragSystem = function(editor) {
     // if mouse not on block
     if (!block) return;
 
+    if (block._hitDataPin && block._hitDataPin(x, y)) return;
+
     // if no block selected
     if (!block._isSelected) return;
 
@@ -74,6 +76,14 @@ b3e.editor.DragSystem = function(editor) {
       }
       for (var j=0; j<block._outConnections.length; j++) {
         block._outConnections[j]._redraw();
+      }
+      var currentBlock = block;
+      var conns = tree._connections.children;
+      for (var k=0; k<conns.length; k++) {
+        var conn = conns[k];
+        if (conn._sourceBlock === currentBlock || conn._targetBlock === currentBlock) {
+          conn._redraw();
+        }
       }
     }
   };

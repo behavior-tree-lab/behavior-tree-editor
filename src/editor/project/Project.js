@@ -20,6 +20,18 @@
   };
   var p = createjs.extend(Project, createjs.Container);
 
+  function defaultProperties(schema) {
+    var properties = {};
+    var params = schema.params || [];
+    for (var i = 0; i < params.length; i++) {
+      var param = params[i];
+      if (param && typeof param.default !== 'undefined' && param.default !== null) {
+        properties[param.name] = param.default;
+      }
+    }
+    return properties;
+  }
+
   p._initialize = function() {
     this.trees = new b3e.project.TreeManager(this._editor, this);
     this.nodes = new b3e.project.NodeManager(this._editor, this);
@@ -41,6 +53,21 @@
     this.nodes.add(b3.Runner, true);
     this.nodes.add(b3.Error, true);
     this.nodes.add(b3.Wait, true);
+
+    if (typeof b3e.schema !== 'undefined' && b3e.schema && b3e.schema.nodes) {
+      for (var name in b3e.schema.nodes) {
+        if (!b3e.schema.nodes.hasOwnProperty(name)) continue;
+        if (this.nodes.get(name)) continue;
+        var schema = b3e.schema.nodes[name];
+        this.nodes.add({
+          name        : name,
+          title       : schema.title || name,
+          category    : schema.category || 'action',
+          description : schema.description || '',
+          properties  : defaultProperties(schema)
+        }, true);
+      }
+    }
 
     this._applySettings(this._editor._settings);
     this.history.clear();

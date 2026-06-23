@@ -9,7 +9,7 @@ app.commandLine.appendSwitch('disable-software-rasterizer');
 const appDir = path.dirname(process.execPath);
 const logDir = path.join(appDir, 'logs');
 if (!fs.existsSync(logDir)) { fs.mkdirSync(logDir, { recursive: true }); }
-const logFile = path.join(logDir, 'behavior3editor.log');
+const logFile = path.join(logDir, 'behavior-tree-editor.log');
 
 function log(level, msg) {
   const timestamp = new Date().toISOString();

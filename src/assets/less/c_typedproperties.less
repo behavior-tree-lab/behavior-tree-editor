@@ -1,0 +1,44 @@
+.typed-properties {
+  .typed-properties-label {
+    width: 40%;
+    vertical-align: top;
+
+    .control-label {
+      display: block;
+      font-weight: bold;
+      word-break: break-all;
+    }
+
+    .typed-type {
+      display: block;
+      font-size: 10px;
+      opacity: 0.6;
+      text-transform: uppercase;
+    }
+  }
+
+  .typed-properties-control {
+    vertical-align: top;
+  }
+
+  .typed-required {
+    color: #E74C3C;
+    margin-left: 2px;
+  }
+
+  tr.has-error {
+    .control-label {
+      color: #E74C3C;
+    }
+    input.form-control,
+    select.form-control {
+      border-color: #E74C3C;
+    }
+  }
+
+  .typed-error {
+    color: #E74C3C;
+    font-size: 11px;
+    margin-top: 3px;
+  }
+}

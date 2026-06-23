@@ -117,4 +117,104 @@
   };
 
   b3e.Connection = createjs.promote(Connection, 'Shape');
+
+  /**
+   * Represents a DATA connection between an output pin of one block and an
+   * input pin of another block (Unreal-blueprint-style data wiring), as
+   * opposed to the parent/child tree edge drawn by `Connection`.
+   *
+   * It is a distinct class (not a flag on `Connection`) so the tree-edge
+   * render/hit/event code does not have to branch on a data flag [C4]. A
+   * data connection is purely visual + a model link; the runtime ignores it.
+   *
+   * @class DataConnection
+   * @constructor
+   */
+  var DataConnection = function() {
+    this.Shape_constructor();
+
+    this._settings   = null;
+    // Source block (the producer / output side) and its output pin name.
+    this._sourceBlock = null;
+    this._sourcePin   = null;
+    // Target block (the consumer / input side) and its input pin name.
+    this._targetBlock = null;
+    this._targetPin   = null;
+  };
+  var dp = createjs.extend(DataConnection, createjs.Shape);
+
+  dp._applySettings = function(settings) {
+    this._settings = settings;
+    this._redraw();
+  };
+
+  /**
+   * Redraw the data wire as a dashed curve from the source block's output
+   * anchor to the target block's input anchor. Drawn defensively: if either
+   * endpoint or settings are missing it simply clears, so a partially-built
+   * connection never throws during organize/import.
+   *
+   * @method _redraw
+   * @protected
+   */
+  dp._redraw = function(x1, y1, x2, y2) {
+    var graphics = this.graphics;
+    graphics.clear();
+
+    if (!this._settings || !this._sourceBlock || (!this._targetBlock && !(x2 === 0 || x2))) {
+      return;
+    }
+
+    var s      = this._settings;
+    var width  = s.get('data_connection_width') || 3;
+    var color  = s.get('data_connection_color') || '#2ECC71';
+    var layout = s.get('layout');
+
+    var srcPin = {
+      pin: this._sourcePin,
+      type: '',
+      direction: 'output'
+    };
+    var src = this._sourceBlock._getDataPinPosition ?
+      this._sourceBlock._getDataPinPosition(srcPin) :
+      this._sourceBlock._getOutAnchorPosition();
+    x1 = src.x;
+    y1 = src.y;
+
+    if (this._targetBlock) {
+      var dstPin = {
+        pin: this._targetPin,
+        type: '',
+        direction: 'input'
+      };
+      var dst = this._targetBlock._getDataPinPosition ?
+        this._targetBlock._getDataPinPosition(dstPin) :
+        this._targetBlock._getInAnchorPosition();
+      x2 = dst.x;
+      y2 = dst.y;
+    }
+
+    var dx = 0, dy = 0;
+    if (layout === 'horizontal') {
+      dx = 2.5 * (x2 - x1) / 4;
+    } else {
+      dy = 2.5 * (y2 - y1) / 4;
+    }
+
+    // Draw a solid, rounded spline so data flow reads as a first-class wire
+    // rather than a temporary debug mark.
+    graphics.setStrokeStyle(width + 3, 'round');
+    graphics.beginStroke('rgba(0, 0, 0, 0.38)');
+    graphics.moveTo(x1, y1);
+    graphics.bezierCurveTo(x1 + dx, y1 + dy, x2 - dx, y2 - dy, x2, y2);
+    graphics.endStroke();
+
+    graphics.setStrokeStyle(width, 'round');
+    graphics.beginStroke(color);
+    graphics.moveTo(x1, y1);
+    graphics.bezierCurveTo(x1 + dx, y1 + dy, x2 - dx, y2 - dy, x2, y2);
+    graphics.endStroke();
+  };
+
+  b3e.DataConnection = createjs.promote(DataConnection, 'Shape');
 })();

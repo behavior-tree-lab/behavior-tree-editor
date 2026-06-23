@@ -300,20 +300,31 @@
       return false;
     }
     function onSaveProject() {
-      projectModel
-        .saveProject()
+      _saveProject()
         .then(function() {
           notificationService.success(
             'Project saved',
             'The project has been saved'
           );
-        }, function() {
+        }, function(err) {
+          var message = err && err.message ? err.message : 'Project couldn\'t be saved';
           notificationService.error(
             'Error',
-            'Project couldn\'t be saved'
+            message
           );
         });
       return false;
+    }
+    function _saveProject() {
+      var project = projectModel.getProject();
+      if (project && !project.path) {
+        return dialogService
+          .saveAs(project.name || 'project', ['.b3', '.json'])
+          .then(function(path) {
+            return projectModel.saveAsProject(path, project);
+          });
+      }
+      return projectModel.saveProject();
     }
     function onNewTree() {
       var project = _getProject();

@@ -72,11 +72,11 @@ function dialogService($window, $q, $document, nodejsService) {
   }
   function saveAs(placeholder, types) {
     return $q(function(resolve, reject) {
-      var value = nodejsService.dialog.showSaveDialog({
+      var value = nodejsService.dialog.showSaveDialogSync({
         title: 'Save project as...',
         defaultPath: placeholder + '.b3',
         filters : [
-          {name: 'Behavior3 File', extensions: ['b3', 'json']},
+          {name: 'Behavior Tree File', extensions: ['b3', 'json']},
           {name: 'All Files', extensions: ['*']}
         ]
       });
@@ -89,12 +89,12 @@ function dialogService($window, $q, $document, nodejsService) {
   }
   function openFile(multiple, types) {
     return $q(function(resolve, reject) {
-      var value = nodejsService.dialog.showOpenDialog({
+      var value = nodejsService.dialog.showOpenDialogSync({
         title: 'Open file...',
         multiSelections: multiple,
         properties: ['openFile'],
         filters : [
-          {name: 'Behavior3 File', extensions: ['b3', 'json']},
+          {name: 'Behavior Tree File', extensions: ['b3', 'json']},
           {name: 'All Files', extensions: ['*']}
         ]
       });
@@ -112,7 +112,7 @@ function dialogService($window, $q, $document, nodejsService) {
   }
   function openDirectory() {
     return $q(function(resolve, reject) {
-      var value = nodejsService.dialog.showOpenDialog({
+      var value = nodejsService.dialog.showOpenDialogSync({
         title: 'Open directory...',
         properties: ['openDirectory']
       });

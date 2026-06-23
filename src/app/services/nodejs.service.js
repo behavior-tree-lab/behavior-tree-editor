@@ -13,6 +13,14 @@ function nodejsService($window) {
     try {
       remote = $window.require('@electron/remote');
       dialog = remote.dialog;
+      dialog.showSaveDialogSync = dialog.showSaveDialogSync || function(options) {
+        var result = dialog.showSaveDialog(options);
+        return result && result.filePath;
+      };
+      dialog.showOpenDialogSync = dialog.showOpenDialogSync || function(options) {
+        var result = dialog.showOpenDialog(options);
+        return result && result.filePaths;
+      };
     } catch(e) {
       ok = false;
     }
@@ -22,6 +30,7 @@ function nodejsService($window) {
     ok     : ok,
     fs     : (ok ? $window.require('fs') : null),
     path   : (ok ? $window.require('path') : null),
+    remote : remote,
     dialog : dialog,
   };
   return service;

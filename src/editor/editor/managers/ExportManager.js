@@ -23,6 +23,27 @@ b3e.editor.ExportManager = function(editor) {
     return nodes;
   }
 
+  // Serialize a block's data-pin links to the additive `dataConnections` array.
+  // Only the model fields are emitted (never the display object). Entries with
+  // a missing source/target/pin are skipped defensively so a half-built wire
+  // can never corrupt the exported tree.
+  function exportDataConnections(block) {
+    var out = [];
+    var links = block._dataConnections || [];
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      if (!link || !link.targetPin || !link.sourceNodeId || !link.sourcePin) {
+        continue;
+      }
+      out.push({
+        targetPin    : link.targetPin,
+        sourceNodeId : link.sourceNodeId,
+        sourcePin    : link.sourcePin
+      });
+    }
+    return out;
+  }
+
   this.projectToData = function() {
     var project = editor.project.get();
     if (!project) return;
@@ -98,6 +119,14 @@ b3e.editor.ExportManager = function(editor) {
           d.children = children;
         } else if (block.category === 'decorator') {
           d.child = children[0];
+        }
+
+        // Additive data-pin links (Unreal-style wiring). Emitted only when the
+        // node actually has wires so existing trees round-trip byte-identical
+        // and the Go runtime (which ignores unknown keys) is unaffected [C5].
+        var dataConns = exportDataConnections(block);
+        if (dataConns.length > 0) {
+          d.dataConnections = dataConns;
         }
 
         data.nodes[block.id] = d;

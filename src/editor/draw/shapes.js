@@ -165,8 +165,13 @@
   b3e.draw.actionShape = function(block, settings) {
 
     var bounds = block._displaySymbol.getBounds();
+    var hasDataPins = block._getDataPins && block._getDataPins().length > 0;
     var w = Math.max(bounds.width+15, block._width);
     var h = Math.max(bounds.height+15, block._height);
+    if (hasDataPins) {
+      w = Math.max(bounds.width+44, w, 190);
+      h = Math.max(bounds.height+52, h, 66);
+    }
     var anchorOffsetX = settings.get('anchor_offset_x');
     var shape = block._displayShape;
     block._width = w;
@@ -185,6 +190,20 @@
         settings.get('anchor_border_width'),
         settings.get('block_border_color')
     );
+
+    if (hasDataPins) {
+      makeRect(shape, w, h, 8,
+          '#20252B',
+          settings.get('block_border_width'),
+          '#56616D'
+      );
+      shape.graphics
+        .beginFill('#244D3A')
+        .drawRoundRect(-w/2+2, -h/2+2, w-4, 24, 6)
+        .endFill();
+      return shape;
+    }
+
     makeRect(shape, w, h, 15,
         settings.get('action_color'),
         settings.get('block_border_width'),

@@ -118,15 +118,23 @@
   };
 
   b3e.draw.textSymbol = function(block, settings) {
+    var hasDataPins = block._getDataPins && block._getDataPins().length > 0;
+    var title = block.getTitle();
+    if (hasDataPins && block.name && title && title !== block.name) {
+      title = block.name + ': ' + title;
+    }
     var text = new createjs.Text(
-        block.getTitle(),
-        '18px Arial',
-        settings.get('block_symbol_color')
+        title,
+        hasDataPins ? 'bold 15px Arial' : '18px Arial',
+        hasDataPins ? '#F1F6F3' : settings.get('block_symbol_color')
     );
     text.textAlign = 'center';
 
     var bounds = text.getBounds();
     text.regY = bounds.height/2;
+    if (hasDataPins) {
+      text.y = -12;
+    }
 
     // text.x = -block._width/2;
     // text.y = -block._height/2;

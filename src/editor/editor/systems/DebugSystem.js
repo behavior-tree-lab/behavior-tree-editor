@@ -39,6 +39,7 @@ b3e.editor.DebugSystem = function(editor) {
     // child (the _outBlock it feeds into) is currently running. This lights
     // up the chain from a parent down to each running node.
     tree.connections.each(function(conn) {
+      if (!conn._setDebugActive) return;
       var child = conn._outBlock;
       var active = !!(child && child._debugStatus === 'running');
       conn._setDebugActive(active);

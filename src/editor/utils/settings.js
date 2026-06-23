@@ -41,6 +41,10 @@
     // CONNECTION
     connection_width       : 2,
 
+    // DATA CONNECTION (Unreal-style data pin wiring; distinct from tree edges)
+    data_connection_color  : '#20D67B', // green so data wires read apart from grey tree edges
+    data_connection_width  : 3,
+
     // DEBUG (real-time debugging highlight)
     debug_running_color    : '#3B9DFF',
     debug_success_color    : '#27AE60',

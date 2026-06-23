@@ -7,16 +7,23 @@
 
   PropertiespanelController.$inject = [
     '$scope',
-    '$window'
+    '$window',
+    'schemaService'
   ];
 
   function PropertiespanelController($scope,
-                                     $window) {
+                                     $window,
+                                     schemaService) {
     var vm = this;
     vm.original = null;
     vm.block = null;
+    vm.schema = null;            // NodeSchema for the selected block, or null
+    vm.hasSchema = false;        // true => render typed panel, false => keytable
     vm.update = update;
     vm.keydown = keydown;
+
+    // Load the bundled schema once (offline, cached singleton) [C1].
+    schemaService.loadSchema();
 
     _create();
     _activate();
@@ -25,24 +32,32 @@
 
     function _activate() {
       var p = $window.editor.project.get();
+      if (!p) return;
       var t = p.trees.getSelected();
       var s = t.blocks.getSelected();
 
       if (s.length === 1) {
         vm.original = s[0];
         vm.block = {
+          name        : vm.original.name,
           title       : vm.original.title,
           description : vm.original.description,
           properties  : tine.merge({}, vm.original.properties)
         };
+        // Resolve the schema for this node type; null for custom/unknown nodes,
+        // in which case the view falls back to the generic key-table [3.3].
+        vm.schema = schemaService.getNodeSchema(vm.original.name);
+        vm.hasSchema = !!vm.schema;
       } else {
         vm.original = false;
         vm.block = false;
+        vm.schema = null;
+        vm.hasSchema = false;
       }
     }
     function _event(e) {
       setTimeout(function() {$scope.$apply(function() { _activate(); });}, 0);
-      
+
     }
     function _create() {
       $window.editor.on('blockselected', _event);
