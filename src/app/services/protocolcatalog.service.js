@@ -23,7 +23,8 @@
       getRequestFields : getRequestFields,
       getResponseFields: getResponseFields,
       getEnumOptions   : getEnumOptions,
-      getSupportMessage: getSupportMessage
+      getSupportMessage: getSupportMessage,
+      validateProperties: validateProperties
     };
 
     function loadCatalog(data) {
@@ -145,6 +146,119 @@
       var reasons = rpc.callSupport && rpc.callSupport.reasons;
       if (reasons && reasons.length) return reasons.join(', ');
       return 'RPC is unsupported by the protocol catalog.';
+    }
+
+    function validateProperties(properties) {
+      var errors = {};
+      properties = properties || {};
+      var rpc = getRPC(properties.rpc);
+      if (!properties.rpc) {
+        errors.rpc = 'is required';
+      } else if (!rpc) {
+        errors.rpc = 'is not present in the protocol catalog';
+      } else if (!rpc.callSupport || rpc.callSupport.status !== 'supported') {
+        errors.rpc = getSupportMessage(properties.rpc);
+      }
+      if (!properties.catalogFingerprint) {
+        errors.catalogFingerprint = 'is required';
+      } else if (properties.catalogFingerprint !== getFingerprint()) {
+        errors.catalogFingerprint = 'does not match the loaded protocol catalog';
+      }
+
+      var request = properties.request;
+      if (request === undefined) request = {};
+      if (!request || Object.prototype.toString.call(request) !== '[object Object]') {
+        errors.request = 'must be an object';
+        return errors;
+      }
+      if (!rpc) return errors;
+
+      var fields = getRequestFields(rpc.name);
+      var fieldByName = {};
+      fields.forEach(function(field) { fieldByName[field.name] = field; });
+      Object.keys(request).forEach(function(name) {
+        var field = fieldByName[name];
+        if (!field) {
+          errors['request.' + name] = 'is not a protobuf field of ' + rpc.requestType;
+          return;
+        }
+        var message = _validateFieldValue(field, request[name]);
+        if (message) errors['request.' + name] = message;
+      });
+      return errors;
+    }
+
+    function _validateFieldValue(field, value) {
+      if (!field.support || field.support.status !== 'supported') {
+        return 'is unsupported: ' + ((field.support && field.support.reasons) || []).join(', ');
+      }
+      if (field.repeated) {
+        if (Object.prototype.toString.call(value) !== '[object Array]') {
+          return 'must be an array';
+        }
+        for (var i = 0; i < value.length; i++) {
+          var itemError = _validateScalar(field, value[i]);
+          if (itemError) return '[' + i + '] ' + itemError;
+        }
+        return null;
+      }
+      return _validateScalar(field, value);
+    }
+
+    function _validateScalar(field, value) {
+      if (value === null || value === undefined) return 'must have a value';
+      switch (field.kind) {
+        case 'bool':
+          return typeof value === 'boolean' ? null : 'must be true or false';
+        case 'string':
+          return typeof value === 'string' ? null : 'must be a string';
+        case 'enum':
+          return getEnumOptions(field.typeName).some(function(option) {
+            return option.value === value;
+          }) ? null : 'must be a declared enum symbol';
+        case 'float':
+        case 'double':
+          return typeof value === 'number' && isFinite(value) ? null : 'must be a finite number';
+        case 'int32':
+        case 'sint32':
+        case 'sfixed32':
+          return _integerNumber(value, -2147483648, 2147483647);
+        case 'uint32':
+        case 'fixed32':
+          return _integerNumber(value, 0, 4294967295);
+        case 'int64':
+        case 'sint64':
+        case 'sfixed64':
+          return _decimalString(value, true);
+        case 'uint64':
+        case 'fixed64':
+          return _decimalString(value, false);
+        default:
+          return 'has unsupported protobuf kind ' + field.kind;
+      }
+    }
+
+    function _integerNumber(value, min, max) {
+      return typeof value === 'number' && isFinite(value) &&
+        Math.floor(value) === value && value >= min && value <= max ?
+        null : 'must be an integer from ' + min + ' to ' + max;
+    }
+
+    function _decimalString(value, signed) {
+      if (typeof value !== 'string') return 'must be a canonical decimal string';
+      var pattern = signed ? /^-?(0|[1-9][0-9]*)$/ : /^(0|[1-9][0-9]*)$/;
+      if (!pattern.test(value)) return 'must be a canonical decimal string';
+      if (signed && value.charAt(0) === '-') {
+        return _decimalMagnitudeWithin(value.substring(1), '9223372036854775808') ?
+          null : 'is below int64 minimum';
+      }
+      var maximum = signed ? '9223372036854775807' : '18446744073709551615';
+      return _decimalMagnitudeWithin(value, maximum) ? null : 'exceeds protobuf range';
+    }
+
+    function _decimalMagnitudeWithin(value, maximum) {
+      if (value.length !== maximum.length) return value.length < maximum.length;
+      return value <= maximum;
     }
   }
 })();

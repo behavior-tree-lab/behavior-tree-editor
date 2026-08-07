@@ -83,6 +83,36 @@ truthy(unsupported, 'unsupported RPC remains discoverable');
 truthy(service.getSupportMessage(unsupported.name).length > 0,
   'unsupported RPC explains why it cannot run');
 
+var fingerprint = service.getFingerprint();
+eq(service.validateProperties({
+  rpc: 'MailOp',
+  catalogFingerprint: fingerprint,
+  request: { op: 'MAIL_PULL', mail_uid: '9007199254740993', limit: 50 }
+}), {}, 'valid RpcCall properties pass catalog validation');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: 'sha256:stale', request: {}
+}).catalogFingerprint, 'stale fingerprint is rejected');
+truthy(service.validateProperties({
+  rpc: unsupported.name, catalogFingerprint: fingerprint, request: {}
+}).rpc, 'unsupported RPC is rejected with a runnable error');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: { missing: 1 }
+})['request.missing'], 'unknown request field is rejected');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: { op: 'NOT_AN_ENUM' }
+})['request.op'], 'unknown enum symbol is rejected');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: { mail_uid: 9007199254740993 }
+})['request.mail_uid'], 'uint64 number is rejected in favor of a decimal string');
+eq(service.validateProperties({
+  rpc: 'BatchQueryFriend',
+  catalogFingerprint: fingerprint,
+  request: {
+    type: 'FriendRelation_Friend',
+    roleids: ['9007199254740993', '42']
+  }
+}), {}, 'repeated uint64 and enum request values validate');
+
 if (failures > 0) {
   console.error('\n' + failures + ' assertion(s) failed.');
   process.exit(1);

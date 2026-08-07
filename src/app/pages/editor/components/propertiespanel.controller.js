@@ -19,6 +19,7 @@
     vm.block = null;
     vm.schema = null;            // NodeSchema for the selected block, or null
     vm.hasSchema = false;        // true => render typed panel, false => keytable
+	vm.isRpcCall = false;
     vm.update = update;
     vm.keydown = keydown;
 
@@ -42,17 +43,19 @@
           name        : vm.original.name,
           title       : vm.original.title,
           description : vm.original.description,
-          properties  : tine.merge({}, vm.original.properties)
+		  properties  : angular.copy(vm.original.properties || {})
         };
         // Resolve the schema for this node type; null for custom/unknown nodes,
         // in which case the view falls back to the generic key-table [3.3].
         vm.schema = schemaService.getNodeSchema(vm.original.name);
         vm.hasSchema = !!vm.schema;
+		vm.isRpcCall = vm.original.name === 'RpcCall';
       } else {
         vm.original = false;
         vm.block = false;
         vm.schema = null;
         vm.hasSchema = false;
+		vm.isRpcCall = false;
       }
     }
     function _event(e) {
@@ -85,7 +88,9 @@
     function update() {
       var p = $window.editor.project.get();
       var t = p.trees.getSelected();
-      t.blocks.update(vm.original, vm.block);
+	  var changes = tine.merge({}, vm.block);
+	  changes.properties = angular.copy(vm.block.properties || {});
+	  t.blocks.update(vm.original, changes);
     }
   }
 })();

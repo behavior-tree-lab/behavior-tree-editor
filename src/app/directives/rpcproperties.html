@@ -1,0 +1,115 @@
+<div class="rpc-properties">
+  <div class="form-group">
+    <label for="rpc-search">Search RPC</label>
+    <input id="rpc-search"
+           type="search"
+           class="form-control"
+           placeholder="Name, request, or response type"
+           ng-model="rpc.search"
+           ng-change="rpc.refreshSearch()">
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': rpc.hasError('rpc')}">
+    <label for="rpc-name">RPC</label>
+    <select id="rpc-name"
+            class="form-control"
+            ng-model="rpc.model.rpc"
+            ng-change="rpc.selectRPC()"
+            ng-options="item.name as (item.name + ' · ' + item.connection + (item.callSupport.status === 'supported' ? '' : ' · unsupported')) for item in rpc.rpcs">
+      <option value="">-- select an RPC --</option>
+    </select>
+    <p class="help-block" ng-if="rpc.hasError('rpc')">{{rpc.errorFor('rpc')}}</p>
+  </div>
+
+  <div class="alert alert-warning rpc-catalog-warning"
+       role="alert"
+       ng-if="rpc.fingerprintMismatch()">
+    This node was created from a different protocol catalog. Reselect the RPC to migrate it deliberately.
+  </div>
+  <p class="rpc-catalog-meta" ng-if="rpc.model.catalogFingerprint">
+    Catalog: <code>{{rpc.model.catalogFingerprint}}</code>
+  </p>
+
+  <div class="alert alert-danger"
+       role="alert"
+       ng-if="rpc.selectedRPC && rpc.supportMessage()">
+    This RPC cannot run: {{rpc.supportMessage()}}
+  </div>
+
+  <table class="table table-condensed rpc-request-fields" ng-if="rpc.selectedRPC">
+    <thead>
+      <tr>
+        <th class="rpc-include-column">Use</th>
+        <th>Request field</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="field in rpc.fields"
+          ng-class="{'has-error': rpc.hasError('request.' + field.name)}">
+        <td>
+          <input type="checkbox"
+                 aria-label="Include {{field.name}}"
+                 ng-model="rpc.included[field.name]"
+                 ng-change="rpc.toggleField(field)"
+                 ng-disabled="field.inputType === 'unsupported'">
+        </td>
+        <td>
+          <label class="control-label" for="rpc-field-{{$index}}">
+            {{field.name}}
+            <span class="rpc-field-type">{{field.cardinality}} {{field.kind}}</span>
+          </label>
+
+          <div ng-if="field.inputType === 'unsupported'" class="text-danger">
+            Unsupported: {{field.support.reasons.join(', ')}}
+          </div>
+
+          <div ng-if="rpc.included[field.name] && field.inputType !== 'unsupported'">
+            <select id="rpc-field-{{$index}}"
+                    ng-if="field.inputType === 'enum'"
+                    class="form-control"
+                    ng-model="rpc.model.request[field.name]"
+                    ng-change="rpc.changeField(field)"
+                    ng-options="option.value as option.label for option in field.enumOptions">
+            </select>
+
+            <input id="rpc-field-{{$index}}"
+                   ng-if="field.inputType === 'integer' || field.inputType === 'float'"
+                   type="number"
+                   class="form-control"
+                   step="{{field.inputType === 'float' ? 'any' : '1'}}"
+                   ng-model="rpc.model.request[field.name]"
+                   ng-change="rpc.changeField(field)">
+
+            <input id="rpc-field-{{$index}}"
+                   ng-if="field.inputType === 'integer64' || field.inputType === 'string'"
+                   type="text"
+                   class="form-control"
+                   ng-model="rpc.model.request[field.name]"
+                   ng-change="rpc.changeField(field)">
+
+            <label ng-if="field.inputType === 'bool'" class="checkbox-inline">
+              <input type="checkbox"
+                     ng-model="rpc.model.request[field.name]"
+                     ng-change="rpc.changeField(field)"> true
+            </label>
+
+            <input id="rpc-field-{{$index}}"
+                   ng-if="field.inputType === 'list'"
+                   type="text"
+                   class="form-control"
+                   placeholder="Comma-separated {{field.itemInputType}} values"
+                   ng-model="rpc.listText[field.name]"
+                   ng-change="rpc.changeList(field)">
+          </div>
+
+          <p class="help-block" ng-if="rpc.hasError('request.' + field.name)">
+            {{rpc.errorFor('request.' + field.name)}}
+          </p>
+        </td>
+      </tr>
+      <tr ng-if="rpc.fields.length === 0">
+        <td colspan="2" class="text-muted">This RPC has an empty request message.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
