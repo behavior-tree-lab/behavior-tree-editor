@@ -14,9 +14,9 @@
     .module('app')
     .factory('treeValidatorService', treeValidatorService);
 
-  treeValidatorService.$inject = ['schemaService'];
+  treeValidatorService.$inject = ['schemaService', 'protocolCatalogService'];
 
-  function treeValidatorService(schemaService) {
+  function treeValidatorService(schemaService, protocolCatalogService) {
     var service = {
       validateNode     : validateNode,
       validateNodes    : validateNodes,
@@ -30,6 +30,12 @@
       var issues = [];
       if (!node || !node.name) return issues;
       var errors = schemaService.validateNodeParams(node.name, node.properties);
+	  if (node.name === 'RpcCall') {
+		var rpcErrors = protocolCatalogService.validateProperties(node.properties);
+		for (var rpcPath in rpcErrors) {
+		  if (rpcErrors.hasOwnProperty(rpcPath)) errors[rpcPath] = rpcErrors[rpcPath];
+		}
+	  }
       for (var paramName in errors) {
         if (errors.hasOwnProperty(paramName)) {
           issues.push({

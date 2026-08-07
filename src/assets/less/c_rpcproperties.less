@@ -27,4 +27,46 @@
       margin-bottom: 0;
     }
   }
+
+  .rpc-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 8px;
+
+    h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .rpc-rule {
+    position: relative;
+    padding: 8px 26px 8px 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+
+    .form-control + .form-control {
+      margin-top: 6px;
+    }
+
+    .rpc-rule-op {
+      width: 112px;
+    }
+
+    .rpc-rule-remove {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      color: #777;
+    }
+
+    .help-block {
+      margin-bottom: 0;
+      color: #a94442;
+    }
+  }
 }

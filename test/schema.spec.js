@@ -43,15 +43,20 @@ function loadSource(rel) {
 
 // Order matters: value + validator first, then services that depend on them.
 loadSource('src/app/services/schema.data.js');
+loadSource('src/app/services/protocolcatalog.data.js');
 loadSource('src/app/validators/parametertypes.validator.js');
 loadSource('src/app/services/schema.service.js');
+loadSource('src/app/services/protocolcatalog.service.js');
 loadSource('src/app/services/treevalidator.service.js');
 
 // --- instantiate factories with resolved deps -----------------------------
 var validator = registry.factories.parameterTypesValidator();
 var schemaService = registry.factories.schemaService(
   $q, validator, registry.values.nodesSchemaData);
-var treeValidator = registry.factories.treeValidatorService(schemaService);
+var protocolCatalogService = registry.factories.protocolCatalogService(
+  $q, registry.values.protocolCatalogData);
+var treeValidator = registry.factories.treeValidatorService(
+  schemaService, protocolCatalogService);
 
 // --- tiny assert harness ---------------------------------------------------
 var failures = 0;
@@ -135,9 +140,10 @@ var rpcErrors = schemaService.validateNodeParams('RpcCall', {});
 truthy(rpcErrors.rpc, 'RpcCall flags missing required rpc');
 var rpcProperties = {
   rpc: 'MailOp',
+  catalogFingerprint: protocolCatalogService.getFingerprint(),
   request: { op: 'MAIL_PULL', limit: 50 },
-  assertions: [{ path: 'errorcode', op: 'eq', value: 'ERR_SUCCESS' }],
-  extract: [{ path: 'mail_list', blackboardKey: 'mail_list' }]
+	assertions: [{ path: 'err', op: 'eq', value: 'ERR_SUCCESS' }],
+	extract: [{ path: 'mail_list[].uid', blackboardKey: 'mail_uids' }]
 };
 eq(Object.keys(schemaService.validateNodeParams('RpcCall', rpcProperties)).length, 0,
    'RpcCall accepts canonical dynamic properties alongside static rpc');
@@ -175,6 +181,26 @@ falsy(treeValidator.validateTreeData(enumTree).valid, 'illegal enum blocks expor
 var emptyRpcTree = { nodes: { n1: { id: 'n1', name: 'RpcCall', title: 'RPC Call',
   properties: { rpc: '' } } } };
 falsy(treeValidator.validateTreeData(emptyRpcTree).valid, 'empty RpcCall rpc blocks export');
+
+var validRpcTree = { nodes: { n1: { id: 'n1', name: 'RpcCall', title: 'Mail pull',
+  properties: rpcProperties } } };
+truthy(treeValidator.validateTreeData(validRpcTree).valid,
+  'valid catalog-backed RpcCall passes export validation');
+
+function invalidRpc(properties, message) {
+  var data = { nodes: { n1: { id: 'n1', name: 'RpcCall', title: 'Bad RPC',
+    properties: properties } } };
+  falsy(treeValidator.validateTreeData(data).valid, message);
+}
+invalidRpc({ rpc: 'MailOp', request: {} }, 'missing fingerprint blocks export');
+invalidRpc({ rpc: 'MailOp', catalogFingerprint: 'sha256:stale', request: {} },
+  'stale fingerprint blocks export');
+invalidRpc({ rpc: 'NoSuchRPC', catalogFingerprint: protocolCatalogService.getFingerprint(),
+  request: {} }, 'unknown RPC blocks export');
+invalidRpc({ rpc: 'MailOp', catalogFingerprint: protocolCatalogService.getFingerprint(),
+  request: { missing: 1 } }, 'unknown request field blocks export');
+invalidRpc({ rpc: 'MailOp', catalogFingerprint: protocolCatalogService.getFingerprint(),
+  request: null }, 'null request blocks export');
 
 // --- result ----------------------------------------------------------------
 if (failures > 0) {

@@ -12,7 +12,8 @@
     'storageService',
     'systemService',
     'localStorageService',
-    'editorService'
+	'editorService',
+	'treeValidatorService'
   ];
 
   function projectModel($q,
@@ -21,7 +22,8 @@
                           storageService,
                           systemService,
                           localStorageService,
-                          editorService) {
+						  editorService,
+						  treeValidatorService) {
 
     // HEAD //
     var recentPath = systemService.join(systemService.getDataPath(), 'recents.json');
@@ -190,7 +192,17 @@
         return $q.reject(new Error('This project has no file path. Use Save As to choose where it should be written.'));
       }
 
-      project.data = editorService.exportProject();
+	  var candidate = editorService.exportProject();
+	  var validation = treeValidatorService.validateTreeData(candidate);
+	  if (!validation.valid) {
+		var first = validation.issues[0] || {};
+		var detail = first.message || 'invalid behavior tree data';
+		if (first.param) detail = first.param + ' ' + detail;
+		var validationError = new Error('Project validation failed: ' + detail);
+		validationError.validation = validation;
+		return $q(function(resolve, reject) { reject(validationError); });
+	  }
+	  project.data = candidate;
 
       return $q(function(resolve, reject) {
         $window.editor.clearDirty();

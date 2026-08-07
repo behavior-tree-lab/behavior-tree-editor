@@ -63,11 +63,12 @@ function makeQ() {
   };
 }
 
-function createModel(loadMap) {
+function createModel(loadMap, validate) {
   var saved = {};
   var opened = [];
   var broadcasts = [];
   var currentExport = null;
+	var clearDirtyCount = 0;
 
   var storageService = {
     load: function(p) {
@@ -85,12 +86,13 @@ function createModel(loadMap) {
   var model = registry.factories.projectModel(
     makeQ(),
     { $broadcast: function(name) { broadcasts.push(name); } },
-    { editor: { clearDirty: function() {} } },
+	{ editor: { clearDirty: function() { clearDirtyCount++; } } },
     storageService,
     { join: function() { return Array.prototype.join.call(arguments, '/'); },
       getDataPath: function() { return 'data'; } },
     {},
-    editorService
+	editorService,
+	{ validateTreeData: validate || function() { return { valid: true, issues: [] }; } }
   );
 
   return {
@@ -98,6 +100,7 @@ function createModel(loadMap) {
     saved: saved,
     opened: opened,
     broadcasts: broadcasts,
+	getClearDirtyCount: function() { return clearDirtyCount; },
     setExport: function(data) { currentExport = data; }
   };
 }
@@ -180,6 +183,23 @@ eq(hSaveAs.saved['E:/trees/imported_saved.b3'].path,
 eq(hSaveAs.saved['E:/trees/imported_saved.b3'].data.trees[0].title,
    'saved_as',
    'saveAsProject writes exported project data');
+
+var invalidPath = 'E:/trees/invalid_rpc.b3';
+var invalidLoad = {};
+invalidLoad[invalidPath] = bareProject;
+var hInvalid = createModel(invalidLoad, function() {
+  return {
+    valid: false,
+    issues: [{ nodeId: 'rpc-1', param: 'catalogFingerprint', message: 'is stale' }]
+  };
+});
+hInvalid.setExport({ scope: 'project', trees: [{ id: 'tree-1', nodes: {} }] });
+hInvalid.model.openProject(invalidPath);
+var validationError = null;
+hInvalid.model.saveProject().then(null, function(error) { validationError = error; });
+eq(!!validationError, true, 'invalid project save rejects');
+eq(!!hInvalid.saved[invalidPath], false, 'invalid project is not written');
+eq(hInvalid.getClearDirtyCount(), 0, 'invalid project remains dirty');
 
 if (failures > 0) {
   console.error('\n' + failures + ' assertion(s) failed.');

@@ -89,5 +89,29 @@ controller.refreshSearch();
 truthy(controller.rpcs.some(function(rpc) { return rpc.name === 'MailOp'; }),
   'search filters the RPC selector');
 
+controller.setModel({
+  rpc: 'MailOp',
+  catalogFingerprint: catalog.getFingerprint(),
+  request: {},
+  assertions: [],
+  extract: []
+});
+controller.addAssertion();
+eq(controller.model.assertions.length, 1, 'assertion row is added');
+truthy(controller.model.assertions[0].path, 'assertion starts from a valid response path');
+controller.model.assertions[0].path = 'err';
+controller.changeAssertionPath(0);
+truthy(typeof controller.model.assertions[0].value === 'string',
+  'enum assertion defaults to a persisted symbol');
+controller.addExtraction();
+controller.model.extract[0].path = 'mail_list[].uid';
+controller.model.extract[0].blackboardKey = 'mail_uids';
+controller.changeExtraction();
+eq(controller.errors, {}, 'valid assertion and extraction rows clear validation errors');
+controller.removeAssertion(0);
+controller.removeExtraction(0);
+eq(controller.model.assertions, [], 'assertion row is removable');
+eq(controller.model.extract, [], 'extraction row is removable');
+
 if (failures > 0) process.exit(1);
 console.log('\nAll RpcCall property controller tests passed.');

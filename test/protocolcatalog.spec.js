@@ -113,6 +113,45 @@ eq(service.validateProperties({
   }
 }), {}, 'repeated uint64 and enum request values validate');
 
+var responsePaths = service.getResponsePaths('MailOp');
+truthy(responsePaths.some(function(path) { return path.path === 'err'; }),
+  'response paths include scalar enum');
+truthy(responsePaths.some(function(path) { return path.path === 'succ_uids'; }),
+  'response paths include repeated scalar');
+truthy(responsePaths.some(function(path) { return path.path === 'mail_list[].uid'; }),
+  'response paths traverse repeated messages with protobuf notation');
+
+eq(service.validateProperties({
+  rpc: 'MailOp',
+  catalogFingerprint: fingerprint,
+  request: {},
+  assertions: [{ path: 'err', op: 'eq', value: 'ERR_SUCCESS' }],
+  extract: [{ path: 'mail_list[].uid', blackboardKey: 'mail_uids' }]
+}), {}, 'valid assertions and extraction pass');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: {},
+  assertions: [{ path: 'missing', op: 'eq', value: 0 }]
+})['assertions[0].path'], 'unknown assertion path is rejected');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: {},
+  assertions: [{ path: 'err', op: 'gt', value: 'ERR_SUCCESS' }]
+})['assertions[0].op'], 'unsupported assertion operator is rejected');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: {},
+  assertions: [{ path: 'err', op: 'eq', value: true }]
+})['assertions[0].value'], 'assertion value uses response field type');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: {},
+  extract: [{ path: 'err', blackboardKey: 'robot' }]
+})['extract[0].blackboardKey'], 'reserved extraction key is rejected');
+truthy(service.validateProperties({
+  rpc: 'MailOp', catalogFingerprint: fingerprint, request: {},
+  extract: [
+    { path: 'err', blackboardKey: 'result' },
+    { path: 'succ_uids', blackboardKey: 'result' }
+  ]
+})['extract[1].blackboardKey'], 'duplicate extraction key is rejected');
+
 if (failures > 0) {
   console.error('\n' + failures + ' assertion(s) failed.');
   process.exit(1);

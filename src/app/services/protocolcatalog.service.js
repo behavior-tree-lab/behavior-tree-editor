@@ -22,6 +22,7 @@
       getRPC           : getRPC,
       getRequestFields : getRequestFields,
       getResponseFields: getResponseFields,
+	  getResponsePaths : getResponsePaths,
       getEnumOptions   : getEnumOptions,
       getSupportMessage: getSupportMessage,
       validateProperties: validateProperties
@@ -95,6 +96,38 @@
       return rpc ? _fieldsFor(messageByName[rpc.responseType]) : [];
     }
 
+    function getResponsePaths(name) {
+	  var rpc = getRPC(name);
+	  if (!rpc) return [];
+	  var paths = [];
+	  _walkResponse(rpc.responseType, '', false, {}, 0, paths);
+	  return paths;
+	}
+
+	function _walkResponse(messageName, prefix, collection, stack, depth, paths) {
+	  var message = messageByName[messageName];
+	  if (!message || !message.fields || depth > 8 || stack[messageName]) return;
+	  var nextStack = {};
+	  Object.keys(stack).forEach(function(name) { nextStack[name] = true; });
+	  nextStack[messageName] = true;
+	  message.fields.forEach(function(field) {
+		if (field.kind === 'message') {
+		  var segment = field.name + (field.cardinality === 'repeated' ? '[]' : '');
+		  _walkResponse(field.typeName, prefix + segment + '.',
+			collection || field.cardinality === 'repeated', nextStack, depth + 1, paths);
+		  return;
+		}
+		if (!field.support || field.support.status !== 'supported') return;
+		var projected = _fieldsFor({ fields: [field] })[0];
+		projected.path = prefix + field.name;
+		if (collection && !projected.repeated) {
+		  projected.repeated = true;
+		  projected.inputType = 'list';
+		}
+		paths.push(projected);
+	  });
+	}
+
     function _fieldsFor(message) {
       if (!message || !message.fields) return [];
       return message.fields.map(function(field) {
@@ -151,6 +184,16 @@
     function validateProperties(properties) {
       var errors = {};
       properties = properties || {};
+	  var allowed = {
+		rpc: true,
+		catalogFingerprint: true,
+		request: true,
+		assertions: true,
+		extract: true
+	  };
+	  Object.keys(properties).forEach(function(name) {
+		if (!allowed[name]) errors[name] = 'is not a supported RpcCall property';
+	  });
       var rpc = getRPC(properties.rpc);
       if (!properties.rpc) {
         errors.rpc = 'is required';
@@ -185,8 +228,84 @@
         var message = _validateFieldValue(field, request[name]);
         if (message) errors['request.' + name] = message;
       });
+	  _validateAssertions(properties.assertions, rpc, errors);
+	  _validateExtractions(properties.extract, rpc, errors);
       return errors;
     }
+
+	function _responsePathMap(rpc) {
+	  var paths = {};
+	  getResponsePaths(rpc.name).forEach(function(item) { paths[item.path] = item; });
+	  return paths;
+	}
+
+	function _validateAssertions(assertions, rpc, errors) {
+	  if (assertions === undefined) return;
+	  if (!Array.isArray(assertions)) {
+		errors.assertions = 'must be an array';
+		return;
+	  }
+	  var paths = _responsePathMap(rpc);
+	  assertions.forEach(function(assertion, index) {
+		var base = 'assertions[' + index + ']';
+		if (!_plainObject(assertion)) {
+		  errors[base] = 'must be an object';
+		  return;
+		}
+		_assertKnownKeys(assertion, { path: true, op: true, value: true }, base, errors);
+		var field = paths[assertion.path];
+		if (!assertion.path) errors[base + '.path'] = 'is required';
+		else if (!field) errors[base + '.path'] = 'is not a supported response path';
+		if (assertion.op !== 'eq' && assertion.op !== 'ne') {
+		  errors[base + '.op'] = 'must be eq or ne';
+		}
+		if (field) {
+		  var valueError = _validateFieldValue(field, assertion.value);
+		  if (valueError) errors[base + '.value'] = valueError;
+		}
+	  });
+	}
+
+	function _validateExtractions(extractions, rpc, errors) {
+	  if (extractions === undefined) return;
+	  if (!Array.isArray(extractions)) {
+		errors.extract = 'must be an array';
+		return;
+	  }
+	  var paths = _responsePathMap(rpc);
+	  var keys = {};
+	  extractions.forEach(function(extraction, index) {
+		var base = 'extract[' + index + ']';
+		if (!_plainObject(extraction)) {
+		  errors[base] = 'must be an object';
+		  return;
+		}
+		_assertKnownKeys(extraction, { path: true, blackboardKey: true }, base, errors);
+		if (!extraction.path) errors[base + '.path'] = 'is required';
+		else if (!paths[extraction.path]) {
+		  errors[base + '.path'] = 'is not a supported response path';
+		}
+		var key = extraction.blackboardKey;
+		if (!key) errors[base + '.blackboardKey'] = 'is required';
+		else if (key === 'robot' || key.indexOf('__haibot.') === 0) {
+		  errors[base + '.blackboardKey'] = 'is reserved';
+		} else if (keys[key]) {
+		  errors[base + '.blackboardKey'] = 'is duplicated';
+		} else {
+		  keys[key] = true;
+		}
+	  });
+	}
+
+	function _plainObject(value) {
+	  return value && Object.prototype.toString.call(value) === '[object Object]';
+	}
+
+	function _assertKnownKeys(value, allowedKeys, base, errors) {
+	  Object.keys(value).forEach(function(key) {
+		if (!allowedKeys[key]) errors[base + '.' + key] = 'is not supported';
+	  });
+	}
 
     function _validateFieldValue(field, value) {
       if (!field.support || field.support.status !== 'supported') {

@@ -112,4 +112,110 @@
       </tr>
     </tbody>
   </table>
+
+  <section class="rpc-response-rules" ng-if="rpc.selectedRPC">
+    <div class="rpc-section-heading">
+      <h4>Assertions</h4>
+      <button type="button" class="btn btn-default btn-xs" ng-click="rpc.addAssertion()">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add
+      </button>
+    </div>
+    <p class="text-muted" ng-if="!rpc.model.assertions.length">
+      No assertions. The RPC succeeds when transport and decoding succeed.
+    </p>
+    <div class="rpc-rule" ng-repeat="assertion in rpc.model.assertions track by $index">
+      <button type="button"
+              class="btn btn-link btn-xs rpc-rule-remove"
+              aria-label="Remove assertion {{$index + 1}}"
+              ng-click="rpc.removeAssertion($index)">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+      <select class="form-control"
+              aria-label="Assertion response path"
+              ng-model="assertion.path"
+              ng-change="rpc.changeAssertionPath($index)"
+              ng-options="item.path as item.path for item in rpc.responsePaths">
+      </select>
+      <select class="form-control rpc-rule-op"
+              aria-label="Assertion operator"
+              ng-model="assertion.op"
+              ng-change="rpc.changeAssertion()">
+        <option value="eq">equals</option>
+        <option value="ne">not equal</option>
+      </select>
+
+      <select ng-if="rpc.pathForAssertion($index).inputType === 'enum'"
+              class="form-control"
+              aria-label="Assertion expected enum"
+              ng-model="assertion.value"
+              ng-change="rpc.changeAssertion()"
+              ng-options="option.value as option.label for option in rpc.pathForAssertion($index).enumOptions">
+      </select>
+      <select ng-if="rpc.pathForAssertion($index).inputType === 'bool'"
+              class="form-control"
+              aria-label="Assertion expected boolean"
+              ng-model="assertion.value"
+              ng-change="rpc.changeAssertion()"
+              ng-options="option.value as option.label for option in rpc.booleanOptions">
+      </select>
+      <input ng-if="rpc.pathForAssertion($index).inputType === 'integer' || rpc.pathForAssertion($index).inputType === 'float'"
+             type="number"
+             class="form-control"
+             aria-label="Assertion expected number"
+             step="{{rpc.pathForAssertion($index).inputType === 'float' ? 'any' : '1'}}"
+             ng-model="assertion.value"
+             ng-change="rpc.changeAssertion()">
+      <input ng-if="rpc.pathForAssertion($index).inputType === 'integer64' || rpc.pathForAssertion($index).inputType === 'string'"
+             type="text"
+             class="form-control"
+             aria-label="Assertion expected value"
+             ng-model="assertion.value"
+             ng-change="rpc.changeAssertion()">
+      <input ng-if="rpc.pathForAssertion($index).inputType === 'list'"
+             type="text"
+             class="form-control"
+             aria-label="Assertion expected list"
+             placeholder="Comma-separated expected values"
+             ng-model="rpc.assertionText[$index]"
+             ng-change="rpc.changeAssertionList($index)">
+      <p class="help-block" ng-repeat="(path, message) in rpc.errors"
+         ng-if="path.indexOf('assertions[' + $parent.$index + ']') === 0">
+        {{message}}
+      </p>
+    </div>
+
+    <div class="rpc-section-heading">
+      <h4>Extract to blackboard</h4>
+      <button type="button" class="btn btn-default btn-xs" ng-click="rpc.addExtraction()">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add
+      </button>
+    </div>
+    <p class="text-muted" ng-if="!rpc.model.extract.length">
+      No response values are written to the blackboard.
+    </p>
+    <div class="rpc-rule" ng-repeat="extraction in rpc.model.extract track by $index">
+      <button type="button"
+              class="btn btn-link btn-xs rpc-rule-remove"
+              aria-label="Remove extraction {{$index + 1}}"
+              ng-click="rpc.removeExtraction($index)">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+      <select class="form-control"
+              aria-label="Extraction response path"
+              ng-model="extraction.path"
+              ng-change="rpc.changeExtraction()"
+              ng-options="item.path as item.path for item in rpc.responsePaths">
+      </select>
+      <input type="text"
+             class="form-control"
+             aria-label="Blackboard key"
+             placeholder="Blackboard key"
+             ng-model="extraction.blackboardKey"
+             ng-change="rpc.changeExtraction()">
+      <p class="help-block" ng-repeat="(path, message) in rpc.errors"
+         ng-if="path.indexOf('extract[' + $parent.$index + ']') === 0">
+        {{message}}
+      </p>
+    </div>
+  </section>
 </div>
