@@ -97,6 +97,16 @@ eq(validator.validateRequired(requiredParam, 1000), null, 'required passes when 
 schemaService.loadSchema();
 truthy(schemaService.getNodeSchema('Wait'), 'getNodeSchema Wait resolves');
 truthy(schemaService.getNodeSchema('MailPull'), 'getNodeSchema MailPull resolves');
+truthy(schemaService.getNodeSchema('RpcCall'), 'getNodeSchema RpcCall resolves');
+eq(schemaService.getNodeSchema('RpcCall').params, [
+  {
+    name: 'rpc',
+    type: 'string',
+    default: null,
+    required: true,
+    description: 'Stable RPC name from protocol.catalog.json'
+  }
+], 'RpcCall exposes only the stable RPC name as a static parameter');
 eq(schemaService.getNodeSchema('MailPull').outputs[0].valuePath, 'mail_list[]',
    'MailPull output keeps mail list projection path');
 eq(schemaService.getNodeSchema('NoSuchNode'), null, 'unknown node returns null');
@@ -120,6 +130,17 @@ eq(Object.keys(waitOk).length, 0, 'Wait valid when milliseconds present');
 var waitExtra = schemaService.validateNodeParams('Wait',
    { milliseconds: 500, legacyAlias: 'x' });
 eq(Object.keys(waitExtra).length, 0, 'extra unknown property permitted');
+
+var rpcErrors = schemaService.validateNodeParams('RpcCall', {});
+truthy(rpcErrors.rpc, 'RpcCall flags missing required rpc');
+var rpcProperties = {
+  rpc: 'MailOp',
+  request: { op: 'MAIL_PULL', limit: 50 },
+  assertions: [{ path: 'errorcode', op: 'eq', value: 'ERR_SUCCESS' }],
+  extract: [{ path: 'mail_list', blackboardKey: 'mail_list' }]
+};
+eq(Object.keys(schemaService.validateNodeParams('RpcCall', rpcProperties)).length, 0,
+   'RpcCall accepts canonical dynamic properties alongside static rpc');
 
 // --- treeValidatorService --------------------------------------------------
 var badTree = {
@@ -150,6 +171,10 @@ truthy(goodReport.valid, 'fully-specified tree is valid');
 var enumTree = { nodes: { n1: { id: 'n1', name: 'FriendOp', title: 'Op',
   properties: { op: 999 } } } };
 falsy(treeValidator.validateTreeData(enumTree).valid, 'illegal enum blocks export');
+
+var emptyRpcTree = { nodes: { n1: { id: 'n1', name: 'RpcCall', title: 'RPC Call',
+  properties: { rpc: '' } } } };
+falsy(treeValidator.validateTreeData(emptyRpcTree).valid, 'empty RpcCall rpc blocks export');
 
 // --- result ----------------------------------------------------------------
 if (failures > 0) {

@@ -95,6 +95,18 @@
       "inputs": [],
       "outputs": []
     },
+    "RpcCall": {
+      "title": "RPC Call",
+      "category": "action",
+      "description": "Calls an RPC selected by its stable protocol-catalog name.",
+      "childCount": { "min": 0, "max": 0 },
+      "params": [
+        { "name": "rpc", "type": "string", "default": null, "required": true,
+          "description": "Stable RPC name from protocol.catalog.json" }
+      ],
+      "inputs": [],
+      "outputs": []
+    },
     "MailPull": {
       "title": "Mail Pull",
       "category": "action",
