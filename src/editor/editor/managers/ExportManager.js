@@ -2,22 +2,29 @@ b3e.editor.ExportManager = function(editor) {
   "use strict";
 
   function getBlockChildrenIds(block) {
-    var conns = block._outConnections.slice(0);
-    if (editor._settings.get('layout') === 'horizontal') {
-      conns.sort(function(a, b) {
-        return a._outBlock.y - 
-               b._outBlock.y;
-      });
+    var children;
+    if (b3e.ConnectionPolicy) {
+      children = b3e.ConnectionPolicy.getOrderedChildren(
+        block, editor._settings.get('layout'));
     } else {
-      conns.sort(function(a, b) {
-        return a._outBlock.x - 
-               b._outBlock.x;
+      // Compatibility for isolated legacy consumers that load ExportManager
+      // without the editor utility bundle. Production always takes the shared
+      // policy path above.
+      var horizontal = editor._settings.get('layout') === 'horizontal';
+      children = block._outConnections.map(function(connection, index) {
+        return {block: connection._outBlock, index: index};
       });
+      children.sort(function(a, b) {
+        var difference = horizontal ?
+          a.block.y-b.block.y : a.block.x-b.block.x;
+        return difference || a.index-b.index;
+      });
+      children = children.map(function(item) { return item.block; });
     }
 
     var nodes = [];
-    for (var i=0; i<conns.length; i++) {
-      nodes.push(conns[i]._outBlock.id);
+    for (var i=0; i<children.length; i++) {
+      nodes.push(children[i].id);
     }
 
     return nodes;
