@@ -81,8 +81,18 @@
      * @method redo
      */
     this.redo = function() {
-      for (var i=0; i<commands.length; i++) {
-        commands[i].redo();
+      var i;
+      try {
+        for (i=0; i<commands.length; i++) {
+          commands[i].redo();
+        }
+      } catch (error) {
+        // Only commands before i completed. Reverse them so the group remains
+        // fully undone and can be retried safely.
+        for (var j=i-1; j>=0; j--) {
+          commands[j].undo();
+        }
+        throw error;
       }
     };
     
@@ -92,8 +102,18 @@
      * @method undo
      */
     this.undo = function() {
-      for (var i=commands.length-1; i>=0; i--) {
-        commands[i].undo();
+      var i;
+      try {
+        for (i=commands.length-1; i>=0; i--) {
+          commands[i].undo();
+        }
+      } catch (error) {
+        // Commands after i were undone successfully. Reapply them in their
+        // original order so the group remains fully applied.
+        for (var j=i+1; j<commands.length; j++) {
+          commands[j].redo();
+        }
+        throw error;
       }
     };
   };
