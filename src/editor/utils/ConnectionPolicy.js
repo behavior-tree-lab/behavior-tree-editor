@@ -71,20 +71,38 @@
     return children.map(function(item) { return item.block; });
   }
 
-  function snapStrictlyAfter(position, gridSize) {
-    return (Math.floor(position/gridSize) + 1)*gridSize;
+  function dimension(block, name, fallback) {
+    var value = Number(block && block[name]);
+    return !isNaN(value) && value > 0 ? value : fallback;
   }
 
-  function getAppendPosition(parent, layout, gridSize) {
+  function snapAtOrAfter(position, gridSize) {
+    return Math.ceil(position/gridSize)*gridSize;
+  }
+
+  function getAppendPosition(parent, layout, gridSize, child) {
     var horizontal = layout === 'horizontal';
     var children = getOrderedChildren(parent, layout);
     var grid = Number(gridSize);
     if (isNaN(grid) || grid <= 0) grid = 1;
 
     if (children.length === 0) {
+      var parentWidth = dimension(parent, '_width', grid);
+      var parentHeight = dimension(parent, '_height', grid);
+      var childWidth = dimension(child, '_width', parentWidth);
+      var childHeight = dimension(child, '_height', parentHeight);
+
+      if (horizontal) {
+        return {
+          x: snapAtOrAfter((Number(parent && parent.x) || 0) +
+            parentWidth/2 + childWidth/2 + grid, grid),
+          y: Number(parent && parent.y) || 0
+        };
+      }
       return {
         x: Number(parent && parent.x) || 0,
-        y: Number(parent && parent.y) || 0
+        y: snapAtOrAfter((Number(parent && parent.y) || 0) +
+          parentHeight/2 + childHeight/2 + grid, grid)
       };
     }
 
@@ -92,11 +110,15 @@
     if (horizontal) {
       return {
         x: Number(last.x) || 0,
-        y: snapStrictlyAfter(Number(last.y) || 0, grid)
+        y: snapAtOrAfter((Number(last.y) || 0) +
+          dimension(last, '_height', grid)/2 +
+          dimension(child, '_height', grid)/2 + grid, grid)
       };
     }
     return {
-      x: snapStrictlyAfter(Number(last.x) || 0, grid),
+      x: snapAtOrAfter((Number(last.x) || 0) +
+        dimension(last, '_width', grid)/2 +
+        dimension(child, '_width', grid)/2 + grid, grid),
       y: Number(last.y) || 0
     };
   }

@@ -130,6 +130,9 @@ function makeBlock(id, category, x, y, properties) {
     properties: copy(properties || {}),
     x: x || 0,
     y: y || 0,
+    _width: category === 'action' || category === 'tree' ||
+      category === 'condition' ? 160 : (category === 'decorator' ? 60 : 40),
+    _height: category === 'decorator' ? 60 : 40,
     _inConnection: null,
     _outConnections: [],
     _isSelected: false
@@ -329,6 +332,15 @@ function makeHarness(options) {
         if (name === 'max_history') return 100;
         if (name === 'layout') return layout;
         if (name === 'snap_x' || name === 'snap_y') return gridSize;
+        if (name === 'block_root_width' ||
+            name === 'block_composite_width') return 40;
+        if (name === 'block_decorator_width') return 60;
+        if (name === 'block_action_width' ||
+            name === 'block_condition_width' ||
+            name === 'block_tree_width') return 160;
+        if (name === 'block_decorator_height') return 60;
+        if (name.indexOf('block_') === 0 &&
+            name.indexOf('_height') > 0) return 40;
         return undefined;
       }
     },
@@ -570,6 +582,8 @@ if (service) {
     equal(result.connected, true, 'empty Composite auto-connects its new child');
     equal(composite._outConnections.length, 1,
       'empty Composite receives exactly one edge');
+    equal({x: result.block.x, y: result.block.y}, {x: 140, y: 10},
+      'empty Composite child is offset beyond the parent bounds');
     equal(blockIds(h.tree.blocks.getSelected()), [result.block.id],
       'new Composite child is selected');
     equal(h.editor._dirty, 1,
@@ -626,8 +640,8 @@ if (service) {
 
     equal(result.status, 'created', 'explicit Append creates the node');
     equal(result.connected, true, 'explicit Append connects the node');
-    equal({x: result.block.x, y: result.block.y}, {x: 500, y: 120},
-      'Append uses the snapped ConnectionPolicy position after the last child');
+    equal({x: result.block.x, y: result.block.y}, {x: 500, y: 160},
+      'Append clears the last child bounds and uses a snapped position');
     equal(blockIds(b3e.ConnectionPolicy.getOrderedChildren(
       composite, 'horizontal')),
       [first.id, last.id, result.block.id],

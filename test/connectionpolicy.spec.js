@@ -42,7 +42,7 @@ function truthy(value, message) {
   equal(!!value, true, message);
 }
 
-function block(id, category, x, y) {
+function block(id, category, x, y, width, height) {
   return {
     id: id,
     name: id,
@@ -52,6 +52,8 @@ function block(id, category, x, y) {
     properties: {},
     x: x || 0,
     y: y || 0,
+    _width: width || (category === 'action' ? 160 : 40),
+    _height: height || 40,
     _inConnection: null,
     _outConnections: [],
     _dataConnections: []
@@ -229,16 +231,39 @@ if (hasOrder) {
 }
 
 if (hasAppend) {
+  (function firstHorizontalChildIsOffsetAlongTheFlowAxis() {
+    var parent = block('horizontal-empty-parent', 'root', 0, 0, 40, 40);
+    var candidate = block('candidate', 'action', 0, 0, 160, 40);
+
+    var position = b3e.ConnectionPolicy.getAppendPosition(
+      parent, 'horizontal', 20, candidate);
+
+    equal(position, {x: 120, y: 0},
+      'first horizontal child clears the parent bounds and one grid gap');
+  }());
+
+  (function firstVerticalChildIsOffsetAlongTheFlowAxis() {
+    var parent = block('vertical-empty-parent', 'root', 0, 0, 40, 40);
+    var candidate = block('candidate', 'action', 0, 0, 160, 40);
+
+    var position = b3e.ConnectionPolicy.getAppendPosition(
+      parent, 'vertical', 20, candidate);
+
+    equal(position, {x: 0, y: 60},
+      'first vertical child clears the parent bounds and one grid gap');
+  }());
+
   (function appendIsSnappedStrictlyAfterHorizontalChildren() {
     var parent = block('horizontal-append-parent', 'composite');
     connect(parent, block('first', 'action', 300, 35));
     connect(parent, block('equal-last-a', 'action', 500, 100));
     connect(parent, block('equal-last-b', 'action', 700, 100));
 
+    var candidate = block('candidate', 'action', 0, 0, 160, 40);
     var position = b3e.ConnectionPolicy.getAppendPosition(
-      parent, 'horizontal', 20);
-    truthy(position.y > 100,
-      'horizontal Append places Y strictly after the last child');
+      parent, 'horizontal', 20, candidate);
+    equal(position, {x: 700, y: 160},
+      'horizontal Append clears the last child bounds and one grid gap');
     equal(position.y % 20, 0,
       'horizontal Append snaps the ordering coordinate to the grid');
   }());
@@ -249,10 +274,11 @@ if (hasAppend) {
     connect(parent, block('equal-last-a', 'action', 100, 500));
     connect(parent, block('equal-last-b', 'action', 100, 700));
 
+    var candidate = block('candidate', 'action', 0, 0, 160, 40);
     var position = b3e.ConnectionPolicy.getAppendPosition(
-      parent, 'vertical', 20);
-    truthy(position.x > 100,
-      'vertical Append places X strictly after the last child');
+      parent, 'vertical', 20, candidate);
+    equal(position, {x: 280, y: 700},
+      'vertical Append clears the last child bounds and one grid gap');
     equal(position.x % 20, 0,
       'vertical Append snaps the ordering coordinate to the grid');
   }());

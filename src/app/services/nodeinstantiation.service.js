@@ -44,7 +44,7 @@
       if (definition.kind !== 'rpc' && project.nodes && project.nodes.get) {
         nodeSource = project.nodes.get(skeleton.name) || skeleton;
       }
-      var candidate = _candidate(skeleton);
+      var candidate = _candidate(skeleton, project);
       var policyResult = parent ?
         b3e.ConnectionPolicy.check(parent, candidate) : null;
       var orderedChildren = parent ?
@@ -62,7 +62,11 @@
           return _placementRequired(parent, orderedChildren, policyResult);
         }
         position = b3e.ConnectionPolicy.getAppendPosition(
-          parent, layout, gridSize);
+          parent, layout, gridSize, candidate);
+      } else if (parent && orderedChildren.length === 0 &&
+                 policyResult.allowed) {
+        position = b3e.ConnectionPolicy.getAppendPosition(
+          parent, layout, gridSize, candidate);
       }
 
       var connect = !!parent && placement !== 'unconnected';
@@ -111,13 +115,25 @@
       };
     }
 
-    function _candidate(skeleton) {
+    function _candidate(skeleton, project) {
+      var category = skeleton.category || 'action';
       return {
         name: skeleton.name,
-        category: skeleton.category || 'action',
+        category: category,
+        _width: _blockDimension(project, category, 'width', 160),
+        _height: _blockDimension(project, category, 'height', 40),
         _inConnection: null,
         _outConnections: []
       };
+    }
+
+    function _blockDimension(project, category, axis, fallback) {
+      var name = 'block_' + category + '_' + axis;
+      var value = Number(_setting(project, name));
+      if ((!value || value <= 0) && b3e.DEFAULT_SETTINGS) {
+        value = Number(b3e.DEFAULT_SETTINGS[name]);
+      }
+      return value > 0 ? value : fallback;
     }
 
     function _placementRequired(parent, children, policyResult) {
