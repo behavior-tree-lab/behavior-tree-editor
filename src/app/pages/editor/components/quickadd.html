@@ -1,0 +1,93 @@
+<div ng-controller="QuickAddController as quickadd">
+<div ng-if="quickadd.state.open"
+     class="quick-add-backdrop"
+     ng-click="quickadd.close()">
+<div
+     class="quick-add"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="quick-add-title"
+     ng-keydown="quickadd.dialogKeydown($event)"
+     ng-click="$event.stopPropagation()">
+  <div class="quick-add-header">
+    <div>
+      <strong id="quick-add-title">Add node</strong>
+      <span class="quick-add-shortcut">Space</span>
+    </div>
+    <button type="button"
+            class="quick-add-close"
+            aria-label="Close Quick Add"
+            ng-click="quickadd.close()">&times;</button>
+  </div>
+
+  <input type="search"
+         class="form-control quick-add-search"
+         placeholder="Search nodes, subtrees, or RPCs..."
+         aria-label="Search nodes, subtrees, or RPCs"
+         ng-attr-aria-controls="{{quickadd.state.status === 'ready' ? 'quick-add-results' : undefined}}"
+         ng-attr-aria-activedescendant="{{quickadd.state.status === 'ready' ? 'quick-add-result-' + quickadd.state.activeIndex : undefined}}"
+         ng-model="quickadd.state.query"
+         ng-change="quickadd.setQuery(quickadd.state.query)"
+         ng-keydown="quickadd.keydown($event)">
+
+  <div class="quick-add-context" role="status" aria-live="polite">
+    <span ng-if="quickadd.state.status === 'ready'">
+      {{quickadd.state.results.length}} result{{quickadd.state.results.length === 1 ? '' : 's'}}
+    </span>
+    <span ng-if="quickadd.state.status === 'creating'">Creating node...</span>
+    <span ng-if="quickadd.state.status === 'empty'">No matching nodes or RPCs.</span>
+  </div>
+
+  <div ng-if="quickadd.state.status === 'ready'"
+       id="quick-add-results"
+       class="quick-add-results"
+       role="listbox">
+    <div ng-repeat="item in quickadd.state.results track by item.id"
+         id="quick-add-result-{{$index}}"
+         class="quick-add-result"
+         ng-class="{'active': $index === quickadd.state.activeIndex, 'disabled': item.enabled === false}"
+         role="option"
+         tabindex="-1"
+         aria-selected="{{$index === quickadd.state.activeIndex}}"
+         aria-disabled="{{item.enabled === false}}"
+         ng-mouseenter="quickadd.state.activeIndex = $index"
+         ng-click="quickadd.activate(item)">
+      <div class="quick-add-result-main">
+        <strong>{{item.title}}</strong>
+        <span class="quick-add-kind" ng-if="item.kind === 'rpc'">RPC · {{item.connection}}</span>
+        <span class="quick-add-kind" ng-if="item.kind !== 'rpc'">{{item.category === 'tree' ? 'Subtree' : 'Node'}}</span>
+      </div>
+      <div class="quick-add-description">{{item.description}}</div>
+      <div class="quick-add-disabled" ng-if="item.enabled === false">{{item.disabledReason}}</div>
+    </div>
+  </div>
+
+  <div ng-if="quickadd.state.status === 'placement-required'"
+       class="quick-add-placement">
+    <p role="status" aria-live="polite" aria-atomic="true">
+      {{quickadd.state.placementPrompt}}
+    </p>
+    <button ng-repeat="choice in quickadd.state.choices track by choice.id"
+            type="button"
+            class="btn quick-add-placement-choice"
+            ng-class="choice.id === 'cancel' ? 'btn-default' : 'btn-info'"
+            ng-click="quickadd.choosePlacement(choice)">
+      <span>{{choice.label}}</span>
+      <small class="quick-add-choice-warning" ng-if="choice.warning">
+        {{choice.warning}}
+      </small>
+    </button>
+  </div>
+
+  <div ng-if="quickadd.state.message"
+       class="quick-add-message"
+       role="alert">{{quickadd.state.message}}</div>
+
+  <div class="quick-add-footer">
+    <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>
+    <span><kbd>Enter</kbd> Create</span>
+    <span><kbd>Esc</kbd> Close</span>
+  </div>
+</div>
+</div>
+</div>

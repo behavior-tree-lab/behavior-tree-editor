@@ -1,0 +1,124 @@
+.quick-add-backdrop {
+  position: fixed;
+  z-index: @z-modal;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: fade(@color-dark1, 55%);
+}
+
+.quick-add {
+  position: fixed;
+  z-index: @z-modal;
+  top: @size-menubar + @padding-huge;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  max-width: calc(~"100vw - " (2 * @size-sidebar) ~" - " @padding-large-2x);
+  max-height: calc(~"100vh - " @size-menubar ~" - " @padding-huge-2x);
+  overflow: hidden;
+  color: @color-light2;
+  background: @color-dark2;
+  border: 1px solid @color-light4;
+  border-radius: 3px;
+  .box-shadow(0 8px 24px);
+
+  &-header,
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @padding-small-2x @padding-medium;
+    background: @color-dark1;
+  }
+
+  &-header { color: @color-light1; }
+  &-shortcut,
+  &-kind {
+    margin-left: @padding-small-2x;
+    color: @color-blue-light;
+    font-size: .75em;
+    text-transform: uppercase;
+  }
+
+  &-close {
+    padding: 0 @padding-small;
+    color: @color-light3;
+    background: transparent;
+    border: 0;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  &-search {
+    width: calc(~"100% - " (2 * @padding-medium));
+    margin: @padding-medium @padding-medium @padding-small;
+    color: @color-dark1;
+  }
+
+  &-context,
+  &-message {
+    padding: @padding-small @padding-medium;
+    color: @color-light3;
+    font-size: .82em;
+  }
+
+  &-results {
+    max-height: 420px;
+    overflow-y: auto;
+    padding: @padding-small 0;
+  }
+
+  &-result {
+    padding: @padding-small-2x @padding-medium;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+
+    &.active {
+      background: @color-dark4;
+      border-left-color: @color-blue;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: .65;
+    }
+  }
+
+  &-result-main {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-description,
+  &-disabled {
+    margin-top: @padding-small;
+    color: @color-light3;
+    font-size: .82em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &-disabled { color: @color-yellow-light; white-space: normal; }
+
+  &-placement { padding: @padding-medium; }
+  &-placement .btn {
+    margin-right: @padding-small-2x;
+    vertical-align: top;
+  }
+  &-choice-warning {
+    display: block;
+    margin-top: @padding-small;
+    max-width: 180px;
+    color: @color-yellow-light;
+    white-space: normal;
+  }
+  &-message { color: @color-yellow-light; }
+
+  &-footer {
+    justify-content: flex-start;
+    gap: @padding-medium;
+    color: @color-light3;
+    font-size: .75em;
+  }
+  kbd { margin-right: 2px; }
+}

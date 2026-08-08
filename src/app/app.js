@@ -31,7 +31,11 @@ angular.module('app', [
     // add drop to canvas
     angular
       .element($window.editor._game.canvas)
-      .attr('b3-drop-node', true);
+      .attr('b3-drop-node', true)
+      .attr('b3-quick-add-canvas', true)
+      .attr('tabindex', '0')
+      .attr('role', 'application')
+      .attr('aria-label', 'Behavior tree canvas. Press Space or right-click to add a node.');
 
     // initialize editor
     settingsModel.getSettings();
