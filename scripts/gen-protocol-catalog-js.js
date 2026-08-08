@@ -1,5 +1,5 @@
 // Bundles haibot's canonical protocol catalog for offline editor use.
-// Usage: node scripts/gen-protocol-catalog-js.js [path/to/protocol.catalog.json]
+// Usage: node scripts/gen-protocol-catalog-js.js [--check] [path/to/protocol.catalog.json]
 /* jshint node: true, strict: false */
 'use strict';
 
@@ -7,7 +7,21 @@ var fs = require('fs');
 var path = require('path');
 
 var root = path.resolve(__dirname, '..');
-var sourcePath = process.argv[2] ? path.resolve(process.argv[2]) :
+var check = false;
+var sourceArgument = null;
+process.argv.slice(2).forEach(function(argument) {
+  if (argument === '--check') {
+    check = true;
+  } else if (argument.charAt(0) === '-') {
+    throw new Error('unknown option: ' + argument);
+  } else if (sourceArgument) {
+    throw new Error('expected at most one protocol catalog path');
+  } else {
+    sourceArgument = argument;
+  }
+});
+
+var sourcePath = sourceArgument ? path.resolve(sourceArgument) :
   path.resolve(root, '..', 'haibot', 'protocol.catalog.json');
 var assetPath = path.join(root, 'src', 'assets', 'data', 'protocol.catalog.json');
 var outPath = path.join(root, 'src', 'app', 'services', 'protocolcatalog.data.js');
@@ -36,7 +50,36 @@ var out =
   "    .value('protocolCatalogData', catalog);\n" +
   '})();\n';
 
-fs.writeFileSync(assetPath, normalized);
-fs.writeFileSync(outPath, out);
-console.log('wrote ' + assetPath);
-console.log('wrote ' + outPath);
+if (check) {
+  var drifted = [];
+  [[assetPath, normalized], [outPath, out]].forEach(function(target) {
+    var actual = null;
+    try {
+      actual = fs.readFileSync(target[0], 'utf8');
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error;
+      }
+    }
+    if (actual !== target[1]) {
+      drifted.push(target[0]);
+    }
+  });
+  if (drifted.length) {
+    console.error('protocol catalog artifacts are out of date:');
+    drifted.forEach(function(targetPath) {
+      console.error('  ' + targetPath);
+    });
+    console.error('run: node scripts/gen-protocol-catalog-js.js' +
+      (sourceArgument ? ' ' + sourceArgument : ''));
+    process.exitCode = 1;
+  } else {
+    console.log('checked ' + assetPath);
+    console.log('checked ' + outPath);
+  }
+} else {
+  fs.writeFileSync(assetPath, normalized);
+  fs.writeFileSync(outPath, out);
+  console.log('wrote ' + assetPath);
+  console.log('wrote ' + outPath);
+}

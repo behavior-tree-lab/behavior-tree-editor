@@ -41,6 +41,26 @@ Why should you use this editor? What is different from other editors? Can it com
 Nothing is perfect =( . Behavior Tree Editor focus on Chrome (thus, working pretty well on Opera too), so it have some incompatibilities with Firefox, such as the image preview lag when dragging to create a node for the first time, and the ugly scroll bar inside the panels. Not tested on IE!
 
 
+## Protocol catalog maintenance
+
+Regenerate the editor's offline protocol catalog after updating
+`../haibot/protocol.catalog.json`:
+
+```powershell
+node scripts\gen-protocol-catalog-js.js
+```
+
+CI and local verification can detect stale generated files without modifying
+the worktree:
+
+```powershell
+node scripts\gen-protocol-catalog-js.js --check
+```
+
+Both commands accept an optional path to a different
+`protocol.catalog.json` after the flags.
+
+
 ## Looking for Behavior Tree Libraries?
 
 - https://github.com/behavior3/behavior3js

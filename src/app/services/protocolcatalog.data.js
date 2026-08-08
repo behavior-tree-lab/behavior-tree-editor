@@ -7,7 +7,7 @@
   var catalog = {
       "catalogVersion": 1,
       "generatorVersion": "protocolgen/v1",
-      "fingerprint": "sha256:897eb6613008cd2d8c68060505acb5e8259fa456266a7e7392f54832defd6f11",
+      "fingerprint": "sha256:9ca478aab4d87594d2ffff5097cb64f5d2e75811d5a2171d121e554ae622ba79",
       "protobufPackage": "KKSG",
       "rpcs": [
         {
@@ -1792,6 +1792,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1807,6 +1809,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1817,6 +1821,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1828,6 +1834,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -1841,6 +1849,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1851,6 +1861,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1862,6 +1874,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -1881,6 +1895,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.AWSRegion",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1891,6 +1907,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1907,6 +1925,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.AWSLatencyData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -1920,6 +1940,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1935,6 +1957,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1945,6 +1969,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1960,6 +1986,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1975,6 +2003,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -1991,6 +2021,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2002,6 +2034,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ShopBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2021,6 +2055,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2032,6 +2068,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ShopDetail",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2050,6 +2088,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2060,6 +2100,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2070,6 +2112,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2080,6 +2124,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2090,6 +2136,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2100,6 +2148,8 @@
               "number": 6,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2115,6 +2165,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2125,6 +2177,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2140,6 +2194,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2156,6 +2212,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2171,6 +2229,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2181,6 +2241,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2191,6 +2253,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2207,6 +2271,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChangedAttribute",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2226,6 +2292,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BuffChangeData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2245,6 +2313,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.AllEquipInfo.EquiplistEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2264,6 +2334,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.AllSkillData.Id2skillEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2277,6 +2349,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2287,6 +2361,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2302,6 +2378,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2312,6 +2390,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2323,6 +2403,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.InspirationData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2337,6 +2419,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EquipData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2355,6 +2439,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2365,6 +2451,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2376,6 +2464,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2389,6 +2479,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2399,6 +2491,8 @@
               "number": 5,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2409,6 +2503,8 @@
               "number": 6,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2424,6 +2520,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2434,6 +2532,8 @@
               "number": 2,
               "kind": "double",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2449,6 +2549,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2459,6 +2561,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2475,6 +2579,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BDInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2489,6 +2595,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.BDSelectorType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2499,6 +2607,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2515,6 +2625,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2533,6 +2645,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2544,6 +2658,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BagItemidHistory.ItemcountEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2562,6 +2678,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2572,6 +2690,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2583,6 +2703,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FriendRelationType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2593,6 +2715,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2603,6 +2727,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2613,6 +2739,8 @@
               "number": 6,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2629,6 +2757,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2640,6 +2770,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2653,6 +2785,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2664,6 +2798,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendRecentChat",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2683,6 +2819,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.BatchQueryTeamType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2693,6 +2831,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2703,6 +2843,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2719,6 +2861,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2730,6 +2874,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2744,6 +2890,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BatchQueryTeamRes.AssembliesEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2762,6 +2910,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2772,6 +2922,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2787,6 +2939,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2802,6 +2956,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2812,6 +2968,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2822,6 +2980,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2832,6 +2992,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2842,6 +3004,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2853,6 +3017,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CombatRoleType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2868,6 +3034,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2878,6 +3046,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2893,6 +3063,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2909,6 +3081,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2924,6 +3098,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2934,6 +3110,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2944,6 +3122,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2959,6 +3139,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2969,6 +3151,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -2980,6 +3164,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BattleRoleData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -2993,6 +3179,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3003,6 +3191,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3014,6 +3204,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.SceneTeamBattleResInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3028,6 +3220,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FailReason",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3044,6 +3238,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3062,6 +3258,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3073,6 +3271,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BattleRoleExp",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3087,6 +3287,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BattleCombatExp",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3101,6 +3303,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BattleReward",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3115,6 +3319,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EliteData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3129,6 +3335,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EliteData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3142,6 +3350,8 @@
               "number": 7,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3152,6 +3362,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3167,6 +3379,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3177,6 +3391,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3187,6 +3403,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3197,6 +3415,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3208,6 +3428,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.VItemChangeShow",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3226,6 +3448,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3236,6 +3460,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3246,6 +3472,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3261,6 +3489,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3272,6 +3502,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BattleStateInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3291,6 +3523,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BgipData.FreezeCurrencyEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3304,6 +3538,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3319,6 +3555,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3329,6 +3567,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3339,6 +3579,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3349,6 +3591,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3359,6 +3603,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3369,6 +3615,8 @@
               "number": 6,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3379,6 +3627,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3389,6 +3639,8 @@
               "number": 8,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3404,6 +3656,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3414,6 +3668,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3425,6 +3681,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BuffAddData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3439,6 +3697,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BuffRemoveData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3453,6 +3713,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BuffAddData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3467,6 +3729,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BuffInstantData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3480,6 +3744,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3495,6 +3761,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3505,6 +3773,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3515,6 +3785,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3525,6 +3797,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3540,6 +3814,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3555,6 +3831,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3565,6 +3843,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3575,6 +3855,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3585,6 +3867,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3595,6 +3879,8 @@
               "number": 5,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3605,6 +3891,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3615,6 +3903,8 @@
               "number": 7,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3630,6 +3920,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3640,6 +3932,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3656,6 +3950,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FatigueBuyType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3667,6 +3963,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3686,6 +3984,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3702,6 +4002,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FatigueBuyInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3720,6 +4022,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3730,6 +4034,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3740,6 +4046,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3750,6 +4058,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3760,6 +4070,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3775,6 +4087,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3785,6 +4099,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3801,6 +4117,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CardPoolType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3811,6 +4129,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3821,6 +4141,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3831,6 +4153,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3841,6 +4165,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3851,6 +4177,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3862,6 +4190,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.CardPoolGachaInfo.SsrGainedCountEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3876,6 +4206,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PullResult",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3894,6 +4226,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3910,6 +4244,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3926,6 +4262,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.MapLoadData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3944,6 +4282,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3954,6 +4294,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3965,6 +4307,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -3978,6 +4322,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -3989,6 +4335,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AWSLatencyList",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4002,6 +4350,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4018,6 +4368,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4033,6 +4385,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4043,6 +4397,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4053,6 +4409,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4063,6 +4421,8 @@
               "number": 4,
               "kind": "double",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4073,6 +4433,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4083,6 +4445,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4094,6 +4458,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.AttrChangeType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4104,6 +4470,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4114,6 +4482,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4124,6 +4494,8 @@
               "number": 10,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4134,6 +4506,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4150,6 +4524,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4160,6 +4536,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4171,6 +4549,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatMessage",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4184,6 +4564,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4194,6 +4576,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4209,6 +4593,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4219,6 +4605,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4229,6 +4617,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4245,6 +4635,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChapterData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4264,6 +4656,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChapterOpType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4274,6 +4668,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4284,6 +4680,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4300,6 +4698,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4311,6 +4711,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4324,6 +4726,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4339,6 +4743,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4349,6 +4755,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4365,6 +4773,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4375,6 +4785,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4385,6 +4797,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4400,6 +4814,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4410,6 +4826,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4420,6 +4838,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4431,6 +4851,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleBriefInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4445,6 +4867,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamAssemblyInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4459,6 +4883,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatMessageType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4479,6 +4905,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4489,6 +4917,8 @@
               "number": 2,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4502,6 +4932,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4518,6 +4950,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4528,6 +4962,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4538,6 +4974,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4548,6 +4986,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4558,6 +4998,8 @@
               "number": 5,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4574,6 +5016,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4585,6 +5029,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChannelChatMessage",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4604,6 +5050,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4615,6 +5063,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatQuickMessage.MessageEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4628,6 +5078,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4643,6 +5095,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4653,6 +5107,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4669,6 +5125,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatQuickMessage",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4687,6 +5145,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4703,6 +5163,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4714,6 +5176,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChannelChatMessage",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4733,6 +5197,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ChatChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4743,6 +5209,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4753,6 +5221,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4769,6 +5239,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4779,6 +5251,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4795,6 +5269,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CheckCDType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4805,6 +5281,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4821,6 +5299,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4832,6 +5312,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.CheckCDRes.LastTimeListEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4854,6 +5336,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4864,6 +5348,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4880,6 +5366,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4895,6 +5383,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4905,6 +5395,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4921,6 +5413,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4934,6 +5428,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4945,6 +5441,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CombatRoleGroupOp",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4961,6 +5459,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BDInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -4979,6 +5479,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4989,6 +5491,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -4999,6 +5503,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5009,6 +5515,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5019,6 +5527,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5029,6 +5539,8 @@
               "number": 6,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5044,6 +5556,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5054,6 +5568,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5069,6 +5585,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5079,6 +5597,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5089,6 +5609,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5104,6 +5626,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5114,6 +5638,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5124,6 +5650,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5140,6 +5668,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.DamageDebugInfo.AttrListEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5154,6 +5684,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.DamageDebugInfo.ParamListEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5167,6 +5699,8 @@
               "number": 3,
               "kind": "double",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5177,6 +5711,8 @@
               "number": 4,
               "kind": "double",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5192,6 +5728,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5202,6 +5740,8 @@
               "number": 2,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5212,6 +5752,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5222,6 +5764,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5232,6 +5776,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5242,6 +5788,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5252,6 +5800,8 @@
               "number": 7,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5267,6 +5817,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5277,6 +5829,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5287,6 +5841,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5303,6 +5859,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FriendRelationType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5314,6 +5872,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FriendPersonalData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5328,6 +5888,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FriendShareData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5342,6 +5904,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendExtraRelationType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5357,6 +5921,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5367,6 +5933,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5377,6 +5945,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5392,6 +5962,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5402,6 +5974,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5412,6 +5986,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5422,6 +5998,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5433,6 +6011,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.GuildSettingsData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5451,6 +6031,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5462,6 +6044,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.GuildMemberRankType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5472,6 +6056,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5483,6 +6069,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.DbGuildMemberData.TotalActscoreEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5497,6 +6085,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.DbGuildMemberData.WeekActscoreEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5510,6 +6100,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5525,6 +6117,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5535,6 +6129,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5550,6 +6146,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5560,6 +6158,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5570,6 +6170,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5585,6 +6187,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5595,6 +6199,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5605,6 +6211,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5616,6 +6224,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec4",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5629,6 +6239,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5644,6 +6256,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5655,6 +6269,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FightGroupType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5665,6 +6281,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5675,6 +6293,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5685,6 +6305,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5695,6 +6317,8 @@
               "number": 6,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5710,6 +6334,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5726,6 +6352,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5741,6 +6369,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5751,6 +6381,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5766,6 +6398,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5776,6 +6410,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5786,6 +6422,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5796,6 +6434,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5806,6 +6446,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5821,6 +6463,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5832,6 +6476,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5846,6 +6492,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5859,6 +6507,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5869,6 +6519,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5880,6 +6532,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5893,6 +6547,8 @@
               "number": 7,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5904,6 +6560,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PassFlag",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5917,6 +6575,8 @@
               "number": 9,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5932,6 +6592,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5942,6 +6604,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5953,6 +6617,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DynamicWall",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -5966,6 +6632,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5976,6 +6644,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -5987,6 +6657,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6000,6 +6672,8 @@
               "number": 7,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6015,6 +6689,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6026,6 +6702,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.EQuestOpType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6036,6 +6714,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6051,6 +6731,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6066,6 +6748,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6076,6 +6760,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6092,6 +6778,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DoodadOutlook",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6106,6 +6794,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DestructibleOutLook",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6124,6 +6814,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6134,6 +6826,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6144,6 +6838,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6154,6 +6850,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6164,6 +6862,8 @@
               "number": 5,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6174,6 +6874,8 @@
               "number": 6,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6187,6 +6889,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6202,6 +6906,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6212,6 +6918,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6222,6 +6930,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6232,6 +6942,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6242,6 +6954,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6252,6 +6966,8 @@
               "number": 6,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6268,6 +6984,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6281,6 +6999,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6291,6 +7011,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6301,6 +7023,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6311,6 +7035,8 @@
               "number": 5,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6321,6 +7047,8 @@
               "number": 6,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6336,6 +7064,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6346,6 +7076,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6357,6 +7089,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.EnvQueryPositionDebugData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6370,6 +7104,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6385,6 +7121,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6395,6 +7133,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6406,6 +7146,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.AffixData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6420,6 +7162,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.AffixData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6439,6 +7183,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.EquipOptType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6449,6 +7195,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6459,6 +7207,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6469,6 +7219,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6480,6 +7232,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.EquipOperationArg.SwallowitemsEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6499,6 +7253,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6510,6 +7266,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Item",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6524,6 +7282,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6543,6 +7303,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6553,6 +7315,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6563,6 +7327,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6578,6 +7344,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6593,6 +7361,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6603,6 +7373,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6618,6 +7390,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6628,6 +7402,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6643,6 +7419,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6659,6 +7437,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.LoginType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6670,6 +7450,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoginPasswordData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6689,6 +7471,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6700,6 +7484,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ServerListInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6713,6 +7499,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6723,6 +7511,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6734,6 +7524,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.AWSRegion",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6754,6 +7546,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6764,6 +7558,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6774,6 +7570,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6789,6 +7587,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6799,6 +7599,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6815,6 +7617,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6828,6 +7632,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6844,6 +7650,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.FriendSyncType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6855,6 +7663,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FriendData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6873,6 +7683,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6884,6 +7696,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleBriefInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6898,6 +7712,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DbFriendRelationData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6912,6 +7728,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DbFriendGiftData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6926,6 +7744,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DbFriendGiftData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6940,6 +7760,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSummaryDataOnline",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6954,6 +7776,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -6972,6 +7796,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6982,6 +7808,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -6997,6 +7825,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7007,6 +7837,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7017,6 +7849,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7028,6 +7862,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChatMessage",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7042,6 +7878,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FriendData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7060,6 +7898,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7070,6 +7910,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7081,6 +7923,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendShareData.FriendshipmapEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7099,6 +7943,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7109,6 +7955,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7125,6 +7973,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7135,6 +7985,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7150,6 +8002,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7161,6 +8015,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GMGetAttrsNtfData.AttrlistEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7179,6 +8035,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7189,6 +8047,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7200,6 +8060,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PullResult",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7219,6 +8081,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.CardPoolGachaInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7237,6 +8101,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7248,6 +8114,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.GachaType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7264,6 +8132,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PullResult",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7278,6 +8148,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7293,6 +8165,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7309,6 +8183,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7320,6 +8196,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7338,6 +8216,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7354,6 +8234,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7365,6 +8247,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleBriefInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7379,6 +8263,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7398,6 +8284,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.VoiceChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7409,6 +8297,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.VivoxAction",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7419,6 +8309,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7429,6 +8321,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7445,6 +8339,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7455,6 +8351,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7465,6 +8363,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7475,6 +8375,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7485,6 +8387,8 @@
               "number": 5,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7495,6 +8399,8 @@
               "number": 6,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7505,6 +8411,8 @@
               "number": 7,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7515,6 +8423,8 @@
               "number": 8,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7525,6 +8435,8 @@
               "number": 9,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7540,6 +8452,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7550,6 +8464,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7566,6 +8482,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.GuildSyncType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7577,6 +8495,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.GuildData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7600,6 +8520,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7611,6 +8533,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleGuildCheckInResult",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7630,6 +8554,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DbGuildBriefData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7644,6 +8570,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GuildData.GuildmembersEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7658,6 +8586,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GuildData.GuildapplysEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7672,6 +8602,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GuildData.Roleid2extraEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7691,6 +8623,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleBriefInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7709,6 +8643,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7719,6 +8655,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7734,6 +8672,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7745,6 +8685,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SysHintData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7763,6 +8705,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7774,6 +8718,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.SystemHintOpCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7789,6 +8735,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7799,6 +8747,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7809,6 +8759,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7824,6 +8776,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7834,6 +8788,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7849,6 +8805,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7859,6 +8817,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7869,6 +8829,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7879,6 +8841,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7889,6 +8853,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7905,6 +8871,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.InspireOpt",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7915,6 +8883,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7925,6 +8895,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7936,6 +8908,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.InspireOperationArg.ConsumeitemsEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7955,6 +8929,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -7966,6 +8942,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Item",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7980,6 +8958,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -7998,6 +8978,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8008,6 +8990,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8018,6 +9002,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8028,6 +9014,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8039,6 +9027,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AppendData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8052,6 +9042,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8067,6 +9059,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8077,6 +9071,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8087,6 +9083,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8103,6 +9101,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8117,6 +9117,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8130,6 +9132,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8140,6 +9144,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8150,6 +9156,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8166,6 +9174,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ItemChangeData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8185,6 +9195,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ItemOptType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8195,6 +9207,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8211,6 +9225,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8226,6 +9242,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8241,6 +9259,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8251,6 +9271,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8262,6 +9284,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8272,6 +9296,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8288,6 +9314,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LangDictData.DictEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8306,6 +9334,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8317,6 +9347,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PinData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8330,6 +9362,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8340,6 +9374,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8350,6 +9386,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8360,6 +9398,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8370,6 +9410,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8380,6 +9422,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8396,6 +9440,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LevelSaveInfo.TriggerObjectInfosEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8410,6 +9456,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ExploreInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8423,6 +9471,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8434,6 +9484,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleDestructibleInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8453,6 +9505,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LevelNotice",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8472,6 +9526,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LevelNotice",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8486,6 +9542,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.DoorState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8500,6 +9558,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TaskData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8514,6 +9574,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.CutsceneState",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8528,6 +9590,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.MapLoadData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8541,6 +9605,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8552,6 +9618,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.BattleStopReason",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8562,6 +9630,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8573,6 +9643,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LevelSaveInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8586,6 +9658,8 @@
               "number": 10,
               "kind": "string",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8596,6 +9670,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8611,6 +9687,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8621,6 +9699,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8636,6 +9716,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8646,6 +9728,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8656,6 +9740,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8672,6 +9758,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8687,6 +9775,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8703,6 +9793,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8713,6 +9805,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8728,6 +9822,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8744,6 +9840,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8759,6 +9857,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8769,6 +9869,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8785,6 +9887,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GroupInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8798,6 +9902,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8818,6 +9924,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8829,6 +9937,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoadedSceneData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8847,6 +9957,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8857,6 +9969,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8873,6 +9987,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8886,6 +10002,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8896,6 +10014,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8906,6 +10026,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8922,6 +10044,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8933,6 +10057,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8947,6 +10073,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ReconnectSceneData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -8961,6 +10089,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SceneState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8971,6 +10101,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8986,6 +10118,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -8996,6 +10130,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9006,6 +10142,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9017,6 +10155,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoadingSceneStartTimeline",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9030,6 +10170,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9041,6 +10183,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LoadingSceneStepData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9054,6 +10198,8 @@
               "number": 7,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9069,6 +10215,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9079,6 +10227,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9094,6 +10244,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9104,6 +10256,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9114,6 +10268,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9124,6 +10280,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9134,6 +10292,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9144,6 +10304,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9160,6 +10322,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.LoadingSceneStepData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9178,6 +10342,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9188,6 +10354,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9203,6 +10371,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9218,6 +10388,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9228,6 +10400,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9238,6 +10412,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9248,6 +10424,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9264,6 +10442,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9274,6 +10454,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9289,6 +10471,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9299,6 +10483,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9314,6 +10500,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9329,6 +10517,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9339,6 +10529,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9349,6 +10541,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9365,6 +10559,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9376,6 +10572,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleAllInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9390,6 +10588,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EnterGameSessionNotify",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9408,6 +10608,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9418,6 +10620,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9428,6 +10632,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9439,6 +10645,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ClientSDKInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9453,6 +10661,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ClientOS",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9463,6 +10673,8 @@
               "number": 6,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9473,6 +10685,8 @@
               "number": 7,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9489,6 +10703,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9500,6 +10716,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AccountInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9514,6 +10732,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoginReconnectData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9527,6 +10747,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9537,6 +10759,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9548,6 +10772,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PunishNtfData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9571,6 +10797,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9594,6 +10822,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9604,6 +10834,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9614,6 +10846,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9624,6 +10858,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9634,6 +10870,8 @@
               "number": 5,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9645,6 +10883,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.MailItemInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9658,6 +10898,8 @@
               "number": 7,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9668,6 +10910,8 @@
               "number": 8,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9678,6 +10922,8 @@
               "number": 9,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9688,6 +10934,8 @@
               "number": 10,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9698,6 +10946,8 @@
               "number": 11,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9708,6 +10958,8 @@
               "number": 12,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9718,6 +10970,8 @@
               "number": 13,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9728,6 +10982,8 @@
               "number": 14,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9738,6 +10994,8 @@
               "number": 15,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9748,6 +11006,8 @@
               "number": 16,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9767,6 +11027,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9778,6 +11040,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9793,6 +11057,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9803,6 +11069,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9813,6 +11081,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9829,6 +11099,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.MailOp",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9839,6 +11111,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9849,6 +11123,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9865,6 +11141,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9876,6 +11154,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Mail",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9889,6 +11169,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9904,6 +11186,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9914,6 +11198,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9924,6 +11210,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9940,6 +11228,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.MarqueeTask",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -9953,6 +11243,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9968,6 +11260,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9978,6 +11272,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9988,6 +11284,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -9999,6 +11297,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LangDictData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10012,6 +11312,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10027,6 +11329,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10037,6 +11341,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10047,6 +11353,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10063,6 +11371,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10078,6 +11388,8 @@
               "number": 1,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10088,6 +11400,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10098,6 +11412,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10108,6 +11424,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10118,6 +11436,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10128,6 +11448,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10138,6 +11460,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10148,6 +11472,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10158,6 +11484,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10168,6 +11496,8 @@
               "number": 10,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10178,6 +11508,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10188,6 +11520,8 @@
               "number": 12,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10198,6 +11532,8 @@
               "number": 13,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10208,6 +11544,8 @@
               "number": 14,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10218,6 +11556,8 @@
               "number": 15,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10228,6 +11568,8 @@
               "number": 16,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10238,6 +11580,8 @@
               "number": 17,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10248,6 +11592,8 @@
               "number": 18,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10263,6 +11609,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10274,6 +11622,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10288,6 +11638,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.UIShowType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10304,6 +11656,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.OpFriendType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10314,6 +11668,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10324,6 +11680,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10335,6 +11693,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChatSendMessageArg",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10354,6 +11714,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10365,6 +11727,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.OpFriendRes.Id2errEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10379,6 +11743,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.OpFriendRes.Id2frienddataEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10393,6 +11759,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10404,6 +11772,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.OpFriendRes.Extraid2errEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10423,6 +11793,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.OpGuildType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10433,6 +11805,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10443,6 +11817,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10454,6 +11830,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.GuildSettingsData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10473,6 +11851,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10484,6 +11864,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.OpGuildRes.Id2errEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10503,6 +11885,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.OpTeamType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10513,6 +11897,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10523,6 +11909,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10533,6 +11921,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10544,6 +11934,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamJoinCondition",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10557,6 +11949,8 @@
               "number": 6,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10567,6 +11961,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10577,6 +11973,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10588,6 +11986,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChatSendMessageArg",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10601,6 +12001,8 @@
               "number": 10,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10612,6 +12014,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.OpTeamSourceType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10622,6 +12026,8 @@
               "number": 12,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10633,6 +12039,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamMatchSourceType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10649,6 +12057,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10659,6 +12069,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10669,6 +12081,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10679,6 +12093,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10695,6 +12111,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.OwnPartnerInfo.PartnersEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10713,6 +12131,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10723,6 +12143,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10733,6 +12155,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10743,6 +12167,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10753,6 +12179,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10764,6 +12192,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CombatRoleType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10774,6 +12204,8 @@
               "number": 7,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10785,6 +12217,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AllSkillData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10798,6 +12232,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10809,6 +12245,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AllEquipInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10828,6 +12266,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.PartnerOperationType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10838,6 +12278,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10849,6 +12291,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PartnerOperationArg.ConsumeitemsEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10862,6 +12306,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10878,6 +12324,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10889,6 +12337,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PartnerData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10903,6 +12353,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -10922,6 +12374,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.PartnerTeamOPType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10932,6 +12386,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10942,6 +12398,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10952,6 +12410,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10962,6 +12422,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10978,6 +12440,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -10993,6 +12457,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11003,6 +12469,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11013,6 +12481,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11029,6 +12499,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.PinType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11040,6 +12512,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ArrayEle",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11058,6 +12532,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11069,6 +12545,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.PinType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11079,6 +12557,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11089,6 +12569,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11100,6 +12582,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Vec3",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11113,6 +12597,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11123,6 +12609,8 @@
               "number": 7,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11133,6 +12621,8 @@
               "number": 8,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11144,6 +12634,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PinArray",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11162,6 +12654,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11172,6 +12666,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11188,6 +12684,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PlayerSetting.SettingMapEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11206,6 +12704,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11216,6 +12716,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11226,6 +12728,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11236,6 +12740,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11251,6 +12757,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11261,6 +12769,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11271,6 +12781,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11281,6 +12793,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11296,6 +12810,8 @@
               "number": 1,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11310,6 +12826,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.InitSecureConnType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11326,6 +12844,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11336,6 +12856,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11346,6 +12868,8 @@
               "number": 3,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11360,6 +12884,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ShareKeyGenAlgo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11371,6 +12897,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.EncryptAlgo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11386,6 +12914,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11396,6 +12926,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11411,6 +12943,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11421,6 +12955,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11431,6 +12967,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11442,6 +12980,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleActivity",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11456,6 +12996,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PartnerData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11469,6 +13011,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11479,6 +13023,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11489,6 +13035,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11499,6 +13047,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11509,6 +13059,8 @@
               "number": 10,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11519,6 +13071,8 @@
               "number": 11,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11530,6 +13084,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ProfileData.ItemInfoEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11543,6 +13099,8 @@
               "number": 13,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11559,6 +13117,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TargetHurtInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11572,6 +13132,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11582,6 +13144,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11592,6 +13156,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11602,6 +13168,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11612,6 +13180,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11623,6 +13193,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11636,6 +13208,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11652,6 +13226,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TargetHurtInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11665,6 +13241,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11675,6 +13253,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11685,6 +13265,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11696,6 +13278,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DamageCasterInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11709,6 +13293,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11724,6 +13310,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11735,6 +13323,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.ProveGroundSetting",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11746,6 +13336,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ProveGroundSetting",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11756,6 +13348,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11767,6 +13361,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ProveGroundOpCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11783,6 +13379,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11798,6 +13396,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11809,6 +13409,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11822,6 +13424,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11833,6 +13437,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.GachaResultType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11843,6 +13449,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11853,6 +13461,8 @@
               "number": 6,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11868,6 +13478,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11878,6 +13490,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11889,6 +13503,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatBannedData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11903,6 +13519,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RenameData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -11921,6 +13539,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11931,6 +13551,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11941,6 +13563,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11957,6 +13581,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11967,6 +13593,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11977,6 +13605,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11987,6 +13617,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -11997,6 +13629,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12007,6 +13641,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12017,6 +13653,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12032,6 +13670,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12042,6 +13682,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12052,6 +13694,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12068,6 +13712,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12079,6 +13725,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChannelChatMessage",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12098,6 +13746,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CardPoolType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12108,6 +13758,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12124,6 +13776,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12135,6 +13789,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GachaEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12158,6 +13814,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12169,6 +13827,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoadingSceneNtf",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12188,6 +13848,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.QuestType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12204,6 +13866,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12215,6 +13879,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.QuestInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12234,6 +13900,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.QuerySelfGuildType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12250,6 +13918,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12261,6 +13931,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.GuildData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12275,6 +13947,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleGuildInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12293,6 +13967,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12313,6 +13989,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12323,6 +14001,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12334,6 +14014,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.QueryTeamBattleStatisRes.MemberstatisEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12353,6 +14035,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12364,6 +14048,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12382,6 +14068,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12392,6 +14080,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12403,6 +14093,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.QuestState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12419,6 +14111,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.QuestData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12432,6 +14126,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12443,6 +14139,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.QuestData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12456,6 +14154,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12466,6 +14166,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12476,6 +14178,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12486,6 +14190,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12496,6 +14202,8 @@
               "number": 8,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12506,6 +14214,8 @@
               "number": 9,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12521,6 +14231,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12532,6 +14244,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.QuestRewardType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12548,6 +14262,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12559,6 +14275,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12578,6 +14296,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamLevelOpt",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12588,6 +14308,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12598,6 +14320,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12614,6 +14338,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12625,6 +14351,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12644,6 +14372,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.RecommendFriendType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12660,6 +14390,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12671,6 +14403,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12694,6 +14428,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12705,6 +14441,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.GuildData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12719,6 +14457,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleGuildInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12737,6 +14477,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12753,6 +14495,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12764,6 +14508,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12778,6 +14524,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleTeamMatchInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12792,6 +14540,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChatQueryMessageRes",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12811,6 +14561,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoginReqArg",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12824,6 +14576,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12840,6 +14594,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12850,6 +14606,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12861,6 +14619,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleAllInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12875,6 +14635,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EnterGameSessionNotify",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12888,6 +14650,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12898,6 +14662,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12913,6 +14679,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12924,6 +14692,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12938,6 +14708,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12951,6 +14723,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -12962,6 +14736,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LevelStateData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12976,6 +14752,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BattleResultData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -12990,6 +14768,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.StepSyncData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13004,6 +14784,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChapterStarMsg",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13018,6 +14800,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13037,6 +14821,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSceneState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13047,6 +14833,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13057,6 +14845,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13067,6 +14857,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13077,6 +14869,8 @@
               "number": 5,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13087,6 +14881,8 @@
               "number": 6,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13097,6 +14893,8 @@
               "number": 7,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13113,6 +14911,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13124,6 +14924,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ReconnectSceneData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13138,6 +14940,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LoadingSceneNtf",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13157,6 +14961,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.RefreshPartnerType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13168,6 +14974,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.PartnerData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13181,6 +14989,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13197,6 +15007,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13210,6 +15022,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13225,6 +15039,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13235,6 +15051,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13251,6 +15069,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AWSLatencyList",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13270,6 +15090,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ReportType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13280,6 +15102,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13295,6 +15119,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13306,6 +15132,8 @@
               "kind": "enum",
               "cardinality": "repeated",
               "typeName": "KKSG.EReportCategory",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13316,6 +15144,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13332,6 +15162,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13342,6 +15174,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13358,6 +15192,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13373,6 +15209,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13383,6 +15221,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13399,6 +15239,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.VoiceChannelType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13409,6 +15251,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13419,6 +15263,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13435,6 +15281,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13445,6 +15293,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13461,6 +15311,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosDataUInt",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13479,6 +15331,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13489,6 +15343,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13505,6 +15361,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleBriefInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13519,6 +15377,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.VirtualItem",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13533,6 +15393,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BagInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13547,6 +15409,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.StageInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13561,6 +15425,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.OwnPartnerInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13575,6 +15441,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleExtraInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13589,6 +15457,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TaskInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13603,6 +15473,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChapterInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13617,6 +15489,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.SystemInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13631,6 +15505,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BuyInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13645,6 +15521,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.GachaInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13659,6 +15537,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LevelSaveInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13673,6 +15553,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.FormationInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13687,6 +15569,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BagItemidHistory",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13701,6 +15585,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleStatsInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13715,6 +15601,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.QuestInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13729,6 +15617,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleIdempotencyInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13743,6 +15633,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ChatQuickMessageList",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13757,6 +15649,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13771,6 +15665,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PlayerSetting",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13785,6 +15681,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleShopInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13799,6 +15697,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RolePunishInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13817,6 +15717,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13827,6 +15729,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13837,6 +15741,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13847,6 +15753,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13857,6 +15765,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13868,6 +15778,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -13881,6 +15793,8 @@
               "number": 7,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13891,6 +15805,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13901,6 +15817,8 @@
               "number": 9,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13911,6 +15829,8 @@
               "number": 10,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13921,6 +15841,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13931,6 +15853,8 @@
               "number": 12,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13941,6 +15865,8 @@
               "number": 13,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13951,6 +15877,8 @@
               "number": 14,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13961,6 +15889,8 @@
               "number": 15,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13971,6 +15901,8 @@
               "number": 16,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13981,6 +15913,8 @@
               "number": 17,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -13992,6 +15926,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamLevelData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14006,6 +15942,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ClientSDKInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14025,6 +15963,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14038,6 +15978,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14053,6 +15995,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14063,6 +16007,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14078,6 +16024,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14089,6 +16037,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.SceneAdaptiveInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14102,6 +16052,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14112,6 +16064,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14123,6 +16077,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatBannedData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14137,6 +16093,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BgipData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14151,6 +16109,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleExtraInfo.DropLimitEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14165,6 +16125,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamLevelData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14179,6 +16141,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14197,6 +16161,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14207,6 +16173,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14217,6 +16185,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14227,6 +16197,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14238,6 +16210,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.GuildCheckInRewardLevel",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14254,6 +16228,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DbRoleGuildBriefData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14268,6 +16244,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleGuildInfo.ApplysEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14282,6 +16260,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleGuildCheckInResult",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14301,6 +16281,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.IdempotencyEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14319,6 +16301,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14330,6 +16314,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.VItemChangeShow",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14349,6 +16335,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ChatBannedData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14368,6 +16356,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleShopInfo.ShopItemInfosEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14382,6 +16372,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleShopInfo.CurrencyCostEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14400,6 +16392,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14410,6 +16404,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14420,6 +16416,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14430,6 +16428,8 @@
               "number": 4,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14440,6 +16440,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14455,6 +16457,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14465,6 +16469,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14480,6 +16486,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14490,6 +16498,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14500,6 +16510,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14510,6 +16522,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14520,6 +16534,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14530,6 +16546,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14540,6 +16558,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14550,6 +16570,8 @@
               "number": 8,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14560,6 +16582,8 @@
               "number": 9,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14570,6 +16594,8 @@
               "number": 10,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14580,6 +16606,8 @@
               "number": 11,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14590,6 +16618,8 @@
               "number": 12,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14605,6 +16635,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14615,6 +16647,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14625,6 +16659,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14635,6 +16671,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14651,6 +16689,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleSysAutoMailData.RecordEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14670,6 +16710,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleSysHintData.SystemHintEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14689,6 +16731,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.RoleSysOpenData.SystemOpenedEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14707,6 +16751,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14717,6 +16763,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14732,6 +16780,8 @@
               "number": 1,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14746,6 +16796,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TutorialCtxData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14764,6 +16816,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14774,6 +16828,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14790,6 +16846,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AdaptiveRecData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14804,6 +16862,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AdaptiveRecData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14823,6 +16883,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SceneChangeType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14839,6 +16901,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14855,6 +16919,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SceneFinishList.FinishdataEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14868,6 +16934,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14883,6 +16951,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14894,6 +16964,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SceneFrameFixReason",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14904,6 +16976,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14914,6 +16988,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14929,6 +17005,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14939,6 +17017,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -14950,6 +17030,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.SceneTeamLikeInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14964,6 +17046,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SceneTeamBattleResInfo.MembersEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -14983,6 +17067,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SceneTeamLikeInfo.MemberslikeinfoEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15001,6 +17087,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15012,6 +17100,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SceneTeamMemberLikeInfo.RecordEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15030,6 +17120,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15040,6 +17132,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15056,6 +17150,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.FriendData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15074,6 +17170,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15090,6 +17188,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15110,6 +17210,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15121,6 +17223,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleAllInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15134,6 +17238,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15149,6 +17255,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15159,6 +17267,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15169,6 +17279,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15179,6 +17291,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15190,6 +17304,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ServerState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15201,6 +17317,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ServerEnvType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15217,6 +17335,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ServerInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15230,6 +17350,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15250,6 +17372,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15260,6 +17384,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15276,6 +17402,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15291,6 +17419,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15301,6 +17431,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15312,6 +17444,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.BattleStopReason",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15322,6 +17456,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15338,6 +17474,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15348,6 +17486,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15359,6 +17499,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EliteData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15377,6 +17519,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15393,6 +17537,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15409,6 +17555,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15424,6 +17572,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15434,6 +17584,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15444,6 +17596,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15454,6 +17608,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15469,6 +17625,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15479,6 +17637,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15489,6 +17649,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15500,6 +17662,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ShopItem",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15518,6 +17682,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15528,6 +17694,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15538,6 +17706,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15548,6 +17718,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15558,6 +17730,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15568,6 +17742,8 @@
               "number": 6,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15578,6 +17754,8 @@
               "number": 7,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15588,6 +17766,8 @@
               "number": 8,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15598,6 +17778,8 @@
               "number": 9,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15608,6 +17790,8 @@
               "number": 10,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15623,6 +17807,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15633,6 +17819,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15648,6 +17836,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15658,6 +17848,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15668,6 +17860,8 @@
               "number": 3,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15678,6 +17872,8 @@
               "number": 4,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15688,6 +17884,8 @@
               "number": 5,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15698,6 +17896,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15709,6 +17909,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosDataUInt",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15728,6 +17930,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SkillOpType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15738,6 +17942,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15748,6 +17954,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15758,6 +17966,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15774,6 +17984,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15784,6 +17996,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15799,6 +18013,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15809,6 +18025,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15819,6 +18037,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15834,6 +18054,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15844,6 +18066,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15854,6 +18078,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15865,6 +18091,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SkillChangeType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15880,6 +18108,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15890,6 +18120,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15906,6 +18138,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SquadMemberDebugData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -15919,6 +18153,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15929,6 +18165,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15939,6 +18177,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15954,6 +18194,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15964,6 +18206,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15974,6 +18218,8 @@
               "number": 3,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15984,6 +18230,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -15994,6 +18242,8 @@
               "number": 5,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16009,6 +18259,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16020,6 +18272,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EliteData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16033,6 +18287,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16043,6 +18299,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16059,6 +18317,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.StageInfo.Type2listEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16073,6 +18333,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.StageInfo.Type2dataEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16091,6 +18353,8 @@
               "number": 1,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16105,6 +18369,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.InitSecureConnType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16121,6 +18387,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16136,6 +18404,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16146,6 +18416,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16156,6 +18428,8 @@
               "number": 3,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16166,6 +18440,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16176,6 +18452,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16191,6 +18469,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16201,6 +18481,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16211,6 +18493,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16221,6 +18505,8 @@
               "number": 4,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16231,6 +18517,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16246,6 +18534,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16256,6 +18546,8 @@
               "number": 2,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16266,6 +18558,8 @@
               "number": 3,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16276,6 +18570,8 @@
               "number": 4,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16286,6 +18582,8 @@
               "number": 5,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16296,6 +18594,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16306,6 +18606,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16316,6 +18618,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16326,6 +18630,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16336,6 +18642,8 @@
               "number": 10,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16346,6 +18654,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16356,6 +18666,8 @@
               "number": 12,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16366,6 +18678,8 @@
               "number": 13,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16376,6 +18690,8 @@
               "number": 14,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16386,6 +18702,8 @@
               "number": 15,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16396,6 +18714,8 @@
               "number": 16,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16406,6 +18726,8 @@
               "number": 17,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16416,6 +18738,8 @@
               "number": 18,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16426,6 +18750,8 @@
               "number": 19,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16436,6 +18762,8 @@
               "number": 20,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16452,6 +18780,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.StepSyncData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16465,6 +18795,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16480,6 +18812,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16490,6 +18824,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16500,6 +18836,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16515,6 +18853,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16525,6 +18865,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16535,6 +18877,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16545,6 +18889,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16560,6 +18906,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16570,6 +18918,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16580,6 +18930,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16590,6 +18942,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16605,6 +18959,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16615,6 +18971,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16631,6 +18989,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16642,6 +19002,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.ItemBrief",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16656,6 +19018,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.BattleRoleExp",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16669,6 +19033,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16684,6 +19050,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16700,6 +19068,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16715,6 +19085,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16725,6 +19097,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16735,6 +19109,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16745,6 +19121,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16756,6 +19134,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16774,6 +19154,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16785,6 +19167,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.StepProgress",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16804,6 +19188,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.LevelStateData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16823,6 +19209,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SyncLoadingStepOne",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16841,6 +19229,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16851,6 +19241,8 @@
               "number": 2,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16861,6 +19253,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16871,6 +19265,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16881,6 +19277,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16891,6 +19289,8 @@
               "number": 6,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16901,6 +19301,8 @@
               "number": 7,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16917,6 +19319,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.MapLoadData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -16935,6 +19339,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16945,6 +19351,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16960,6 +19368,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16970,6 +19380,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -16986,6 +19398,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SyncTeamBattleInfoData.BattleinfoEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17004,6 +19418,8 @@
               "number": 1,
               "kind": "int32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17014,6 +19430,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17025,6 +19443,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.SystemHintState",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17035,6 +19455,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17050,6 +19472,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17065,6 +19489,8 @@
               "number": 1,
               "kind": "bytes",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17079,6 +19505,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SystemInfo.SystemOpenedEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17093,6 +19521,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TutorialCtxData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17107,6 +19537,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SystemInfo.SystemHintEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17120,6 +19552,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17131,6 +19565,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleTutorialData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17145,6 +19581,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSysOpenData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17159,6 +19597,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSysHintData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17173,6 +19613,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSysAutoMailData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17191,6 +19633,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17206,6 +19650,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17217,6 +19663,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DamageResult",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17230,6 +19678,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17241,6 +19691,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.DamageDebugInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17254,6 +19706,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17269,6 +19723,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17280,6 +19736,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TaskStatus",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17291,6 +19749,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SubTask",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17310,6 +19770,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TaskData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17323,6 +19785,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17333,6 +19797,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17348,6 +19814,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17363,6 +19831,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17379,6 +19849,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17394,6 +19866,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17404,6 +19878,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17414,6 +19890,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17424,6 +19902,8 @@
               "number": 4,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17434,6 +19914,8 @@
               "number": 5,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17450,6 +19932,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamSyncType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17461,6 +19945,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17474,6 +19960,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17484,6 +19972,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17495,6 +19985,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.OpTeamSourceType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17510,6 +20002,8 @@
               "number": 1,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17520,6 +20014,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17535,6 +20031,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17545,6 +20043,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17555,6 +20055,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17565,6 +20067,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17576,6 +20080,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamInfo.MembersEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17590,6 +20096,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamJoinCondition",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17604,6 +20112,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamStateType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17614,6 +20124,8 @@
               "number": 8,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17624,6 +20136,8 @@
               "number": 9,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17639,6 +20153,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17655,6 +20171,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamLevelData.TeamlevelDataEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17673,6 +20191,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17683,6 +20203,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17693,6 +20215,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17703,6 +20227,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17713,6 +20239,8 @@
               "number": 5,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17728,6 +20256,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17739,6 +20269,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamMemberBattleStateType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17749,6 +20281,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17759,6 +20293,8 @@
               "number": 4,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17769,6 +20305,8 @@
               "number": 5,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17779,6 +20317,8 @@
               "number": 6,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17789,6 +20329,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17799,6 +20341,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17810,6 +20354,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TeamMemberBattleBuffData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -17823,6 +20369,8 @@
               "number": 10,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17833,6 +20381,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17843,6 +20393,8 @@
               "number": 12,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17853,6 +20405,8 @@
               "number": 13,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17868,6 +20422,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17878,6 +20434,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17888,6 +20446,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17898,6 +20458,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17908,6 +20470,8 @@
               "number": 5,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17918,6 +20482,8 @@
               "number": 6,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17928,6 +20494,8 @@
               "number": 7,
               "kind": "double",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17938,6 +20506,8 @@
               "number": 8,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17948,6 +20518,8 @@
               "number": 9,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17958,6 +20530,8 @@
               "number": 10,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17973,6 +20547,8 @@
               "number": 1,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17983,6 +20559,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -17993,6 +20571,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18003,6 +20583,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18013,6 +20595,8 @@
               "number": 5,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18023,6 +20607,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18033,6 +20619,8 @@
               "number": 7,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18043,6 +20631,8 @@
               "number": 8,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18054,6 +20644,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TeamRolePartnerData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18068,6 +20660,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamMemberStateType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18078,6 +20672,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18088,6 +20684,8 @@
               "number": 12,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18098,6 +20696,8 @@
               "number": 13,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18108,6 +20708,8 @@
               "number": 14,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18119,6 +20721,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TeamJoinSourceType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18130,6 +20734,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ClientSDKInfo",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18143,6 +20749,8 @@
               "number": 17,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18158,6 +20766,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18168,6 +20778,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18183,6 +20795,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18199,6 +20813,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18215,6 +20831,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TimelineBindData.TimelineBindMapEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18229,6 +20847,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TimelineBindData.Plotid2orderEntry",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18248,6 +20868,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TimerType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18258,6 +20880,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18273,6 +20897,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18283,6 +20909,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18298,6 +20926,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18308,6 +20938,8 @@
               "number": 2,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18319,6 +20951,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18334,6 +20968,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18344,6 +20980,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18360,6 +20998,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18375,6 +21015,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18385,6 +21027,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18400,6 +21044,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18410,6 +21056,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18420,6 +21068,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18436,6 +21086,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.TriggerObjectStateType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18447,6 +21099,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.TriggerEventInfo",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18465,6 +21119,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18475,6 +21131,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18490,6 +21148,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18500,6 +21160,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18510,6 +21172,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18520,6 +21184,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18530,6 +21196,8 @@
               "number": 5,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18541,6 +21209,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PosData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18555,6 +21225,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.Attribute",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18569,6 +21241,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.BuffAddData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18583,6 +21257,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.UnitAppearanceDataRole",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18596,6 +21272,8 @@
               "number": 10,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18606,6 +21284,8 @@
               "number": 11,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18616,6 +21296,8 @@
               "number": 12,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18626,6 +21308,8 @@
               "number": 13,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18637,6 +21321,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.EnemyOutLook",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18650,6 +21336,8 @@
               "number": 15,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18661,6 +21349,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TimelineBindData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18674,6 +21364,8 @@
               "number": 17,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18684,6 +21376,8 @@
               "number": 18,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18694,6 +21388,8 @@
               "number": 19,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18704,6 +21400,8 @@
               "number": 20,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18714,6 +21412,8 @@
               "number": 21,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18725,6 +21425,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.AIData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18738,6 +21440,8 @@
               "number": 23,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18748,6 +21452,8 @@
               "number": 24,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18758,6 +21464,8 @@
               "number": 25,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18768,6 +21476,8 @@
               "number": 26,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18778,6 +21488,8 @@
               "number": 27,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18793,6 +21505,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18803,6 +21517,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18813,6 +21529,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18824,6 +21542,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.RoleSwitchType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18835,6 +21555,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.CombatRoleType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18845,6 +21567,8 @@
               "number": 6,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18855,6 +21579,8 @@
               "number": 7,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18866,6 +21592,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.SkillRunningData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18879,6 +21607,8 @@
               "number": 9,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18889,6 +21619,8 @@
               "number": 10,
               "kind": "bool",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18905,6 +21637,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18923,6 +21657,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18933,6 +21669,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18943,6 +21681,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18958,6 +21698,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -18974,6 +21716,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.UnitDisAppearanceData",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -18992,6 +21736,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19002,6 +21748,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19017,6 +21765,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19027,6 +21777,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19042,6 +21794,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19058,6 +21812,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19074,6 +21830,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.PlayerSetting",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -19093,6 +21851,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19109,6 +21869,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileItemType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19119,6 +21881,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19129,6 +21893,8 @@
               "number": 3,
               "kind": "string",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19139,6 +21905,8 @@
               "number": 4,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19155,6 +21923,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileItemType",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19166,6 +21936,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.ProfileData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -19185,6 +21957,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19200,6 +21974,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19211,6 +21987,8 @@
               "kind": "message",
               "cardinality": "singular",
               "typeName": "KKSG.TutorialCtxData",
+              "hasPresence": true,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -19230,6 +22008,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19245,6 +22025,8 @@
               "number": 1,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19255,6 +22037,8 @@
               "number": 2,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19265,6 +22049,8 @@
               "number": 3,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19275,6 +22061,8 @@
               "number": 4,
               "kind": "uint32",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19291,6 +22079,8 @@
               "kind": "enum",
               "cardinality": "singular",
               "typeName": "KKSG.ErrorCode",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19302,6 +22092,8 @@
               "kind": "message",
               "cardinality": "repeated",
               "typeName": "KKSG.Item",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "unsupported",
                 "reasons": [
@@ -19320,6 +22112,8 @@
               "number": 1,
               "kind": "uint32",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19330,6 +22124,8 @@
               "number": 2,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19340,6 +22136,8 @@
               "number": 3,
               "kind": "uint64",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19355,6 +22153,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19365,6 +22165,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19375,6 +22177,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19390,6 +22194,8 @@
               "number": 1,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19400,6 +22206,8 @@
               "number": 2,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19410,6 +22218,8 @@
               "number": 3,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19420,6 +22230,8 @@
               "number": 4,
               "kind": "float",
               "cardinality": "singular",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
@@ -19435,6 +22247,8 @@
               "number": 1,
               "kind": "int64",
               "cardinality": "repeated",
+              "hasPresence": false,
+              "proto3Optional": false,
               "support": {
                 "status": "supported"
               }
