@@ -203,13 +203,13 @@ function install_build_deps() {
 function electron_task() {
   return packager({
     dir: 'build',
-    out: require('path').join(__dirname, 'dist'),
+    out: process.env.B3_OUTPUT_DIR || require('path').join(__dirname, 'dist'),
     name: project.name,
     platform: process.env.B3_PLATFORM || 'win32',
     arch: process.env.B3_ARCH || 'x64',
     overwrite: true,
     asar: false,
-    tmpdir: require('os').tmpdir()
+    tmpdir: process.env.B3_TMPDIR || require('os').tmpdir()
   });
 }
 
